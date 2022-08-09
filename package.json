@@ -1,0 +1,19 @@
+{
+  "name": "noteslify",
+  "version": "1.0.0",
+  "description": "A Notes Taking App Built With Simplicity",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devarshishimpi/Noteslify.git"
+  },
+  "author": "DVS Tech Labs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devarshishimpi/Noteslify/issues"
+  },
+  "homepage": "https://github.com/devarshishimpi/Noteslify#readme"
+}
