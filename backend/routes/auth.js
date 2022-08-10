@@ -15,8 +15,8 @@ const JWT_SECRET = process.env.JWT_SECRET;
 // Route 1: Registering A New User: POST: http://localhost:5000/api/auth/register. No Login Required
 router.post('/register', [
     body('email', "Please Enter a Vaild Email").isEmail(),
-    body('username', "Username should be at least 3 characters.").isLength({ min: 3 }),
-    body('password', "Password Should Be At Least 6 Characters.").isLength({ min: 6 }),
+    body('username', "Username should be at least 4 characters.").isLength({ min: 4 }),
+    body('password', "Password Should Be At Least 8 Characters.").isLength({ min: 8 }),
 ], async (req, res) => {
     
     const errors = validationResult(req);
@@ -69,8 +69,8 @@ router.post('/register', [
 
 // Route 2: Authenticating an existing user: POST: http://localhost:5000/api/auth/login. No Login Required
 router.post('/login', [
-    body('username', "Username should be at least 3 characters.").isLength({ min: 3 }),
-    body('password', "Password Should Be At Least 6 Characters.").isLength({ min: 6 }),
+    body('username', "Username should be at least 4 characters.").isLength({ min: 4 }),
+    body('password', "Password Should Be At Least 8 Characters.").isLength({ min: 8 }),
 ], async (req, res) => {
 
     const errors = validationResult(req);
