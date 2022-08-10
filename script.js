@@ -1,3 +1,8 @@
+if (!sessionStorage.getItem('auth-token') || localStorage.getItem('auth-token') === "") {
+    window.location.href = "http://localhost:5500/login.html";
+    window.location.replace("http://localhost:5500/login.html");
+}
+
 const addBox = document.querySelector(".add-box"),
 popupBox = document.querySelector(".popup-box"),
 popupTitle = popupBox.querySelector("header p"),
