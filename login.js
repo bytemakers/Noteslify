@@ -1,3 +1,9 @@
+const homePageURL = "http://localhost:5500";
+if (sessionStorage.getItem('auth-token')) {
+    window.location.href = homePageURL;
+    window.location.replace(homePageURL);
+}
+
 const login = async (formData) => {
     const response = await fetch('http://localhost:8181/api/auth/login', {
         method: 'POST',
@@ -6,7 +12,16 @@ const login = async (formData) => {
         }, body: JSON.stringify({ username: formData.get('username'), password: formData.get('password') })
     });
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
+    if (json.authtoken) {
+        sessionStorage.setItem('auth-token', json.authtoken);
+        // Redirect to home page
+        window.location.href = homePageURL;
+        window.location.replace(homePageURL);
+    }
+    else {
+        alert('Invalid Credentials!');
+    }
 };
 
 
