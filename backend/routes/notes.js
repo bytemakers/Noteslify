@@ -73,7 +73,7 @@ router.delete('/deletenote/:id', fetchuser, async (req, res) => {
 // Route 3: Getting all user specific notes: GET: http://localhost:8181/api/notes/getallnotes. Login Required
 router.get('/getallnotes', fetchuser, async (req, res) => {
     try {
-        const allNotes = await NoteSchema.find({ authorId: req.user.id });
+        const allNotes = await NoteSchema.find({ authorId: req.user.id }).sort({ createdAt: -1 });
         res.status(200).json(allNotes);
 
     } catch (error) {
