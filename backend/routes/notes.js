@@ -83,4 +83,54 @@ router.get('/getallnotes', fetchuser, async (req, res) => {
 });
 
 
+
+
+// Route 4: Getting A Single User Specific Note: GET: http://localhost:8181/api/notes/getnote/:id. Login Required
+router.get('/getnote/:id', fetchuser, async (req, res) => {
+    try {
+        const theNote = await NoteSchema.findById(req.params.id);
+
+        if (theNote.authorId !== req.user.id) {
+            return res.status(403).json({ error: "You cannot access some other user's notes" });
+        }
+        res.status(200).json(theNote);
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send("Internal Server Error");
+    }
+});
+
+
+
+
+// Route 5: Updating Note: GET: http://localhost:8181/api/notes/updatenote/:id. Login Required
+router.put('/updatenote/:id', fetchuser, [
+    body('title', "Title cannot be blank.").isLength({ min: 1 }),
+    body('description', "Description cannot be black.").isLength({ min: 1 }),
+], async (req, res) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+        const theNote = await NoteSchema.findById(req.params.id);
+
+        if (theNote.authorId !== req.user.id) {
+            return res.status(403).json({ error: "You cannot access some other user's notes" });
+        }
+        
+        const newNote = await NoteSchema.findByIdAndUpdate(req.params.id, { title: req.body.title, description: req.body.description });
+
+        res.status(200).json({ success: "The Note has been Updated Successfully!" })
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send("Internal Server Error");
+    }
+});
+
+
 module.exports = router;

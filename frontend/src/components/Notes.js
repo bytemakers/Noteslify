@@ -8,6 +8,7 @@ const Notes = () => {
     const [notesList, setNotesList] = useState([]);
     const [addNoteTitle, setAddNoteTitle] = useState('');
     const [addNoteDescription, setAddNoteDescription] = useState('');
+    const [updateNoteId, setUpdateNoteId] = useState("");
 
     const navigate = useNavigate();
 
@@ -22,6 +23,20 @@ const Notes = () => {
         });
         const json = await response.json();
         setNotesList(json);
+    }
+
+    const getSingleNote = async (id) => {
+      const token = sessionStorage.getItem('auth-token');
+      const response = await fetch(`http://localhost:8181/api/notes/getnote/${id}`, {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+              'auth-token': token
+          }
+      });
+      const json = await response.json();
+      setAddNoteTitle(json.title);
+      setAddNoteDescription(json.description);
     }
 
     const convertToMonthName = (num) => {
@@ -72,8 +87,24 @@ const Notes = () => {
         // popupTitle.innerText = "Add a new Note";
     }
 
+    const openAddNoteModalForEditNote = async (id) => {
+      const popupBox = document.getElementById('popup-box-edit');
+      popupBox.classList.add('show');
+
+      document.getElementById('modal-title-input').focus();
+
+      await getSingleNote(id);
+
+      setUpdateNoteId(id);
+
+    }
+
     const closeAddNoteModal = () => {
         document.getElementById('popup-box').classList.remove('show');
+    }
+    
+    const closeEditNoteModal = () => {
+        document.getElementById('popup-box-edit').classList.remove('show');
     }
 
     const addANewNote = async (e) => {
@@ -97,6 +128,24 @@ const Notes = () => {
         setAddNoteDescription('');
 
         await getAllNotes();
+    }
+
+    const updateNote = async (e) => {
+      e.preventDefault();
+
+      const token = sessionStorage.getItem('auth-token');
+      const response = await fetch(`http://localhost:8181/api/notes/updatenote/${updateNoteId}`, {
+          method: 'PUT',
+          headers: {
+              'Content-Type': 'application/json',
+              'auth-token': token
+          }, body: JSON.stringify({ title: addNoteTitle, description: addNoteDescription })
+      });
+      const json = await response.json();
+      toast.success(json.success);
+
+      await getAllNotes();
+      closeEditNoteModal();
     }
 
     useEffect(() => {
@@ -141,23 +190,23 @@ const Notes = () => {
       {/* Add note Modal Ends */}
 
       {/* Edit note Modal Starts */}
-      <div id='popup-box' className="popup-box">
+      <div id='popup-box-edit' className="popup-box">
         <div className="popup">
           <div className="content">
             <header>
-              <p>Update Note</p>
-              <i onClick={closeAddNoteModal} className="uil uil-times"></i>
+              <p>Edit Note</p>
+              <i onClick={closeEditNoteModal} className="uil uil-times"></i>
             </header>
-            <form id="notes-form" action="#" enctype="multipart/form-data">
+            <form onSubmit={updateNote} id="notes-form" action="#" enctype="multipart/form-data">
               <div className="row title">
                 <label>Title</label>
-                <input type="text" name="title" spellcheck="false"/>
+                <input value={addNoteTitle} onChange={(e) => setAddNoteTitle(e.target.value)} id='modal-title-input' type="text" name="title" spellcheck="false"/>
               </div>
               <div className="row description">
                 <label>Description</label>
-                <textarea name="description" spellcheck="false"></textarea>
+                <textarea value={addNoteDescription} onChange={(e) => setAddNoteDescription(e.target.value)} name="description" spellcheck="false"></textarea>
               </div>
-              <button></button>
+              <button>Update Note</button>
             </form>
           </div>
         </div>
@@ -184,7 +233,7 @@ const Notes = () => {
                         <div id={`settings-${note._id}`} className="settings">
                             <i onClick={() => openMenu(note._id)} className="uil uil-ellipsis-h"></i>
                             <ul className="menu show">
-                                <li onClick={() => console.log(note._id)}><i className="uil uil-pen"></i>Edit</li>
+                                <li onClick={() => openAddNoteModalForEditNote(note._id)}><i className="uil uil-pen"></i>Edit</li>
                                 <li onClick={() => deleteNote(note._id)}><i className="uil uil-trash"></i>Delete</li>
                             </ul>
                         </div>
