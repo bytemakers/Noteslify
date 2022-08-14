@@ -105,6 +105,9 @@ const Notes = () => {
     
     const closeEditNoteModal = () => {
         document.getElementById('popup-box-edit').classList.remove('show');
+
+        setAddNoteDescription('');
+        setAddNoteTitle('');
     }
 
     const addANewNote = async (e) => {
