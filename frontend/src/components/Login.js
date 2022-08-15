@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../App.css';
 import '../auth.css';
 import authImg from'../assets/authentication.svg';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -119,6 +119,10 @@ const Login = () => {
 
                 {!isLoading && <button type="submit" className="form__button">Login</button>}
                 {isLoading && <button type="submit" className="form__button" style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true}><span class="loader"></span></button>}
+
+                <div style={{marginBottom: '25px'}}>
+                    Don't have an account ? <Link to={'/signup'}>Sign up here</Link>
+                </div>
 
                 <div className="form__social">
                     <span className="form__social-text">Or login with</span>
