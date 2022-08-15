@@ -464,3 +464,41 @@ body.dark .sidebar li a:hover .text{
     height: 100vh;
     width: calc(100% - 78px);
 }
+
+
+.loader {
+  color: #FFF;
+  position: relative;
+  font-size: 4px;
+  background: #FFF;
+  animation: escaleY 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 2em;
+  background: #FFF;
+  width: 1em;
+  height: 4em;
+  animation: escaleY 1s infinite ease-in-out;
+}
+.loader:before {
+  left: -2em;
+  animation-delay: -0.32s;
+}
+
+@keyframes escaleY {
+  0%, 80%, 100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}

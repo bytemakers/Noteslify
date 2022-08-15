@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const navigate = useNavigate();
 
@@ -48,6 +49,8 @@ const Login = () => {
 
     const login = async (e) => {
         e.preventDefault();
+
+        setIsLoading(true);
         // API Call
         const response = await fetch('http://localhost:8181/api/auth/login', {
             method: 'POST',
@@ -64,13 +67,14 @@ const Login = () => {
         else {
             if (json.errors) {
                 for (const error of json.errors) {
-                    toast.error(error);
+                    toast.error(error.msg);
                 }
             }
             else {
                 toast.error(json.error);
             }
         }
+        setIsLoading(false);
     }
 
   return (
@@ -108,7 +112,8 @@ const Login = () => {
                 </div>
                 <a href="/" className="form__forgot">Forgot Password?</a>
 
-                <button type="submit" className="form__button">Login</button>
+                {!isLoading && <button type="submit" className="form__button">Login</button>}
+                {isLoading && <button type="submit" className="form__button" style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true}><span class="loader"></span></button>}
 
                 <div className="form__social">
                     <span className="form__social-text">Or login with</span>
