@@ -10,6 +10,7 @@ const Signup = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const navigate = useNavigate();
 
@@ -18,13 +19,18 @@ const Signup = () => {
       if (sessionStorage.getItem('auth-token')) {
         navigate('/notes');
       }
+      else {
+        /*===== FOCUS =====*/
+        const inputs = document.querySelectorAll(".form__input")
+
+        /*=== To call function===*/
+        inputs.forEach(input=>{
+            input.addEventListener("focus",addfocus)
+            input.addEventListener("blur",remfocus)
+        })
+      }
       // eslint-disable-next-line
     }, [])
-    
-
-
-    /*===== FOCUS =====*/
-    const inputs = document.querySelectorAll(".form__input")
 
     /*=== Add focus ===*/
     function addfocus(){
@@ -40,15 +46,11 @@ const Signup = () => {
         }
     }
 
-    /*=== To call function===*/
-    inputs.forEach(input=>{
-        input.addEventListener("focus",addfocus)
-        input.addEventListener("blur",remfocus)
-    })
-
 
     const register = async (e) => {
         e.preventDefault();
+
+        setIsLoading(true);
         // API Call
         const response = await fetch('http://localhost:8181/api/auth/register', {
             method: 'POST',
@@ -72,6 +74,7 @@ const Signup = () => {
                 toast.error(json.error);
             }
         }
+        setIsLoading(false);
     }
 
   return (
@@ -120,7 +123,8 @@ const Signup = () => {
                 </div>
                 <a href="/" className="form__forgot">Forgot Password?</a>
 
-                <button type="submit" className="form__button">Register</button>
+                {!isLoading && <button type="submit" className="form__button">Register</button>}
+                {isLoading && <button type="submit" className="form__button" style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true}><span class="loader"></span></button>}
 
                 <div className="form__social">
                     <span className="form__social-text">Or register with</span>

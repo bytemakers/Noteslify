@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.png'
 
 const Sidenav = () => {
     const navigate = useNavigate();
@@ -37,7 +38,7 @@ const Sidenav = () => {
       <header>
           <div className="image-text">
               <span className="image">
-                  <img src="assets/logo.png" alt=""/>
+                  <img src={logo} alt=""/>
               </span>
 
               <div className="text logo-text">

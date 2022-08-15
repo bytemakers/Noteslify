@@ -3,17 +3,20 @@ import Sidenav from './Sidenav'
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import LoadingBar from 'react-top-loading-bar'
 
 const Notes = () => {
     const [notesList, setNotesList] = useState([]);
     const [addNoteTitle, setAddNoteTitle] = useState('');
     const [addNoteDescription, setAddNoteDescription] = useState('');
     const [updateNoteId, setUpdateNoteId] = useState("");
+    const [progress, setProgress] = useState(0);
 
     const navigate = useNavigate();
 
     const getAllNotes = async () => {
         const token = sessionStorage.getItem('auth-token');
+        setProgress(20);
         const response = await fetch('http://localhost:8181/api/notes/getallnotes', {
             method: 'GET',
             headers: {
@@ -21,8 +24,11 @@ const Notes = () => {
                 'auth-token': token
             }
         });
+        setProgress(50);
         const json = await response.json();
+        setProgress(60);
         setNotesList(json);
+        setProgress(100);
     }
 
     const getSingleNote = async (id) => {
@@ -46,7 +52,7 @@ const Notes = () => {
     }
 
     const openMenu = (noteId) => {
-        const note = document.getElementById(noteId);
+        // const note = document.getElementById(noteId);
         const settingsList = document.getElementById(`settings-${noteId}`);
         settingsList.classList.add("show");
 
@@ -156,6 +162,7 @@ const Notes = () => {
         navigate('/login');
       }
       else {
+        setProgress(10);
         getAllNotes();
       }
     // eslint-disable-next-line
@@ -164,6 +171,11 @@ const Notes = () => {
 
   return (
     <>
+    <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
     <Sidenav />
     <section className="home">
       <div className="text">Dashboard</div>
