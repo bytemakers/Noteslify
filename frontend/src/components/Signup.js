@@ -19,13 +19,18 @@ const Signup = () => {
       if (sessionStorage.getItem('auth-token')) {
         navigate('/notes');
       }
+      else {
+        /*===== FOCUS =====*/
+        const inputs = document.querySelectorAll(".form__input")
+
+        /*=== To call function===*/
+        inputs.forEach(input=>{
+            input.addEventListener("focus",addfocus)
+            input.addEventListener("blur",remfocus)
+        })
+      }
       // eslint-disable-next-line
     }, [])
-    
-
-
-    /*===== FOCUS =====*/
-    const inputs = document.querySelectorAll(".form__input")
 
     /*=== Add focus ===*/
     function addfocus(){
@@ -40,12 +45,6 @@ const Signup = () => {
             parent.classList.remove("focus")
         }
     }
-
-    /*=== To call function===*/
-    inputs.forEach(input=>{
-        input.addEventListener("focus",addfocus)
-        input.addEventListener("blur",remfocus)
-    })
 
 
     const register = async (e) => {
