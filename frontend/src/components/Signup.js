@@ -133,7 +133,6 @@ const Signup = () => {
                 <div className="form__social">
                     <span className="form__social-text">Or register with</span>
 
-                    <a href="/" className="form__social-icon"><i class='bx bxl-facebook' ></i></a>
                     <a href="/" className="form__social-icon"><i class='bx bxl-google' ></i></a>
                     <a href="/" className="form__social-icon"><i class='bx bxl-github' ></i></a>
                 </div>

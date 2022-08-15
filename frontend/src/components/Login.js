@@ -127,7 +127,6 @@ const Login = () => {
                 <div className="form__social">
                     <span className="form__social-text">Or login with</span>
 
-                    <a href="/" className="form__social-icon"><i class='bx bxl-facebook' ></i></a>
                     <a href="/" className="form__social-icon"><i class='bx bxl-google' ></i></a>
                     <a href="/" className="form__social-icon"><i class='bx bxl-github' ></i></a>
                 </div>
