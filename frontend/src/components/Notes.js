@@ -52,7 +52,7 @@ const Notes = () => {
     }
 
     const openMenu = (noteId) => {
-        const note = document.getElementById(noteId);
+        // const note = document.getElementById(noteId);
         const settingsList = document.getElementById(`settings-${noteId}`);
         settingsList.classList.add("show");
 

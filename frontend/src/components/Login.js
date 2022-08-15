@@ -18,13 +18,22 @@ const Login = () => {
       if (sessionStorage.getItem('auth-token')) {
         navigate('/notes');
       }
+      else {
+        /*===== FOCUS =====*/
+        const inputs = document.querySelectorAll(".form__input")
+
+        /*=== To call function===*/
+        inputs.forEach(input=>{
+            input.addEventListener("focus",addfocus)
+            input.addEventListener("blur",remfocus)
+        })
+      }
       // eslint-disable-next-line
     }, [])
     
 
 
-    /*===== FOCUS =====*/
-    const inputs = document.querySelectorAll(".form__input")
+
 
     /*=== Add focus ===*/
     function addfocus(){
@@ -40,11 +49,7 @@ const Login = () => {
         }
     }
 
-    /*=== To call function===*/
-    inputs.forEach(input=>{
-        input.addEventListener("focus",addfocus)
-        input.addEventListener("blur",remfocus)
-    })
+    
 
 
     const login = async (e) => {
