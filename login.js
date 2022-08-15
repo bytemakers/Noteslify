@@ -1,4 +1,4 @@
-const homePageURL = "http://localhost:5500";
+const homePageURL = "http://localhost:5500/notes.html";
 if (sessionStorage.getItem('auth-token')) {
     window.location.href = homePageURL;
     window.location.replace(homePageURL);

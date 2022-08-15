@@ -1,6 +1,9 @@
+const loginPageURL = "http://localhost:5500/login.html";
+const apiServerURL = "http://localhost:8181";
+
 if (!sessionStorage.getItem('auth-token') || localStorage.getItem('auth-token') === "") {
-    window.location.href = "http://localhost:5500/login.html";
-    window.location.replace("http://localhost:5500/login.html");
+    window.location.href = loginPageURL;
+    window.location.replace(loginPageURL);
 }
 
 const addBox = document.querySelector(".add-box"),
@@ -82,6 +85,7 @@ addBtn.addEventListener("click", e => {
     let title = titleTag.value.trim(),
     description = descTag.value.trim();
     if(title || description) {
+        addNoteToDB();
         let currentDate = new Date(),
         month = months[currentDate.getMonth()],
         day = currentDate.getDate(),
@@ -116,3 +120,27 @@ toggle.addEventListener("click" , () =>{
 searchBtn.addEventListener("click" , () =>{
     sidebar.classList.remove("close");
 })
+
+const logoutButton = document.getElementById('logout-button');
+logoutButton.addEventListener('click', () => {
+    sessionStorage.removeItem('auth-token');
+    // Redirect to Login page
+    window.location.href = loginPageURL;
+    window.location.replace(loginPageURL);
+});
+
+
+const addNoteToDB = async () => {
+    const formData = new FormData(document.getElementById('notes-form'));
+
+    const token = sessionStorage.getItem('auth-token');
+    const response = await fetch(`${apiServerURL}/api/notes/addnote`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'auth-token': token
+        }, body: JSON.stringify({ title: formData.get('title'), description: formData.get('description') })
+    });
+    const json = await response.json();
+    console.log(json);
+};
