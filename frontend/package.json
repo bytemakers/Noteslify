@@ -1,7 +1,7 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
-  "private": true,
+  "name": "noteslify-frontend",
+  "version": "1.0.0",
+  "description": "A Notes Taking App Built With Simplicity",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -38,5 +38,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devarshishimpi/Noteslify.git"
+  },
+  "author": "DVS Tech Labs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devarshishimpi/Noteslify/issues"
   }
 }

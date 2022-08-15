@@ -1,5 +1,5 @@
 // const mongoose = require('mongoose');
-// const mongoURI = "mongodb+srv://abhinandan__wadhwa:c8pvRZw55NhpZEpV@cluster0.rt1oy.mongodb.net/?retryWrites=true&w=majority";
+// const mongoURI = "mongodb+srv://dbstring";
 
 // const connectToMongo = () => {
 //     mongoose.connect(mongoURI, { dbName: 'petCare' }, (err) => {
