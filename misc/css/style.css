@@ -329,11 +329,10 @@ body {
   padding: 10px 14px;
   background: var(--sidebar-color);
   transition: var(--tran-05);
-  z-index: 2;
 }
 
-.close {
-  width: 90px;
+.sidebar.close {
+  width: 88px;
 }
 
 /* ===== Reusable code - Here ===== */
@@ -433,7 +432,6 @@ header .image-text .profession {
   font-size: 22px;
   cursor: pointer;
   transition: var(--tran-05);
-  z-index: 1;
 }
 
 .sidebar.close .toggle {
@@ -525,48 +523,4 @@ body.dark .sidebar li a:hover .text {
   left: 78px;
   height: 100vh;
   width: calc(100% - 78px);
-}
-
-
-.loader {
-  color: #FFF;
-  position: relative;
-  font-size: 4px;
-  background: #FFF;
-  animation: escaleY 1s infinite ease-in-out;
-  width: 1em;
-  height: 4em;
-  animation-delay: -0.16s;
-}
-
-.loader:before,
-.loader:after {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: 2em;
-  background: #FFF;
-  width: 1em;
-  height: 4em;
-  animation: escaleY 1s infinite ease-in-out;
-}
-
-.loader:before {
-  left: -2em;
-  animation-delay: -0.32s;
-}
-
-@keyframes escaleY {
-
-  0%,
-  80%,
-  100% {
-    box-shadow: 0 0;
-    height: 4em;
-  }
-
-  40% {
-    box-shadow: 0 -2em;
-    height: 5em;
-  }
 }

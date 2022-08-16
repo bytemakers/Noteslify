@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link href='auth.css' rel='stylesheet'>
+    <link href='../css/auth.css' rel='stylesheet'>
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
-    
+
     <div class="l-form">
         <div class="shape1"></div>
         <div class="shape2"></div>
@@ -17,7 +19,8 @@
         <div class="form">
             <img src="assets/authentication.svg" alt="" class="form__img">
 
-            <form class="form__content" id="signup-form" method="POST" action="http://localhost:8181/api/auth/register" enctype="multipart/form-data">
+            <form class="form__content" id="signup-form" method="POST" action="http://localhost:8181/api/auth/register"
+                enctype="multipart/form-data">
                 <h1 class="form__title">Register</h1>
 
                 <div class="form__div form__div-one">
@@ -38,13 +41,14 @@
 
                     <div class="form__div-input">
                         <label for="" class="form__label">Username</label>
-                        <input type="text" class="form__input" id="username" name="username" aria-describedby="emailHelp">
+                        <input type="text" class="form__input" id="username" name="username"
+                            aria-describedby="emailHelp">
                     </div>
                 </div>
 
                 <div class="form__div">
                     <div class="form__icon">
-                        <i class='bx bx-lock' ></i>
+                        <i class='bx bx-lock'></i>
                     </div>
 
                     <div class="form__div-input">
@@ -59,8 +63,9 @@
                 <div class="form__social">
                     <span class="form__social-text">Or register with</span>
 
-                    <a href="#" class="form__social-icon"><i class='bx bxl-google' ></i></a>
-                    <a href="#" class="form__social-icon"><i class='bx bxl-github' ></i></a>
+
+                    <a href="#" class="form__social-icon"><i class='bx bxl-google'></i></a>
+                    <a href="#" class="form__social-icon"><i class='bx bxl-github'></i></a>
                 </div>
             </form>
         </div>
@@ -68,20 +73,24 @@
     </div>
 
 </body>
+
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/62fb2e8c37898912e9633bad/1gaiirls7';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/62fb2e8c37898912e9633bad/1gaiirls7';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
     })();
 </script>
 <!--End of Tawk.to Script-->
-<script src="registration.js"></script>
-<script src="authcss.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="../js/registration.js"></script>
+<script src="../js/authcss.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
 </html>
