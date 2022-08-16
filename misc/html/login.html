@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link href='auth.css' rel='stylesheet'>
+    <link href='../css/auth.css' rel='stylesheet'>
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
     <div class="l-form">
         <div class="shape1"></div>
         <div class="shape2"></div>
 
         <div class="form">
-            <img src="assets/authentication.svg" alt="" class="form__img">
+            <img src="../assets/authentication.svg" alt="" class="form__img">
 
-            <form class="form__content" id="login-form" method="POST" action="http://localhost:8181/api/auth/login" enctype="multipart/form-data">
+            <form class="form__content" id="login-form" method="POST" action="http://localhost:8181/api/auth/login"
+                enctype="multipart/form-data">
                 <h1 class="form__title">Welcome</h1>
 
                 <div class="form__div form__div-one">
@@ -26,13 +29,14 @@
 
                     <div class="form__div-input">
                         <label for="" class="form__label">Username</label>
-                        <input type="text" name="username" class="form__input" id="username" aria-describedby="emailHelp">
+                        <input type="text" name="username" class="form__input" id="username"
+                            aria-describedby="emailHelp">
                     </div>
                 </div>
 
                 <div class="form__div">
                     <div class="form__icon">
-                        <i class='bx bx-lock' ></i>
+                        <i class='bx bx-lock'></i>
                     </div>
 
                     <div class="form__div-input">
@@ -47,9 +51,9 @@
                 <div class="form__social">
                     <span class="form__social-text">Or login with</span>
 
-                    <a href="#" class="form__social-icon"><i class='bx bxl-facebook' ></i></a>
-                    <a href="#" class="form__social-icon"><i class='bx bxl-google' ></i></a>
-                    <a href="#" class="form__social-icon"><i class='bx bxl-github' ></i></a>
+                    <a href="#" class="form__social-icon"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" class="form__social-icon"><i class='bx bxl-google'></i></a>
+                    <a href="#" class="form__social-icon"><i class='bx bxl-github'></i></a>
                 </div>
             </form>
         </div>
@@ -57,7 +61,10 @@
     </div>
 
 </body>
-<script src="login.js"></script>
-<script src="authcss.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="../js/login.js"></script>
+<script src="../js/authcss.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
 </html>
