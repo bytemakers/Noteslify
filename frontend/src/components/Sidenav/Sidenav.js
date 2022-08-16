@@ -1,6 +1,7 @@
 import React from 'react'
+import './Sidenav.css'
 import { useNavigate } from 'react-router-dom';
-import logo from '../assets/logo.png'
+import logo from '../../assets/logo.png'
 
 const Sidenav = () => {
     const navigate = useNavigate();
