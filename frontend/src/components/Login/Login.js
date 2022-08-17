@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import '../App.css';
-import '../auth.css';
-import authImg from'../assets/authentication.svg';
+import './Login.css'
+import authImg from'../../assets/authentication.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Signup = () => {
+const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
     const navigate = useNavigate();
@@ -31,6 +29,10 @@ const Signup = () => {
       }
       // eslint-disable-next-line
     }, [])
+    
+
+
+
 
     /*=== Add focus ===*/
     function addfocus(){
@@ -46,17 +48,19 @@ const Signup = () => {
         }
     }
 
+    
 
-    const register = async (e) => {
+
+    const login = async (e) => {
         e.preventDefault();
 
         setIsLoading(true);
         // API Call
-        const response = await fetch('http://localhost:8181/api/auth/register', {
+        const response = await fetch('http://localhost:8181/api/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
-            }, body: JSON.stringify({ username: username, email: email, password: password })
+            }, body: JSON.stringify({ username: username, password: password })
         });
         const json = await response.json();
         if (json.authtoken) {
@@ -86,19 +90,8 @@ const Signup = () => {
         <div className="form">
             <img src={authImg} alt="" className="form__img"/>
 
-            <form className="form__content" id="signup-form" onSubmit={register}>
-                <h1 className="form__title">Register</h1>
-
-                <div className="form__div form__div-one">
-                    <div className="form__icon">
-                        <i class='bx bx-envelope'></i>
-                    </div>
-
-                    <div className="form__div-input">
-                        <label htmlFor="" className="form__label">Email</label>
-                        <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" className="form__input" id="email" name="email" aria-describedby="emailHelp"/>
-                    </div>
-                </div>
+            <form className="form__content" id="login-form" onSubmit={login}>
+                <h1 className="form__title">Welcome</h1>
 
                 <div className="form__div form__div-one">
                     <div className="form__icon">
@@ -107,7 +100,7 @@ const Signup = () => {
 
                     <div className="form__div-input">
                         <label htmlFor="" className="form__label">Username</label>
-                        <input value={username} onChange={(e) => setUsername(e.target.value)} type="text" className="form__input" id="username" name="username" aria-describedby="emailHelp"/>
+                        <input value={username} onChange={(e) => setUsername(e.target.value)} type="text" name="username" className="form__input" id="username" aria-describedby="emailHelp"/>
                     </div>
                 </div>
 
@@ -118,20 +111,20 @@ const Signup = () => {
 
                     <div className="form__div-input">
                         <label htmlFor="" className="form__label">Password</label>
-                        <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" className="form__input" id="password"/>
+                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" className="form__input" id="password"/>
                     </div>
                 </div>
                 <a href="/" className="form__forgot">Forgot Password?</a>
 
-                {!isLoading && <button type="submit" className="form__button">Register</button>}
+                {!isLoading && <button type="submit" className="form__button">Login</button>}
                 {isLoading && <button type="submit" className="form__button" style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true}><span class="loader"></span></button>}
 
                 <div style={{marginBottom: '25px'}}>
-                    Already have an account ? <Link to={'/login'}>Login here</Link>
+                    Don't have an account ? <Link to={'/signup'}>Sign up here</Link>
                 </div>
 
                 <div className="form__social">
-                    <span className="form__social-text">Or register with</span>
+                    <span className="form__social-text">Or login with</span>
 
                     <a href="/" className="form__social-icon"><i class='bx bxl-google' ></i></a>
                     <a href="/" className="form__social-icon"><i class='bx bxl-github' ></i></a>
@@ -144,4 +137,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default Login
