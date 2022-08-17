@@ -6,13 +6,44 @@ const { body, validationResult } = require('express-validator');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 const fetchuser = require('../middleware/fetchuser');
+const GitHubStrategy = require('passport-github').Strategy;
+const passport = require('passport');
+const session = require('express-session');
+const GoogleStrategy = require('passport-google-oidc');
 
 dotenv.config();
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
 
-// Route 1: Registering A New User: POST: http://localhost:5000/api/auth/register. No Login Required
+
+router.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        httpOnly: true,
+        secure: false,
+        maxAge: 24 * 60 * 60 * 1000,
+    },
+  })
+);
+
+
+
+router.use(passport.initialize());
+router.use(passport.session());
+
+passport.serializeUser(function (user, cb) {
+    cb(null, user.id);
+});
+
+passport.deserializeUser(function (id, cb) {
+    cb(null, id);
+});
+
+
+// Route 1: Registering A New User: POST: http://localhost:8181/api/auth/register. No Login Required
 router.post('/register', [
     body('email', "Please Enter a Vaild Email").isEmail(),
     body('username', "Username should be at least 4 characters.").isLength({ min: 4 }),
@@ -67,7 +98,7 @@ router.post('/register', [
 
 
 
-// Route 2: Authenticating an existing user: POST: http://localhost:5000/api/auth/login. No Login Required
+// Route 2: Authenticating an existing user: POST: http://localhost:8181/api/auth/login. No Login Required
 router.post('/login', [
     body('username', "Username should be at least 4 characters.").isLength({ min: 4 }),
     body('password', "Password Should Be At Least 8 Characters.").isLength({ min: 8 }),
@@ -107,6 +138,134 @@ router.post('/login', [
         return res.status(500).send("Internal Server Error");
     }
 });
+
+
+
+    // GITHUB AUTHENTICATION (START)
+
+
+
+// Using Passport Middleware
+passport.use(new GitHubStrategy({
+    clientID: process.env.clientId,
+    clientSecret: process.env.clientSecret,
+    callbackURL: "http://localhost:8181/api/auth/github/callback"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    // User.findOrCreate({ githubId: profile.id }, function (err, user) {
+    //   return cb(err, user);
+    // });
+   cb(null, profile); 
+  }
+));
+
+
+
+// Route 3: Authenticating using GitHub: GET: http://localhost:8181/api/auth/github. No Login Required
+router.get('/github',
+  passport.authenticate('github'));
+
+
+
+// Route 4: Doing Things after GitHub authentication: GET: http://localhost:8181/api/auth/github/callback. No Login Required
+router.get('/github/callback', 
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  async function(req, res) {
+
+    const theUser = await UserSchema.findOne({ username: req.user._json.login });
+    if (theUser) {
+        let payload = {
+            user: {
+                id: theUser.id
+            }
+        }
+        const authtoken = jwt.sign(payload, JWT_SECRET);
+        // Successful authentication, redirect home.
+        res.redirect(`http://localhost:3000/setauthtoken/${authtoken}`);
+    }
+    else {
+        var salt = await bcrypt.genSalt(10);
+        var hash = await bcrypt.hash(process.env.DefaultGitHubPassword, salt);
+        const newUser = await UserSchema.create({
+            email: `${req.user._json.login}@gmail.com`,
+            username: req.user._json.login,
+            password: hash,
+        });
+
+        let payload = {
+            user: {
+                id: newUser.id
+            }
+        }
+
+        const authtoken = jwt.sign(payload, JWT_SECRET);
+        // Successful authentication, redirect home.
+        res.redirect(`http://localhost:3000/setauthtoken/${authtoken}`);
+    }
+});
+
+
+
+    // GITHUB AUTHENTICATION (END)
+
+    
+
+    // GOOGLE AUTHENTICATION (START)
+
+    passport.use(new GoogleStrategy({
+        clientID: process.env.GoogleClientId,
+        clientSecret: process.env.GoogleClientSecret,
+        callbackURL: 'http://localhost:8181/api/auth/google/callback'
+      },
+      function(issuer, profile, cb) {
+        cb(null, profile);
+      }
+    ));
+
+
+    router.get('/google', passport.authenticate('google', {
+        scope: [ 'email' ]
+    }));
+
+    router.get('/google/callback',
+        passport.authenticate('google', { failureRedirect: '/login', failureMessage: true }),
+        async function(req, res) {
+
+            const email = req.user.emails[0].value;
+            const theUser = await UserSchema.findOne({ email: email });
+
+            if (theUser) {
+                let payload = {
+                    user: {
+                        id: theUser.id
+                    }
+                }
+                const authtoken = jwt.sign(payload, JWT_SECRET);
+                // Successful authentication, redirect home.
+                res.redirect(`http://localhost:3000/setauthtoken/${authtoken}`);
+            }
+            else {
+                var salt = await bcrypt.genSalt(10);
+                var hash = await bcrypt.hash(process.env.DefaultGitHubPassword, salt);
+                const newUser = await UserSchema.create({
+                    email: email,
+                    username: `${email}__username`,
+                    password: hash,
+                });
+
+                let payload = {
+                    user: {
+                        id: newUser.id
+                    }
+                }
+
+                const authtoken = jwt.sign(payload, JWT_SECRET);
+                // Successful authentication, redirect home.
+                res.redirect(`http://localhost:3000/setauthtoken/${authtoken}`);
+            }
+    });
+
+    // GOOGLE AUTHENTICATION (END)
 
 
 module.exports = router;
