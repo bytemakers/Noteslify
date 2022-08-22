@@ -125,13 +125,15 @@ const Signup = () => {
                 {!isLoading && <button type="submit" className="form__button">Register</button>}
                 {isLoading && <button type="submit" className="form__button" style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true}><span class="loader"></span></button>}
 
-                <div style={{marginBottom: '25px'}}>
+                <div style={{marginBottom: '25px', textAlign:'center'}}>
                     Already have an account ? <Link to={'/login'}>Login here</Link>
                 </div>
 
                 <div className="form__social">
                     <span className="form__social-text">Or register with</span>
+                </div>
 
+                <div className="form__social">
                     <a href="http://localhost:8181/api/auth/google" className="form__social-icon"><i class='bx bxl-google' ></i></a>
                     <a href="http://localhost:8181/api/auth/github" className="form__social-icon"><i class='bx bxl-github' ></i></a>
                 </div>
