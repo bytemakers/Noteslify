@@ -146,7 +146,7 @@ body {
   }
 }
 
-
+/* =========================auth============================== */
 
 .l-form {
   position: relative;
@@ -294,26 +294,27 @@ body {
 
 /*=== Form social===*/
 .form__social {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
 .form__social-text {
-  display: block;
   font-size: var(--normal-font-size);
   margin-bottom: 1rem;
 }
 
 .form__social-icon {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  margin-right: 1rem;
-  padding: .5rem;
-  background-color: var(--text-color);
   color: #fff;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
+}
+
+.bxl-google,
+.bxl-github {
+  padding: 10px;
+  background-color: #3B73C6;
+  text-align: center;
   border-radius: 50%;
 }
 

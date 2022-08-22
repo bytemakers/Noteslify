@@ -106,10 +106,10 @@ const Sidenav = () => {
           </div>
 
           <div className="bottom-content">
-              <li className="">
+              <li>
                   <a onClick={logout} href="/" id="logout-button">
                       <i class='bx bx-log-out icon' ></i>
-                      <span className="text nav-text">Logout</span>
+                      <span className="logout">Logout</span>
                   </a>
               </li>
               

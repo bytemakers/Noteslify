@@ -170,6 +170,26 @@ body.dark .sidebar li a:hover .text {
     color: var(--text-color);
 }
 
+
+
+.bottom-content li a {
+    transition: 0.7s all ease;
+}
+
+.bottom-content li .logout {
+    color: var(--text-color);
+    font-size: 18px;
+    padding: 10px;
+}
+
+.bottom-content li a:hover {
+    background-color: var(--primary-color);
+}
+
+.bottom-content li .logout:hover {
+    color: white;
+}
+
 .sidebar .menu-bar {
     height: calc(100% - 55px);
     display: flex;
