@@ -119,17 +119,17 @@ const Login = () => {
                 {!isLoading && <button type="submit" className="form__button">Login</button>}
                 {isLoading && <button type="submit" className="form__button" style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true}><span class="loader"></span></button>}
 
-                <div style={{marginBottom: '25px',textAlign:'center'}}>
+                <div style={{marginBottom: '25px'}}>
                     Don't have an account ? <Link to={'/signup'}>Sign up here</Link>
                 </div>
-                <div className="form__social">
-                <span className="form__social-text">Or login with</span>
-                </div>
-                <div className="form__social">
-                    <a href="http://localhost:8181/api/auth/google" className="form__social-icon"><i class='bx bxl-google' ></i></a>
-                    <a href="http://localhost:8181/api/auth/github" className="form__social-icon"><i class='bx bxl-github' ></i></a>
-                </div>
 
+                <div className="form__social">
+                    <span className="form__social-text">Or login with</span>
+                    <div className="form__social">
+                        <a href="http://localhost:8181/api/auth/google" className="form__social-icon"><i class='bx bxl-google' ></i></a>
+                        <a href="http://localhost:8181/api/auth/github" className="form__social-icon"><i class='bx bxl-github' ></i></a>
+                    </div>
+                </div>
             </form>
         </div>
         <ToastContainer toastStyle={{ backgroundColor: "#202d40", color: 'white' }} />
