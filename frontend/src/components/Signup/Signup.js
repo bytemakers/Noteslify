@@ -51,7 +51,7 @@ const Signup = () => {
 
         setIsLoading(true);
         // API Call
-        const response = await fetch('https://noteslify.herokuapp.com/api/auth/register', {
+        const response = await fetch('http://localhost:8181/api/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -120,8 +120,7 @@ const Signup = () => {
                         <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" className="form__input" id="password"/>
                     </div>
                 </div>
-                <a href="/" className="form__forgot">Forgot Password?</a>
-
+                <br></br>
                 {!isLoading && <button type="submit" className="form__button">Register</button>}
                 {isLoading && <button type="submit" className="form__button" style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true}><span class="loader"></span></button>}
 
@@ -132,8 +131,8 @@ const Signup = () => {
                 <div className="form__social">
                     <span className="form__social-text">Or register with</span>
 
-                    <a href="https://noteslify.herokuapp.com/api/auth/google" className="form__social-icon"><i class='bx bxl-google' ></i></a>
-                    <a href="https://noteslify.herokuapp.com/api/auth/github" className="form__social-icon"><i class='bx bxl-github' ></i></a>
+                    <a href="http://localhost:8181/api/auth/google" className="form__social-icon"><i class='bx bxl-google' ></i></a>
+                    <a href="http://localhost:8181/api/auth/github" className="form__social-icon"><i class='bx bxl-github' ></i></a>
                 </div>
             </form>
         </div>
