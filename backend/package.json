@@ -29,6 +29,7 @@
     "nodemon": "^2.0.19",
     "passport": "^0.6.0",
     "passport-github": "^1.1.0",
-    "passport-google-oidc": "^0.1.0"
+    "passport-google-oidc": "^0.1.0",
+    "uuid": "^8.3.2"
   }
 }

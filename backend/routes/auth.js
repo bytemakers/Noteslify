@@ -11,6 +11,8 @@ const passport = require('passport');
 const session = require('express-session');
 const GoogleStrategy = require('passport-google-oidc');
 const nodemailer = require("nodemailer");
+const { v4: uuidv4 } = require('uuid');
+const fpSchema = require('../models/ForgotPassword');
 
 dotenv.config();
 
@@ -291,7 +293,19 @@ router.post('/forgotpassword', [
     }
 
 
-    // If the user exists, send the mail
+    // If the user exists, create a new token and send the mail
+
+    // Generating a new token
+    const fpToken = uuidv4();
+    
+    // Pushing the token with email in the DB
+    fpSchema.create({
+        email: req.body.email,
+        token: fpToken
+    });
+    
+
+
     const transporter = nodemailer.createTransport({
         service: 'hotmail',
         auth: {
@@ -303,8 +317,8 @@ router.post('/forgotpassword', [
     const options = {
         from: process.env.outlookEmail,
         to: req.body.email,
-        subject: 'Sending Email with node.js!',
-        text: "Wow! That's simple!!"
+        subject: 'Reset Password for Noteslify',
+        html: `We have received Noteslify Password Reset request from your Email Id\nIf it was not you, ignore this email. If you wanna reset your password, <a href='http://localhost:3000/resetpassword/${req.body.email}/${fpToken}'>Click Here</a>`
     };
 
     transporter.sendMail(options, (err, info) => {
