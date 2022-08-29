@@ -318,7 +318,7 @@ router.post('/forgotpassword', [
         from: process.env.outlookEmail,
         to: req.body.email,
         subject: 'Reset Password for Noteslify',
-        html: `We have received Noteslify Password Reset request from your Email Id\nIf it was not you, ignore this email. If you wanna reset your password, <a href='http://localhost:3000/resetpassword/${req.body.email}/${fpToken}'>Click Here</a>`
+        html: `You are receiving this email because you(maybe someone else) wanted to change your password.\nIf it was not you, ignore this email.If you requested to change your password, please go to the following link: <a href='http://localhost:3000/resetpassword/${req.body.email}/${fpToken}'>Click Here</a>`
     };
 
     transporter.sendMail(options, (err, info) => {
