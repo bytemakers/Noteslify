@@ -5,6 +5,7 @@ import Signup from './components/Signup/Signup';
 import Notes from './components/Notes/Notes';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import Setauthtoken from './components/Setauthtoken';
+import ResetPassword from './components/ResetPassword/ResetPassword';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path = "/notes" element = {<Notes />}/>
         <Route path = "/setauthtoken/:authtoken" element = {<Setauthtoken />}/>
         <Route path = "/forgotpassword" element = {<ForgotPassword />}/>
+        <Route path = "/resetpassword/:email/:token" element = {<ResetPassword />}/>
       </Routes>
     </Router>
   );
