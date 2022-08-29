@@ -334,4 +334,108 @@ router.post('/forgotpassword', [
 
 });
 
+
+
+
+
+
+
+
+
+
+
+
+// Route 7: Check Token Expiration and connection with email: POST: http://localhost:8181/api/auth/checktoken. No Login Required
+router.post('/checktoken', [
+    body('email', "Please Enter correct Email Address.").isEmail(),
+    body('token', "Please authenticate with a correct token").exists(),
+], async (req, res) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const fpDocument = await fpSchema.findOne({ email: req.body.email, token: req.body.token });
+    if (!fpDocument) {
+        return res.status(403).json({ error: "You are not authorised to access this email" });
+    }
+
+    // If the email matches the token
+    const current = new Date();
+    const currentDate = current.getDate();
+    const currentMonth = current.getMonth();
+    const currentYear = current.getFullYear();
+
+    const DBdate = new Date(fpDocument.createdAt);
+    const dateFromDB = DBdate.getDate();
+    const monthFromDB = DBdate.getMonth();
+    const yearFromDB = DBdate.getFullYear();
+
+    if (currentDate === dateFromDB && currentMonth === monthFromDB && currentYear === yearFromDB) {
+        return res.status(200).json({ success: "Yay, you are at the right place" });
+    }
+
+    else {
+        return res.status(400).json({ expired: "The Token Has been expired. Please generate a new token" });
+    }
+    
+});
+
+
+
+
+
+
+
+
+
+
+// Route 8: Changing Password: POST: http://localhost:8181/api/auth/changepassword. No Login Required
+router.post('/changepassword', [
+    body('email', "Please Enter correct Email Address.").isEmail(),
+    body('password', "Password should be at least 8 characters.").isLength({ min: 8 }),
+    body('token', "Please authenticate with a correct token").exists(),
+], async (req, res) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const fpDocument = await fpSchema.findOne({ email: req.body.email, token: req.body.token });
+    if (!fpDocument) {
+        return res.status(403).json({ error: "You are not authorised to access this email" });
+    }
+
+    // If the email matches the token
+    const current = new Date();
+    const currentDate = current.getDate();
+    const currentMonth = current.getMonth();
+    const currentYear = current.getFullYear();
+
+    const DBdate = new Date(fpDocument.createdAt);
+    const dateFromDB = DBdate.getDate();
+    const monthFromDB = DBdate.getMonth();
+    const yearFromDB = DBdate.getFullYear();
+
+    if (currentDate === dateFromDB && currentMonth === monthFromDB && currentYear === yearFromDB) {
+        // Changing the Password here
+        var salt = await bcrypt.genSalt(10);
+        var hash = await bcrypt.hash(req.body.password, salt);
+        const theUser = await UserSchema.findOneAndUpdate({ email: req.body.email }, { password: hash });
+
+        if (!theUser) {
+            return res.status(400).json({ error: "No Such user exists" });
+        }
+        return res.status(200).json({ success: "Yay, you are at the right place" });
+    }
+
+    else {
+        return res.status(400).json({ expired: "The Token Has been expired. Please generate a new token" });
+    }
+    
+
+});
+
 module.exports = router;
