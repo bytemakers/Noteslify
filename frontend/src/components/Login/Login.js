@@ -114,7 +114,7 @@ const Login = () => {
                         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" className="form__input" id="password"/>
                     </div>
                 </div>
-                <a href="/forgotpassword" className="form__forgot">Forgot Password?</a>
+                <Link to="/forgotpassword" className="form__forgot">Forgot Password?</Link>
 
                 {!isLoading && <button type="submit" className="form__button">Login</button>}
                 {isLoading && <button type="submit" className="form__button" style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true}><span class="loader"></span></button>}
