@@ -10,6 +10,7 @@ const GitHubStrategy = require('passport-github').Strategy;
 const passport = require('passport');
 const session = require('express-session');
 const GoogleStrategy = require('passport-google-oidc');
+const nodemailer = require("nodemailer");
 
 dotenv.config();
 
@@ -267,5 +268,56 @@ router.get('/github/callback',
 
     // GOOGLE AUTHENTICATION (END)
 
+
+
+
+
+
+
+// Route 6: Forgot Password: POST: http://localhost:8181/api/auth/forgotpassword. No Login Required
+router.post('/forgotpassword', [
+    body('email', "Please Enter correct Email Address.").isEmail(),
+], async (req, res) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const theUser = await UserSchema.findOne({ email: req.body.email });
+
+    if (!theUser) {
+        return res.status(404).json({ error: "This Email is not Registered!!" });
+    }
+
+
+    // If the user exists, send the mail
+    const transporter = nodemailer.createTransport({
+        service: 'hotmail',
+        auth: {
+            user: process.env.outlookEmail,
+            pass: process.env.outlookPassword
+        }
+    });
+
+    const options = {
+        from: process.env.outlookEmail,
+        to: req.body.email,
+        subject: 'Sending Email with node.js!',
+        text: "Wow! That's simple!!"
+    };
+
+    transporter.sendMail(options, (err, info) => {
+        if (err) {
+            return res.status(400).json({ error: "Internal Server Error!" });
+            console.log(error);
+        }
+        console.log(info.response);
+
+        return res.status(200).json({ success: "Email sent successfully!!" });
+    })
+
+
+});
 
 module.exports = router;
