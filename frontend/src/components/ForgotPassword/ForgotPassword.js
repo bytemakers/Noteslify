@@ -6,10 +6,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const forgotPassword = async (e) => {
     e.preventDefault();
-    
+
+    setIsLoading(true);
+
     const response = await fetch('http://localhost:8181/api/auth/forgotpassword', {
       method: 'POST',
       headers: {
@@ -23,6 +26,7 @@ const ForgotPassword = () => {
     else {
       toast.error(json.error);
     }
+    setIsLoading(false);
   }
   return (
     <div>
@@ -37,7 +41,8 @@ const ForgotPassword = () => {
             <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required="required" placeholder="Email Address"></input>
           </div>
           <div className="button-panel">
-            <input type="submit" class="button" title="Sign In" value="Send Email"></input>
+            {!isLoading && <input type="submit" class="button" title="Sign In" value="Send Email"></input>}
+            {isLoading && <button style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true} class="button" value=""><span class="loader"></span></button>}
           </div>
         </form>
         <div className="form-footer">
