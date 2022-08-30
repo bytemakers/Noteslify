@@ -19,7 +19,7 @@ const Navbar = () => {
             </div>
             <ul className={`opacity-0 top-[-400px] transition-all ease-in duration 500 z-[1]  
             absolute bg-blue-200  pl-7 py-4 w-full left-0 lg:flex lg:items-center lg:z-auto lg:static 
-            lg:bg-white lg:w-auto lg:py-0 lg:pl-0 lg:opacity-100 ${navopen ? 'opacity-100 top-[80px]' : 'opacity-0'}`}>
+            lg:bg-[#e9e9e9] lg:w-auto lg:py-0 lg:pl-0 lg:opacity-100 ${navopen ? 'opacity-100 top-[80px]' : 'opacity-0'}`}>
                 <li className="mx-4 my-6 lg:my-0">
                     <a href="#" className="text-base hover:text-cyan-500 duration-500">Home</a>
                 </li>
