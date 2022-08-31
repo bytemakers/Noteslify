@@ -21,7 +21,7 @@ const Navbar = () => {
             absolute bg-blue-200  pl-7 py-4 w-full left-0 lg:flex lg:items-center lg:z-auto lg:static 
             lg:bg-[#e9e9e9] lg:w-auto lg:py-0 lg:pl-0 lg:opacity-100 ${navopen ? 'opacity-100 top-[80px]' : 'opacity-0'}`}>
                 <li className="bg-white mx-4 my-6 lg:my-0">
-                    <a href="#" className="text-base hover:text-cyan-500 duration-500">Home</a>
+                    <a href="/" className="text-base hover:text-cyan-500 duration-500">Home</a>
                 </li>
                 <li className="bg-white mx-4 my-6 lg:my-0">
                     <a href="#" className="text-base hover:text-cyan-500 duration-500">Features</a>
@@ -33,11 +33,11 @@ const Navbar = () => {
                     <a href="#" className="text-base hover:text-cyan-500 duration-500">Contact</a>
                 </li>
                 <li className="bg-white mx-4 my-6 lg:my-0">
-                    <a href="#" className="text-base hover:text-cyan-500 duration-500">Dashboard</a>
+                    <a href="/notes" className="text-base hover:text-cyan-500 duration-500">Dashboard</a>
                 </li>
                 <li className="bg-white mx-4 my-6 lg:my-0">
-                    <button className="text-base py-[0.7rem] px-[2rem] bg-[#3B73C6] text-white rounded-[15px]">Get
-                        Started</button>
+                    <a href="/signup" className="text-base py-[0.7rem] px-[2rem] bg-[#3B73C6] text-white rounded-[15px]">Get
+                        Started</a>
                 </li>
             </ul>
         </nav>
