@@ -3,9 +3,9 @@ import Vector from '../assets/Vector.png'
 
 const About = () => {
     return (
-        <section className=" z-[-1] ">
-            <div className="mt-[9rem]  md:px-[22vw] flex items-center justify-center flex-col">
-                <p className=" text-2xl text-center font-[600] 
+        <section className="bg-white z-[-1] ">
+            <div className="mt-[9rem] md:px-[22vw] flex items-center justify-center flex-col">
+                <p className="text-black text-2xl text-center font-[600] 
                 md:leading-[2rem] lg:leading-[3rem] xl:leading-[4rem] xl:text-5xl lg:text-4xl">
                     Your
                     Privacy Friendly,

@@ -1,6 +1,6 @@
 const Info = () => {
     return (
-        <section className="flex justify-center items-center m-8 mt-[4rem] flex-col md:flex-row gap-y-16 md:gap-y-0">
+        <section className="bg-white flex justify-center items-center m-8 mt-[4rem] flex-col md:flex-row gap-y-16 md:gap-y-0">
             <div
                 className="flex md:justify-between justify-center text-center items-center md:text-left md:items-start flex-col w-[100%] gap-y-8">
                 <h4 className="md:pl-8 text-[#3B73C6] font-[700]">What is Noteslify?</h4>

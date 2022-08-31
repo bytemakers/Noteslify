@@ -6,7 +6,7 @@ import './LandingPage.css'
 
 const LandingPage = () => {
   return (
-    <div className="font-['Poppins'] font-[300] overflow-y-auto overflow-x-hidden">
+    <div className="bg-white font-['Poppins'] font-[300] overflow-y-auto overflow-x-hidden">
         <Navbar/>
         <About/>
         <Info/>
