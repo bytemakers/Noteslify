@@ -1,5 +1,7 @@
 # Noteslify
 
+![Border](images/noteslifylogo.png)
+
 **Made with ❤ By DVS Tech Labs**
 
 A Notes Taking Web App Built With Simplicity.
