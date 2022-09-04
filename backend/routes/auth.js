@@ -10,6 +10,9 @@ const GitHubStrategy = require('passport-github').Strategy;
 const passport = require('passport');
 const session = require('express-session');
 const GoogleStrategy = require('passport-google-oidc');
+const nodemailer = require("nodemailer");
+const { v4: uuidv4 } = require('uuid');
+const fpSchema = require('../models/ForgotPassword');
 
 dotenv.config();
 
@@ -267,5 +270,172 @@ router.get('/github/callback',
 
     // GOOGLE AUTHENTICATION (END)
 
+
+
+
+
+
+
+// Route 6: Forgot Password: POST: http://localhost:8181/api/auth/forgotpassword. No Login Required
+router.post('/forgotpassword', [
+    body('email', "Please Enter correct Email Address.").isEmail(),
+], async (req, res) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const theUser = await UserSchema.findOne({ email: req.body.email });
+
+    if (!theUser) {
+        return res.status(404).json({ error: "This Email is not Registered!!" });
+    }
+
+
+    // If the user exists, create a new token and send the mail
+
+    // Generating a new token
+    const fpToken = uuidv4();
+    
+    // Pushing the token with email in the DB
+    fpSchema.create({
+        email: req.body.email,
+        token: fpToken
+    });
+    
+
+
+    const transporter = nodemailer.createTransport({
+        service: 'hotmail',
+        auth: {
+            user: process.env.outlookEmail,
+            pass: process.env.outlookPassword
+        }
+    });
+
+    const options = {
+        from: process.env.outlookEmail,
+        to: req.body.email,
+        subject: 'Reset Password for Noteslify',
+        html: `You are receiving this email because you(maybe someone else) wanted to change your password.\nIf it was not you, ignore this email.If you requested to change your password, please go to the following link: <a href='http://localhost:3000/resetpassword/${req.body.email}/${fpToken}'>Click Here</a>`
+    };
+
+    transporter.sendMail(options, (err, info) => {
+        if (err) {
+            return res.status(400).json({ error: "Internal Server Error!" });
+            console.log(error);
+        }
+        console.log(info.response);
+
+        return res.status(200).json({ success: "Email sent successfully!!" });
+    })
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+// Route 7: Check Token Expiration and connection with email: POST: http://localhost:8181/api/auth/checktoken. No Login Required
+router.post('/checktoken', [
+    body('email', "Please Enter correct Email Address.").isEmail(),
+    body('token', "Please authenticate with a correct token").exists(),
+], async (req, res) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const fpDocument = await fpSchema.findOne({ email: req.body.email, token: req.body.token });
+    if (!fpDocument) {
+        return res.status(403).json({ error: "You are not authorised to access this email" });
+    }
+
+    // If the email matches the token
+    const current = new Date();
+    const currentDate = current.getDate();
+    const currentMonth = current.getMonth();
+    const currentYear = current.getFullYear();
+
+    const DBdate = new Date(fpDocument.createdAt);
+    const dateFromDB = DBdate.getDate();
+    const monthFromDB = DBdate.getMonth();
+    const yearFromDB = DBdate.getFullYear();
+
+    if (currentDate === dateFromDB && currentMonth === monthFromDB && currentYear === yearFromDB) {
+        return res.status(200).json({ success: "Yay, you are at the right place" });
+    }
+
+    else {
+        return res.status(400).json({ expired: "The Token Has been expired. Please generate a new token" });
+    }
+    
+});
+
+
+
+
+
+
+
+
+
+
+// Route 8: Changing Password: POST: http://localhost:8181/api/auth/changepassword. No Login Required
+router.post('/changepassword', [
+    body('email', "Please Enter correct Email Address.").isEmail(),
+    body('password', "Password should be at least 8 characters.").isLength({ min: 8 }),
+    body('token', "Please authenticate with a correct token").exists(),
+], async (req, res) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const fpDocument = await fpSchema.findOne({ email: req.body.email, token: req.body.token });
+    if (!fpDocument) {
+        return res.status(403).json({ error: "You are not authorised to access this email" });
+    }
+
+    // If the email matches the token
+    const current = new Date();
+    const currentDate = current.getDate();
+    const currentMonth = current.getMonth();
+    const currentYear = current.getFullYear();
+
+    const DBdate = new Date(fpDocument.createdAt);
+    const dateFromDB = DBdate.getDate();
+    const monthFromDB = DBdate.getMonth();
+    const yearFromDB = DBdate.getFullYear();
+
+    if (currentDate === dateFromDB && currentMonth === monthFromDB && currentYear === yearFromDB) {
+        // Changing the Password here
+        var salt = await bcrypt.genSalt(10);
+        var hash = await bcrypt.hash(req.body.password, salt);
+        const theUser = await UserSchema.findOneAndUpdate({ email: req.body.email }, { password: hash });
+
+        if (!theUser) {
+            return res.status(400).json({ error: "No Such user exists" });
+        }
+        return res.status(200).json({ success: "Yay, you are at the right place" });
+    }
+
+    else {
+        return res.status(400).json({ expired: "The Token Has been expired. Please generate a new token" });
+    }
+    
+
+});
 
 module.exports = router;

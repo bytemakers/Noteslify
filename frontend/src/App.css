@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   margin: 0;
@@ -146,7 +149,7 @@ body {
   }
 }
 
-/* =========================auth============================== */
+
 
 .l-form {
   position: relative;
@@ -294,27 +297,26 @@ body {
 
 /*=== Form social===*/
 .form__social {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
+  text-align: center;
 }
 
 .form__social-text {
+  display: block;
   font-size: var(--normal-font-size);
   margin-bottom: 1rem;
 }
 
 .form__social-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  margin-right: 1rem;
+  padding: .5rem;
+  background-color: var(--text-color);
   color: #fff;
-  font-size: 1.2rem;
-}
-
-.bxl-google,
-.bxl-github {
-  padding: 10px;
-  background-color: #3B73C6;
-  text-align: center;
+  font-size: 1.25rem;
   border-radius: 50%;
 }
 
