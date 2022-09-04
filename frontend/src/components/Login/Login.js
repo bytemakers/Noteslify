@@ -129,7 +129,6 @@ const Login = () => {
                     <a href="http://localhost:8181/api/auth/google" className="form__social-icon"><i class='bx bxl-google' ></i></a>
                     <a href="http://localhost:8181/api/auth/github" className="form__social-icon"><i class='bx bxl-github' ></i></a>
                 </div>
-
             </form>
         </div>
         <ToastContainer toastStyle={{ backgroundColor: "#202d40", color: 'white' }} />
