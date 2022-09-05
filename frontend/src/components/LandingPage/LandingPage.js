@@ -1,15 +1,19 @@
 import React from 'react'
-import About from './components/About'
-import Info from './components/Info'
-import Navbar from './components/Navbar'
+import NavBar from './NavBar/NavBar'
+import HeroSection from './HeroSection/HeroSection'
+import Info from'./Info/Info'
+import Footer from './Footer/Footer'
+import NewsLetter from './Newsletter/NewsLetter'
 import './LandingPage.css'
 
 const LandingPage = () => {
   return (
-    <div className="bg-white font-['Poppins'] font-[300] overflow-y-auto overflow-x-hidden">
-        <Navbar/>
-        <About/>
+    <div>
+        <NavBar/>
+        <HeroSection/>
         <Info/>
+        <NewsLetter/>
+        <Footer/>
     </div>
   )
 }
