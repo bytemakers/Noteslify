@@ -123,13 +123,6 @@ const Login = () => {
                     Don't have an account ? <Link to={'/signup'}>Sign up here</Link>
                 </div>
 
-                <div className="form__social">
-                    <span className="form__social-text">Or login with</span>
-                    <div className="form__social">
-                        <a href="http://localhost:8181/api/auth/google" className="form__social-icon"><i class='bx bxl-google' ></i></a>
-                        <a href="http://localhost:8181/api/auth/github" className="form__social-icon"><i class='bx bxl-github' ></i></a>
-                    </div>
-                </div>
             </form>
         </div>
         <ToastContainer toastStyle={{ backgroundColor: "#202d40", color: 'white' }} />
