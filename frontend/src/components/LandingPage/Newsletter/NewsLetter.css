@@ -1,0 +1,55 @@
+.news-section .flex {
+    flex-direction: column;
+    gap: 20px;
+}
+
+.news-section h2 {
+    font-size: 40px;
+    color: var(--primary-color);
+}
+
+
+input {
+    width: 30vw;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+}
+
+input:focus {
+    outline: none;
+}
+
+.news-section p {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--dark-color);
+}
+
+.news-section button {
+    padding: 0.7rem 4rem;
+    border-radius: 25px;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border: 1px solid transparent;
+}
+
+
+
+@media screen and (max-width :500px) {
+    .news-section h2 {
+        font-size: 20px;
+    }
+
+    input {
+        width: 60vw;
+    }
+
+    .news-section p {
+        font-size: 14px;
+    }
+
+    .news-section button {
+        padding: 0.7rem 2rem;
+    }
+}

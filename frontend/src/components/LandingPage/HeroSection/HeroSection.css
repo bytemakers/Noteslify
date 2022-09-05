@@ -1,0 +1,52 @@
+.hero-section {
+    padding-top: 8rem;
+}
+
+.hero-section .flex {
+    flex-direction: column;
+    gap: 30px;
+}
+
+.hero-section h1 {
+    color: var(--dark-color);
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.hero-section h4 {
+    color: var(--dark-color);
+    font-size: 22px;
+    font-weight: 300;
+    text-align: center;
+    padding: 0px 14rem;
+}
+
+.hero-section button {
+    padding: 0.7rem 2rem;
+    border-radius: 25px;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border: 1px solid transparent;
+}
+
+.hero-section div:nth-child(2) {
+    margin-top: 4rem;
+}
+
+.hero-section .image {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+}
+
+@media screen and (max-width:500px) {
+    .hero-section h1 {
+        font-size: 24px;
+    }
+
+    .hero-section h4 {
+        font-size: 16px;
+        padding: 0px 4rem;
+    }
+}
