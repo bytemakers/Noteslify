@@ -211,6 +211,12 @@ button:hover {
     height: 100%;
 }
 
+button,
+a,
+li {
+    cursor: pointer;
+}
+
 .grid-3 {
     grid-template-columns: repeat(3, 1fr);
 }

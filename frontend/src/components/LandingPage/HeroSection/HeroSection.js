@@ -12,8 +12,8 @@ Alternative to Google Keep.</h1>
           <button>Get Started For Free</button>
       </div>
       <div className='image flex'>
-        <img style = {{width:'70%'}} src = "assets/bgimage.png"alt = "cover-page"/>
-        <img src = "assets/vector.png" alt = "design"/>
+        <img style = {{width:'70%'}} src = "assets/bgimage.png" alt = "cover-page"/>
+        <img src = "assets/Vector.png" alt = "design"/>
       </div>
     </section>
   )
