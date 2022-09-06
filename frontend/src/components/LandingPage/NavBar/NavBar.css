@@ -18,7 +18,7 @@
     align-items: center;
 }
 
-nav ul li {
+.navbar nav ul li {
     padding: 0 24px;
 }
 
@@ -35,14 +35,21 @@ nav ul li {
 }
 
 .hide {
-    visibility: hidden;
+    display: none;
 }
 
 .mobile-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
+
+.navbar .change {
+    opacity: 100;
+    top: 80px;
+}
+
 
 @media screen and (max-width:500px) {
     .navbar .flex {
@@ -51,10 +58,27 @@ nav ul li {
         gap: 20px;
     }
 
-    nav {
-        flex-direction: column;
-        gap: 20px;
+    .navbar nav {
+        position: absolute;
+        backdrop-filter: blur(50px);
+        padding: 2rem;
+        width: 100%;
+        min-height: 55%;
+        left: 0;
+        opacity: 0;
+        z-index: 1;
+        top: -400px;
+        transition: all 1s ease-in;
+        color: black;
+        font-size: 18px;
     }
+
+    .navbar button {
+        position: absolute;
+        left: 35%;
+        bottom: 20px;
+    }
+
 
     .hidden {
         display: block;
