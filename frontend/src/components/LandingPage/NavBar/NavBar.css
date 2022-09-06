@@ -28,6 +28,7 @@
     background-color: var(--primary-color);
     color: var(--light-color);
     border: 1px solid transparent;
+    cursor: pointer;
 }
 
 .hidden {
@@ -50,6 +51,10 @@
     top: 80px;
 }
 
+.navbar span {
+    font-size: 24px;
+}
+
 
 @media screen and (max-width:500px) {
     .navbar .flex {
@@ -62,21 +67,30 @@
         position: absolute;
         backdrop-filter: blur(50px);
         padding: 2rem;
+        text-align: center;
         width: 100%;
         min-height: 55%;
         left: 0;
         opacity: 0;
         z-index: 1;
         top: -400px;
-        transition: all 1s ease-in;
+        transition: all 0.5s ease-in;
         color: black;
         font-size: 18px;
     }
 
     .navbar button {
         position: absolute;
+        background-color: transparent;
+        border-color: var(--primary-color);
+        color: var(--primary-color);
         left: 35%;
         bottom: 20px;
+    }
+
+    .navbar button:hover {
+        background-color: var(--primary-color);
+        color: var(--light-color);
     }
 
 
