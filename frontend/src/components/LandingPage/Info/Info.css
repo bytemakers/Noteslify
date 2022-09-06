@@ -1,0 +1,44 @@
+.Info-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.Info-section .grid {
+    gap: 4rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.Info-section .container {
+    max-width: 100%;
+}
+
+.Info-section .About {
+    padding: 40px;
+}
+
+.Info-section h2 {
+    font-size: 24px;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 500;
+}
+
+.Info-section p {
+    text-align: center;
+    color: var(--dark-color);
+    padding: 10px;
+}
+
+@media screen and (max-width:500px) {
+
+    .Info-section .grid {
+        grid-template-columns: 1fr;
+        margin: 15px;
+    }
+
+    .Info-section .About {
+        padding: 10px 40px;
+    }
+}
