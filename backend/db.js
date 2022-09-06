@@ -2,7 +2,7 @@
 // const mongoURI = "mongodb+srv://dbstring";
 
 // const connectToMongo = () => {
-//     mongoose.connect(mongoURI, { dbName: 'petCare' }, (err) => {
+//     mongoose.connect(mongoURI, { dbName: 'noteslify' }, (err) => {
 //         console.log("Connected To Mongo Successfully!!");
 //         console.log(err);
 //     })
