@@ -9,7 +9,7 @@
 }
 
 
-input {
+.news-section input {
     width: 30vw;
     padding: 5px;
     border-radius: 5px;
@@ -34,14 +34,30 @@ input:focus {
     border: 1px solid transparent;
 }
 
+/* @media screen and (max-width :960px) {
+    .news-section h2 {
+        font-size: 20px;
+    }
 
+    .news-section input {
+        width: 60vw;
+    }
+
+    .news-section p {
+        font-size: 14px;
+    }
+
+    .news-section button {
+        padding: 0.7rem 2rem;
+    }
+} */
 
 @media screen and (max-width :500px) {
     .news-section h2 {
         font-size: 20px;
     }
 
-    input {
+    .news-section input {
         width: 60vw;
     }
 

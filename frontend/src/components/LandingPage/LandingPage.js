@@ -4,6 +4,8 @@ import HeroSection from './HeroSection/HeroSection'
 import Info from'./Info/Info'
 import Footer from './Footer/Footer'
 import NewsLetter from './Newsletter/NewsLetter'
+import About from './About/About'
+
 import './LandingPage.css'
 
 const LandingPage = () => {
@@ -11,6 +13,7 @@ const LandingPage = () => {
     <div>
         <NavBar/>
         <HeroSection/>
+        <About/>
         <Info/>
         <NewsLetter/>
         <Footer/>

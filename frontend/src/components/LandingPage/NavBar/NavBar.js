@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './NavBar.css'
 const NavBar = () => {
+  const [open , setOpen] = useState(false);
+
   return (
     <div className= "navbar">
     <div className = "container flex">
@@ -8,12 +10,12 @@ const NavBar = () => {
         <div>
        <h3 className = "logo">Noteslify</h3>
        </div>
-       <div className ="menu-display hidden">
-       <span className = "close hide">X</span>
-       <span className='menu'>☰</span>
+       <div className ="menu-display hidden" onClick={()=>setOpen(!open)}>
+       <span className = {open ? '' :'hide'}>X</span>
+       <span className={open ? 'hide':''}>☰</span>
        </div>
       </div> 
-       <nav>
+       <nav className= {open ? 'change' : ''}>
            <ul className = "flex">
                <li>Home</li>
                <li>Features</li>
@@ -22,7 +24,7 @@ const NavBar = () => {
                <li>Dashboard</li>
            </ul>
            <button>Get Started</button>
-       </nav>
+       </nav> 
     </div>
 </div>
   )

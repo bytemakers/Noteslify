@@ -2,7 +2,7 @@
     --primary-color: #3B73C6;
     --secondary-color: #001C46;
     --dark-color: black;
-    --light-color: #f4f4f4;
+    --light-color: white;
     --success-color: #5cb85c;
     --error-color: #d9534f;
 }
@@ -136,7 +136,6 @@ pre {
 
 .text-dark {
     color: var(--dark-color);
-
 }
 
 .text-light {

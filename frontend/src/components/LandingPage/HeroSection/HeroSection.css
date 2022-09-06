@@ -1,5 +1,6 @@
 .hero-section {
     padding-top: 8rem;
+    z-index: -1;
 }
 
 .hero-section .flex {
