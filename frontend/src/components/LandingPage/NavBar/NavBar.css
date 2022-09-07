@@ -46,6 +46,11 @@
     cursor: pointer;
 }
 
+.mobile-nav .flex {
+    gap: 10px;
+    flex-direction: row;
+}
+
 .navbar .change {
     opacity: 100;
     top: 80px;
@@ -100,5 +105,9 @@
 
     .mobile-nav {
         width: 100%;
+    }
+
+    .mobile-nav h3 {
+        display: none;
     }
 }
