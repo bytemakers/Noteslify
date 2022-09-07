@@ -1,35 +1,52 @@
-footer {
+.footer {
     background-color: var(--secondary-color);
     color: white;
     padding: 40px;
-    margin-top: 0px;
 }
 
-footer .flex {
+
+.footer .flex {
     padding: 40px;
     justify-content: space-between;
 }
 
-footer ul {
+.footer ul {
     gap: 40px;
 }
 
+
+.links .flex {
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 0px;
+}
+
+.links ul i {
+    color: white;
+}
+
 @media screen and (max-width: 500px) {
-    footer {
+    .footer {
         padding: 5px 0px;
 
     }
 
-    footer .flex {
+    .footer .flex {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    footer ul {
+    .footer ul {
         gap: 10px;
         padding: 0px;
         list-style-type: disc;
     }
 
+    .links ul {
+        list-style: none;
+    }
 
+    .links .flex {
+        flex-direction: row;
+    }
 }

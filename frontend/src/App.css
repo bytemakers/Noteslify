@@ -280,15 +280,20 @@ body {
   outline: none;
   border: none;
   margin-bottom: 3rem;
-  background-color: var(--first-color);
+  background-color: var(--primary-color);
   color: #fff;
   border-radius: .5rem;
   cursor: pointer;
-  transition: .3s;
+  transition: all .5s ease-in;
+  border: 1s solid var(--primary-color);
 }
 
 .form__button:hover {
   box-shadow: 0px 15px 36px rgba(0, 0, 0, .15);
+}
+
+button {
+  transition: all 0.5s ease-in;
 }
 
 /*=== Form social===*/

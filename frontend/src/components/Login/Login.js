@@ -119,7 +119,7 @@ const Login = () => {
                 {!isLoading && <button type="submit" className="form__button">Login</button>}
                 {isLoading && <button type="submit" className="form__button" style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true}><span class="loader"></span></button>}
 
-                <div style={{marginBottom: '25px'}}>
+                <div style={{marginBottom: '25px',textAlign:'center'}}>
                     Don't have an account ? <Link to={'/signup'}>Sign up here</Link>
                 </div>
 

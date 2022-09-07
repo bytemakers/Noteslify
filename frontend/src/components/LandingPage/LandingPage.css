@@ -19,7 +19,9 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
     line-height: 1.6;
+    background: white;
 }
+
 
 ul {
     list-style: none;

@@ -10,7 +10,7 @@ import './LandingPage.css'
 
 const LandingPage = () => {
   return (
-    <div>
+    <div className = "landApp">
         <NavBar/>
         <HeroSection/>
         <About/>

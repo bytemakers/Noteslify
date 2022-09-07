@@ -7,7 +7,8 @@ const NavBar = () => {
     <div className= "navbar">
     <div className = "container flex">
       <div className='mobile-nav'>
-        <div>
+       <div class = "flex">
+      <img src = "favicon.ico" alt = "icon" style = {{width:'20px'}}/> 
        <h3 className = "logo">Noteslify</h3>
        </div>
        <div className ="menu-display hidden" onClick={()=>setOpen(!open)}>
