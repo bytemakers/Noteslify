@@ -2,8 +2,8 @@ import React from 'react'
 import './Footer.css'
 const Footer = () => {
   return (
-<>
-    <img src= "assets/vector-bottom.png" alt = "design"/>  
+<section className='bottom-section' >
+  {/* <img src= "assets/vector-bottom.png" alt = "design" /> */}
     <footer className='footer'>
       <section className='flex'>
          <div>
@@ -30,7 +30,7 @@ const Footer = () => {
          </div>
          </section>
     </footer>
-    </>
+    </section>
   )
 }
 

@@ -1,7 +1,16 @@
+.bottom-section {
+    margin-top: 4rem;
+}
+
+/* .bottom-image {
+    margin-bottom: 0px;
+} */
+
 .footer {
     background-color: var(--secondary-color);
     color: white;
     padding: 40px;
+
 }
 
 
@@ -25,10 +34,9 @@
     color: white;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 980px) {
     .footer {
         padding: 5px 0px;
-
     }
 
     .footer .flex {
@@ -49,4 +57,10 @@
     .links .flex {
         flex-direction: row;
     }
+
+
+    .footer {
+        margin-top: 0px;
+    }
+
 }

@@ -7,7 +7,7 @@ const NavBar = () => {
     <div className= "navbar">
     <div className = "container flex">
       <div className='mobile-nav'>
-       <div class = "flex">
+       <div className = "flex">
       <img src = "favicon.ico" alt = "icon" style = {{width:'20px'}}/> 
        <h3 className = "logo">Noteslify</h3>
        </div>
@@ -23,9 +23,9 @@ const NavBar = () => {
                <li>Pricing</li>
                <li>Contact</li>
                <li>Dashboard</li>
-           </ul>
-           <button>Get Started</button>
+           </ul>     
        </nav> 
+       <button>Get Started</button>
     </div>
 </div>
   )

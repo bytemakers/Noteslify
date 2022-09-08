@@ -48,56 +48,56 @@ const Sidenav = () => {
               </div>
           </div>
 
-          <i onClick={toggleSideNav} class='bx bx-chevron-right toggle'></i>
+          <i onClick={toggleSideNav} className='bx bx-chevron-right toggle'></i>
       </header>
 
       <div className="menu-bar">
           <div className="menu">
 
               <li onClick={searchbarClick} className="search-box">
-                  <i class='bx bx-search icon'></i>
+                  <i className ='bx bx-search icon'></i>
                   <input type="text" placeholder="Search..."/>
               </li>
 
               <ul className="menu-links">
                   <li className="nav-link">
                       <a href="/">
-                          <i class='bx bx-home-alt icon' ></i>
+                          <i className='bx bx-home-alt icon' ></i>
                           <span className="text nav-text">Soon..</span>
                       </a>
                   </li>
 
                   <li className="nav-link">
                       <a href="/">
-                          <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                          <i className='bx bx-bar-chart-alt-2 icon' ></i>
                           <span className="text nav-text">Soon..</span>
                       </a>
                   </li>
 
                   <li className="nav-link">
                       <a href="/">
-                          <i class='bx bx-bell icon'></i>
+                          <i className='bx bx-bell icon'></i>
                           <span className="text nav-text">Soon..</span>
                       </a>
                   </li>
 
                   <li className="nav-link">
                       <a href="/">
-                          <i class='bx bx-pie-chart-alt icon' ></i>
+                          <i className='bx bx-pie-chart-alt icon' ></i>
                           <span className="text nav-text">Soon..</span>
                       </a>
                   </li>
 
                   <li className="nav-link">
                       <a href="/">
-                          <i class='bx bx-heart icon' ></i>
+                          <i className='bx bx-heart icon' ></i>
                           <span className="text nav-text">Soon..</span>
                       </a>
                   </li>
 
                   <li className="nav-link">
                       <a href="/">
-                          <i class='bx bx-wallet icon' ></i>
+                          <i className='bx bx-wallet icon' ></i>
                           <span className="text nav-text">Soon..</span>
                       </a>
                   </li>
@@ -108,7 +108,7 @@ const Sidenav = () => {
           <div className="bottom-content">
               <li>
                   <a onClick={logout} href="/" id="logout-button">
-                      <i class='bx bx-log-out icon' ></i>
+                      <i className ='bx bx-log-out icon' ></i>
                       <span className="logout">Logout</span>
                   </a>
               </li>

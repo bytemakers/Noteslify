@@ -292,10 +292,6 @@ body {
   box-shadow: 0px 15px 36px rgba(0, 0, 0, .15);
 }
 
-button {
-  transition: all 0.5s ease-in;
-}
-
 /*=== Form social===*/
 .form__social {
   text-align: center;

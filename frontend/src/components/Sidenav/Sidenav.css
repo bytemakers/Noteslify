@@ -179,7 +179,7 @@ body.dark .sidebar li a:hover .text {
 .bottom-content li .logout {
     color: var(--text-color);
     font-size: 18px;
-    padding: 10px;
+    padding: 20px;
 }
 
 .bottom-content li a:hover {

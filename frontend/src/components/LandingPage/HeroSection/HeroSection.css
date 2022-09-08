@@ -41,7 +41,10 @@
     gap: 0px;
 }
 
-@media screen and (max-width:500px) {
+
+
+
+@media screen and (max-width:980px) {
     .hero-section h1 {
         font-size: 24px;
     }
@@ -49,5 +52,16 @@
     .hero-section h4 {
         font-size: 16px;
         padding: 0px 4rem;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .hero-section h1 {
+        font-size: 20px;
+    }
+
+    .hero-section h4 {
+        font-size: 16px;
+        padding: 0px 2rem;
     }
 }
