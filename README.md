@@ -14,7 +14,7 @@ Visit At <a href="https://noteslify.vercel.app" target="_blank">noteslify.vercel
 
 ## Team
 
-The Developer Team behind Noteslify.
+The Developer Team behind Noteslify. This project wouldn't have been possible without them and our awesome contributors.
 
 - [@devarshishimpi](https://www.github.com/devarshishimpi)
 - [@khushi818](https://github.com/khushi818)
