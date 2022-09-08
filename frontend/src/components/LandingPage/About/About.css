@@ -34,7 +34,7 @@
 }
 
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:580px) {
     .About-section .about-flex {
         flex-direction: column-reverse;
         max-width: 100%;

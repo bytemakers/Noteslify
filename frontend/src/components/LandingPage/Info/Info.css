@@ -31,11 +31,39 @@
     padding: 10px;
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:980px) {
+
+    .Info-section .grid {
+        grid-template-columns: 1fr 1fr;
+        margin: 15px;
+    }
+
+    .Info-section .container {
+        padding: 0px;
+    }
+
+    .Info-section .About {
+        padding: 10px 40px;
+    }
+}
+
+@media screen and (max-width:680px) {
 
     .Info-section .grid {
         grid-template-columns: 1fr;
         margin: 15px;
+    }
+
+
+    .Info-section .About {
+        padding: 10px 40px;
+    }
+}
+
+@media screen and (max-width:400px) {
+
+    .Info-section .container {
+        padding: 0px;
     }
 
     .Info-section .About {
