@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import './Footer.css'
 const Footer = () => {
   return (
@@ -12,7 +13,7 @@ const Footer = () => {
             <p>Capture your notes, files, and life’s work all in one secure place.</p>
             <div className='links'>
               <ul className='flex'>
-                <li><i class="uil uil-github"></i></li>
+                <a href="https://github.com/devarshishimpi/Noteslify"><li><i class="uil uil-github"></i></li></a>
                 <li><i class="uil uil-linkedin"></i></li>
                 <li><i class="uil uil-twitter"></i></li>
               </ul>
@@ -20,12 +21,12 @@ const Footer = () => {
          </div>
          <div>
              <ul className='flex'>
-               <li>Home</li>
-               <li>Features</li>
-               <li>Pricing</li>
-               <li>Contact</li>
-               <li>Dashboard</li>
-               <li>Get started</li>
+              <Link to="/"><li style={{color:'white'}}>Home</li></Link>
+              <li style={{color:'white'}}>Features</li>
+              <li style={{color:'white'}}>Pricing</li>
+              <li style={{color:'white'}}>Contact</li>
+              <Link to="/Notes"><li style={{color:'white'}}>Dashboard</li></Link>
+              <Link to="/Signup"><li style={{color:'white'}}>Get Started</li></Link>
            </ul>
          </div>
          </section>

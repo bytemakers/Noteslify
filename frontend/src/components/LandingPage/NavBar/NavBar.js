@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import './NavBar.css'
 const NavBar = () => {
   const [open , setOpen] = useState(false);
@@ -18,14 +19,14 @@ const NavBar = () => {
       </div> 
        <nav className= {open ? 'change' : ''}>
            <ul className = "flex">
-               <li>Home</li>
+               <Link to="/"><li>Home</li></Link>
                <li>Features</li>
                <li>Pricing</li>
                <li>Contact</li>
-               <li>Dashboard</li>
+               <Link to="/Notes"><li>Dashboard</li></Link>
            </ul>     
        </nav> 
-       <button>Get Started</button>
+       <Link to="/Signup"><button>Get Started</button></Link>
     </div>
 </div>
   )
