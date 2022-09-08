@@ -11,7 +11,18 @@ Please give this repo a ⭐ it really helps us!
 Visit At <a href="https://noteslify.vercel.app" target="_blank">noteslify.vercel.app</a>
 
 ![Border](images/border.png)
+
+## Team
+
+The Developer Team behind Noteslify.
+
+- [@devarshishimpi](https://www.github.com/devarshishimpi)
+- [@khushi818](https://github.com/khushi818)
+- [@abhinandanwadwa](https://github.com/abhinandanwadwa)
+
 ## Contributing
+
+![Border](images/border.png)
 
 Contributions are always welcome!
 
@@ -19,8 +30,9 @@ See `contributing.md` for ways to get started.
 
 Please adhere to this project's `Code of Conduct`.
 
-![Border](images/border.png)
 ## Feedback
+
+![Border](images/border.png)
 
 If you have any feedback, please reach out to us at devarshishimpi@gmail.com
 
