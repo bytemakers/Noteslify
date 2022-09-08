@@ -8,6 +8,8 @@ A Notes Taking Web App Built With Simplicity.
 
 Please give this repo a ⭐ it really helps us!
 
+Visit At <a href="https://noteslify.vercel.app" target="_blank">noteslify.vercel.app</a>
+
 ![Border](images/border.png)
 ## Contributing
 
