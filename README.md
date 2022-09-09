@@ -1,5 +1,7 @@
 # Noteslify
 
+## Your Privacy Friendly, Open Source. Alternative to Google Keep.
+
 ![Border](images/noteslifylogo.png)
 
 **Made with ❤ By DVS Tech Labs**
