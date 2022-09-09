@@ -10,8 +10,7 @@ const About = () => {
         <div className='flex desc'>
           <h2>What is Noteslify?</h2>
           <p>Lorem ipsum dolor, sit amet consectetur 
-            adipisicing elit. Ex unde officiis ratione? Magnam autem enim voluptatibus consectetur quidem ratione 
-            in consequuntur suscipit a tenetur sunt, laboriosam, consequatur, laborum recusandae nulla?</p>
+            adipisicing elit. Ex unde officiis ratione? Magnam autem enim voluptatibus consectetur quidem ratione </p>
         </div>
         </div>
     </section>
