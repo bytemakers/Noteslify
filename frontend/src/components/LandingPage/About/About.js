@@ -9,8 +9,7 @@ const About = () => {
         </div>
         <div className='flex desc'>
           <h2>What is Noteslify?</h2>
-          <p>Lorem ipsum dolor, sit amet consectetur 
-            adipisicing elit. Ex unde officiis ratione? Magnam autem enim voluptatibus consectetur quidem ratione </p>
+          <p>Noteslify gives you everything you need to keep life organized—great note taking, project planning, and easy ways to find what you need, when you need it. </p>
         </div>
         </div>
     </section>
