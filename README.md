@@ -34,6 +34,45 @@ See `contributing.md` for ways to get started.
 
 Please adhere to this project's `Code of Conduct`.
 
+## Deployment
+
+![Border](images/border.png)
+
+Make Sure You Have MongoDB and NodeJS Installed.
+
+### Deploying Backend
+
+To deploy this project navigate to the backend folder and run
+
+```bash
+  cd backend
+```
+
+```bash
+  npm install --legacy-peer-deps
+```
+
+```bash
+  node index.js
+```
+### Deploying Frontend
+
+To deploy this project navigate to the frontend folder and run
+
+```bash
+  cd frontend
+```
+
+```bash
+  npm install --legacy-peer-deps
+```
+
+```bash
+  npm start
+```
+
+Navigate to `http://localhost:3000/`
+
 ## Feedback
 
 ![Border](images/border.png)
