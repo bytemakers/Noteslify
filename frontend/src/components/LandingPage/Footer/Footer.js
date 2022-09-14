@@ -25,6 +25,7 @@ const Footer = () => {
               <li style={{color:'white'}}>Features</li>
               <li style={{color:'white'}}>Pricing</li>
               <li style={{color:'white'}}>Contact</li>
+              <a href="https://github.com/devarshishimpi/Noteslify"><li style={{color:'white'}}>Github</li></a>
               <Link to="/Notes"><li style={{color:'white'}}>Dashboard</li></Link>
               <Link to="/Signup"><li style={{color:'white'}}>Get Started</li></Link>
            </ul>
