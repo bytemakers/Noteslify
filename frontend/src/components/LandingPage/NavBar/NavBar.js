@@ -22,6 +22,7 @@ const NavBar = () => {
                <Link to="/"><li>Home</li></Link>
                <li>Features</li>
                <li>Pricing</li>
+               <a href="https://github.com/devarshishimpi/Noteslify"><li>Github</li></a>
                <li>Contact</li>
                <Link to="/Notes"><li>Dashboard</li></Link>
            </ul>     
