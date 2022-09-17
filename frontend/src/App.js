@@ -6,7 +6,8 @@ import Notes from './components/Notes/Notes';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import Setauthtoken from './components/Setauthtoken';
 import ResetPassword from './components/ResetPassword/ResetPassword';
-import LandingPage from './components/LandingPage/LandingPage';
+import Home from './components/LandingPage/Pages/Home';
+import Contact from './components/LandingPage/Pages/Contact';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Route path = "/setauthtoken/:authtoken" element = {<Setauthtoken />}/>
         <Route path = "/forgotpassword" element = {<ForgotPassword />}/>
         <Route path = "/resetpassword/:email/:token" element = {<ResetPassword />}/>
-        <Route path = "/" element = {<LandingPage />}/>
+        <Route path = "/contact" element = {<Contact/>}/>
+        <Route path = "/" element = {<Home />}/>
       </Routes>
     </Router>
   );
