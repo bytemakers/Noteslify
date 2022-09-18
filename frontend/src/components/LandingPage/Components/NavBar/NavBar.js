@@ -20,10 +20,9 @@ const NavBar = () => {
        <nav className= {open ? 'change' : ''}>
            <ul className = "flex">
                <Link to="/"><li>Home</li></Link>
-               <li>Features</li>
-               <li>Pricing</li>
+               <a href = "#About"><li>Features</li></a>
                <a href="https://github.com/devarshishimpi/Noteslify"><li>Github</li></a>
-               <li>Contact</li>
+               <Link to="/contact"><li>Contact</li></Link>
                <Link to="/Notes"><li>Dashboard</li></Link>
            </ul>     
        </nav> 

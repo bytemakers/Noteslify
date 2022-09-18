@@ -2,7 +2,7 @@ import React from 'react'
 import './About.css'
 const About = () => {
   return (
-    <section className = "About-section">
+    <section className = "About-section" id = "About">
         <div className="container flex about-flex">
           <div>
             <div><img src="assets/mobile.png" asset = "mobile-design"/></div>
