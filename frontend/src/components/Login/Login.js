@@ -95,7 +95,7 @@ const Login = () => {
 
                 <div className="form__div form__div-one">
                     <div className="form__icon">
-                        <i class='bx bx-user-circle'></i>
+                        <i className='fa-regular fa-circle-user'></i>
                     </div>
 
                     <div className="form__div-input">
@@ -106,7 +106,7 @@ const Login = () => {
 
                 <div className="form__div">
                     <div className="form__icon">
-                        <i class='bx bx-lock' ></i>
+                        <i className='fa-solid fa-lock' ></i>
                     </div>
 
                     <div className="form__div-input">
