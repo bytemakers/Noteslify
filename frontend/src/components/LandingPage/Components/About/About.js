@@ -5,7 +5,7 @@ const About = () => {
     <section className = "About-section" id = "About">
         <div className="container flex about-flex">
           <div>
-            <div><img src="assets/mobile.png" asset = "mobile-design"/></div>
+            <div><img src="assets/mobile.png" alt="mobileimage" asset = "mobile-design"/></div>
         </div>
         <div className='flex desc'>
           <h2>What is Noteslify?</h2>
