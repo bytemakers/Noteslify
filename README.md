@@ -55,6 +55,23 @@ To deploy this project navigate to the backend folder and run
 ```bash
   node index.js
 ```
+
+Create a `.env` file in the backend folder and add the following
+
+```bash
+JWT_SECRET = "RANDOMSTRINGMUSTNOTCHANGE"
+clientId = "GITHUBAUTHCLIENTID"
+clientSecret = "GITHUBAUTHCLIENTSECRET"
+GoogleClientId = "GOOGLEAUTHCLIENTID"
+GoogleClientSecret = "GOOGLEAUTHCLIENTSECRET"
+SECRET = "RANDOMSTRINGMUSTNOTCHANGE"
+DefaultGitHubPassword = "RANDOMSTRINGMUSTNOTCHANGE"
+outlookEmail = "OUTLOOKEMAIL"
+outlookPassword = "OUTLOOKPASSWORD"
+```
+
+#### Note : Outlook Email and Password are used for sending Forgot Password emails to users. Github And Google Auth is currently being added to the project therefore they are required as well.
+
 ### Deploying Frontend
 
 To deploy this project navigate to the frontend folder and run
