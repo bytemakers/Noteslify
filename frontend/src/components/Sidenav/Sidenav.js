@@ -55,49 +55,49 @@ const Sidenav = () => {
           <div className="menu">
 
               <li onClick={searchbarClick} className="search-box">
-                  <i className="fa-solid fa-magnifying-glass"></i>
+                  <i className="fa-solid fa-magnifying-glass icon"></i>
                   <input type="text" placeholder="Search..."/>
               </li>
 
               <ul className="menu-links">
                   <li className="nav-link">
                       <a href="/">
-                          <i className="fa-solid fa-house"></i>
+                          <i className="fa-solid fa-house icon"></i>
                           <span className="text nav-text">Soon..</span>
                       </a>
                   </li>
 
                   <li className="nav-link">
                       <a href="/">
-                          <i className="fa-solid fa-chart-simple"></i>
+                          <i className="fa-solid fa-chart-simple icon"></i>
                           <span className="text nav-text">Soon..</span>
                       </a>
                   </li>
 
                   <li className="nav-link">
                       <a href="/">
-                          <i className="fa-regular fa-bell"></i>
+                          <i className="fa-regular fa-bell icon"></i>
                           <span className="text nav-text">Soon..</span>
                       </a>
                   </li>
 
                   <li className="nav-link">
                       <a href="/">
-                          <i className="fa-solid fa-chart-pie"></i>
+                          <i className="fa-solid fa-chart-pie icon"></i>
                           <span className="text nav-text">Soon..</span>
                       </a>
                   </li>
 
                   <li className="nav-link">
                       <a href="/">
-                          <i className="fa-regular fa-heart"></i>
+                          <i className="fa-regular fa-heart icon"></i>
                           <span className="text nav-text">Soon..</span>
                       </a>
                   </li>
 
                   <li className="nav-link">
                       <a href="/">
-                          <i class="fa-solid fa-wallet"></i>
+                          <i class="fa-solid fa-wallet icon"></i>
                           <span className="text nav-text">Soon..</span>
                       </a>
                   </li>
@@ -108,7 +108,7 @@ const Sidenav = () => {
           <div className="bottom-content">
               <li>
                   <a onClick={logout} href="/" id="logout-button">
-                      <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                      <i className="fa-solid fa-arrow-right-from-bracket icon"></i>
                       <span className="logout">Logout</span>
                   </a>
               </li>
