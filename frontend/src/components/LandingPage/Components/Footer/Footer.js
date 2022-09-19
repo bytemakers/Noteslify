@@ -13,9 +13,9 @@ const Footer = () => {
             <p>Your Privacy Friendly, Open Source. Alternative to Google Keep.</p>
             <div className='links'>
               <ul className='flex'>
-                <a href="https://github.com/devarshishimpi/Noteslify"><li><i class="uil uil-github"></i></li></a>
-                <li><i class="uil uil-linkedin"></i></li>
-                <li><i class="uil uil-twitter"></i></li>
+                <a href="https://github.com/devarshishimpi/Noteslify"><li><i className="fa-brands fa-github"></i></li></a>
+                <li><i className="fa-brands fa-linkedin"></i></li>
+                <li><i className="fa-brands fa-twitter"></i></li>
               </ul>
             </div>
          </div>

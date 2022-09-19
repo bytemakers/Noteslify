@@ -187,7 +187,7 @@ const Notes = () => {
           <div className="content">
             <header>
               <p>Add a new Note</p>
-              <i onClick={closeAddNoteModal} className="uil uil-times"></i>
+              <i onClick={closeAddNoteModal} className="fa-solid fa-xmark"></i>
             </header>
             <form onSubmit={addANewNote} id="notes-form" action="#" enctype="multipart/form-data">
               <div className="row title">
@@ -211,7 +211,8 @@ const Notes = () => {
           <div className="content">
             <header>
               <p>Edit Note</p>
-              <i onClick={closeEditNoteModal} className="uil uil-times"></i>
+              <i onClick={closeEditNoteModal} className="fa-solid fa-xmark"></i>
+
             </header>
             <form onSubmit={updateNote} id="notes-form" action="#" enctype="multipart/form-data">
               <div className="row title">
@@ -231,7 +232,7 @@ const Notes = () => {
 
       <div className="wrapper">
         <li onClick={openAddNoteModalForNewNote} className="add-box">
-          <div className="icon"><i className="uil uil-plus"></i></div>
+          <div className="icon"><i className="fa-solid fa-plus"></i></div>
           <p>Add new note</p>
         </li>
 
@@ -247,10 +248,10 @@ const Notes = () => {
                     <div className="bottom-content">
                         <span>{convertToMonthName(new Date(dateStu).getMonth()) + " " + new Date(dateStu).getDate().toString() + ", " + new Date(dateStu).getFullYear()}</span>
                         <div id={`settings-${note._id}`} className="settings">
-                            <i onClick={() => openMenu(note._id)} className="uil uil-ellipsis-h"></i>
+                            <i onClick={() => openMenu(note._id)} className="fa-solid fa-ellipsis"></i>
                             <ul className="menu show">
-                                <li onClick={() => openAddNoteModalForEditNote(note._id)}><i className="uil uil-pen"></i>Edit</li>
-                                <li onClick={() => deleteNote(note._id)}><i className="uil uil-trash"></i>Delete</li>
+                                <li onClick={() => openAddNoteModalForEditNote(note._id)}><i className="fa-solid fa-pen"></i>Edit</li>
+                                <li onClick={() => deleteNote(note._id)}><i className="fa-regular fa-trash-can"></i>Delete</li>
                             </ul>
                         </div>
                     </div>
