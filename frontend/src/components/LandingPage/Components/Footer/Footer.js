@@ -10,7 +10,7 @@ const Footer = () => {
          <div>
             <h4>Noteslify</h4>
             <h5>By DVS Tech Labs</h5>
-            <p>Your Privacy Friendly, Open Source. Alternative to Google Keep.</p>
+            <p>Your Privacy Friendly, Open Source. Alternative to Evernote.</p>
             <div className='links'>
               <ul className='flex'>
                 <a href="https://github.com/devarshishimpi/Noteslify"><li><i className="fa-brands fa-github"></i></li></a>
