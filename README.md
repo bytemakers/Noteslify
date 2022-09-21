@@ -1,6 +1,6 @@
 # Noteslify
 
-## Your Privacy Friendly, Open Source. Alternative to EverNotes.
+## Your Privacy Friendly, Open Source. Alternative to EverNote.
 
 ![Border](images/noteslifylogo.png)
 
