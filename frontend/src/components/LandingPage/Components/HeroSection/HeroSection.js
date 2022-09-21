@@ -6,7 +6,7 @@ const HeroSection = () => {
     <section className = "hero-section">
       <div className='container flex'>
          <h1 style = {{padding:'0px'}}>Your Privacy Friendly, Open Source.
-Alternative to Google Keep.</h1>
+Alternative to EverNote.</h1>
           <h4> 
             Capture your notes, files, and life’s work all in one secure place.
           </h4>
