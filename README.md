@@ -1,6 +1,6 @@
 # Noteslify
 
-## Your Privacy Friendly, Open Source. Alternative to Google Keep.
+## Your Privacy Friendly, Open Source. Alternative to Ever Note.
 
 ![Border](images/noteslifylogo.png)
 
