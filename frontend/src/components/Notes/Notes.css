@@ -9,6 +9,12 @@ header,
     justify-content: space-between;
 }
 
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .add-box {
     cursor: pointer;
     flex-direction: column;

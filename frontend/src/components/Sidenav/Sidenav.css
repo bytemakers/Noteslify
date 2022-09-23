@@ -17,9 +17,11 @@
 
 /* ===== Reusable code - Here ===== */
 .sidebar li {
-    height: 50px;
+    /* height: 50px; */
+    padding: 10px;
     list-style: none;
     display: flex;
+    border-radius: 15px;
     align-items: center;
     margin-top: 10px;
 }
@@ -156,12 +158,12 @@ header .image-text .profession {
     transition: var(--tran-03);
 }
 
-.sidebar li a:hover {
+.sidebar li:hover {
     background-color: var(--primary-color);
 }
 
-.sidebar li a:hover .icon,
-.sidebar li a:hover .text {
+.sidebar li:hover .icon,
+.sidebar li:hover .text {
     color: var(--sidebar-color);
 }
 
@@ -179,7 +181,7 @@ body.dark .sidebar li a:hover .text {
 .bottom-content li .logout {
     color: var(--text-color);
     font-size: 18px;
-    padding: 20px;
+    padding: 5px;
 }
 
 .bottom-content li a:hover {

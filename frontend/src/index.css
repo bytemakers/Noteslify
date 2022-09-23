@@ -1,3 +1,11 @@
 html {
     scroll-behavior: smooth;
 }
+
+#light {
+    background: var(--sidebar-color);
+}
+
+#dark {
+    background: rgb(29, 28, 28);
+}

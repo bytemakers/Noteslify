@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Notes.css'
 import Sidenav from '../Sidenav/Sidenav'
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoadingBar from 'react-top-loading-bar'
+import Switch from 'react-js-switch';
+import GlobalContext from '../../context/GlobalContext';
 
 const Notes = () => {
+    const [isSwitchOn, setIsSwitchOn] = useState(true);
     const [notesList, setNotesList] = useState([]);
     const [addNoteTitle, setAddNoteTitle] = useState('');
     const [addNoteDescription, setAddNoteDescription] = useState('');
     const [updateNoteId, setUpdateNoteId] = useState("");
     const [progress, setProgress] = useState(0);
+    const {theme , setTheme} = useContext(GlobalContext);
 
     const navigate = useNavigate();
 
@@ -169,6 +173,13 @@ const Notes = () => {
     // eslint-disable-next-line
     }, [])
     
+    
+
+  const switch_onChange_handle = () => {
+    setIsSwitchOn(!isSwitchOn);
+    setTheme(theme == "light" ? "dark" : "light");
+  };
+  
 
   return (
     <>
@@ -179,8 +190,16 @@ const Notes = () => {
       />
     <Sidenav />
     <section className="home">
+      <div className='head'>
       <div className="text">Dashboard</div>
-
+       <div>
+        <label>
+            <Switch value={isSwitchOn} onChange={switch_onChange_handle}  
+            backgroundColor= {{on: 'var(--primary-color)', off:'white'}} 
+            borderColor = {{ on: 'var(--primary-color)', off: 'white' }}/>
+        </label>
+       </div>
+       </div>
       {/* Add note Modal Starts */}
       <div id='popup-box' className="popup-box">
         <div className="popup">
@@ -263,6 +282,7 @@ const Notes = () => {
       </div>
       <ToastContainer toastStyle={{ backgroundColor: "#202d40", color: 'white' }} />
     </section>
+
     </>
   )
 }
