@@ -37,3 +37,14 @@
     border-radius: 15px;
     margin-left: 50%;
 }
+
+@media screen and (max-width:850px) {
+    .contact-section {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .contact-section .img-sec {
+        width: 70%;
+    }
+}
