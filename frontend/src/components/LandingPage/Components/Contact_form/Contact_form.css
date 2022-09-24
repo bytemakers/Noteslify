@@ -1,0 +1,39 @@
+.contact-section {
+    justify-content: space-around;
+    min-height: 100vh;
+}
+
+.contact-section .img-sec {
+    width: 40%;
+}
+
+.contact-section form input {
+    border-radius: 15px;
+}
+
+.contact-section h2 {
+    font-size: 36px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-section textarea {
+    border-radius: 15px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100px;
+}
+
+.Contact-form form button {
+    width: 50%;
+    border-radius: 15px;
+    margin-left: 50%;
+}
