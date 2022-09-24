@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Sidenav.css'
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png'
+import GlobalContext from '../../context/GlobalContext';
 
 const Sidenav = () => {
+    const { theme ,setTheme } = useContext(GlobalContext)
     const navigate = useNavigate();
-
+ 
     const logout = (e) => {
         e.preventDefault();
         sessionStorage.removeItem('auth-token');
@@ -35,7 +37,7 @@ const Sidenav = () => {
 
 
   return (
-    <nav className="sidebar close">
+    <nav className="sidebar close" id ={theme}>
       <header>
           <div className="image-text">
               <span className="image">
