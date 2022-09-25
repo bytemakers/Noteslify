@@ -110,6 +110,15 @@ const Notes = () => {
 
     }
 
+    const openAddNoteModalForPreviewNote = async (id) => {
+      const popupBox = document.getElementById('popup-box-preview');
+      popupBox.classList.add('show');
+
+      document.getElementById('modal-title-input').focus();
+
+      await getSingleNote(id);
+    }
+
     const closeAddNoteModal = () => {
         document.getElementById('popup-box').classList.remove('show');
     }
@@ -119,6 +128,10 @@ const Notes = () => {
 
         setAddNoteDescription('');
         setAddNoteTitle('');
+    }
+
+    const closePreviewNoteModal = () => {
+      document.getElementById('popup-box-preview').classList.remove('show');
     }
 
     const addANewNote = async (e) => {
@@ -249,6 +262,28 @@ const Notes = () => {
       </div>
       {/* Edit note Modal Ends */}
 
+       {/* Preview note Modal Starts */}
+       <div id='popup-box-preview' className="popup-box">
+        <div className="popup">
+          <div className="content">
+            <header>
+              <p></p>
+              <i onClick={closePreviewNoteModal} className="fa-solid fa-xmark"></i>
+
+            </header>
+            <form id="notes-form" action="#" enctype="multipart/form-data">
+              <div className="row title">
+                <input value={addNoteTitle} disabled={true} id='modal-title-input' type="text" name="title" spellcheck="false"/>
+              </div>
+              <div className="row description">
+                <textarea value={addNoteDescription} disabled={true} onChange={(e) => setAddNoteDescription(e.target.value)} name="description" spellcheck="false"></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      {/* Preview note Modal Ends */}
+
       <div className="wrapper">
         <li onClick={openAddNoteModalForNewNote} className="add-box">
           <div className="icon"><i className="fa-solid fa-plus"></i></div>
@@ -259,14 +294,14 @@ const Notes = () => {
         {notesList.map((note) => {
             const dateStu = note.createdAt;
             return (
-                <li id={note._id} key={note._id} className="note">
+                <li id={note._id} key={note._id} className="note" onClick={() => openAddNoteModalForPreviewNote(note._id)}>
                     <div className="details">
                         <p>{note.title}</p>
                         <span>{note.description}</span>
                     </div>
                     <div className="bottom-content">
                         <span>{convertToMonthName(new Date(dateStu).getMonth()) + " " + new Date(dateStu).getDate().toString() + ", " + new Date(dateStu).getFullYear()}</span>
-                        <div id={`settings-${note._id}`} className="settings">
+                        <div id={`settings-${note._id}`} className="settings" onClick={(e)=> e.stopPropagation()}>
                             <i onClick={() => openMenu(note._id)} className="fa-solid fa-ellipsis"></i>
                             <ul className="menu show">
                                 <li onClick={() => openAddNoteModalForEditNote(note._id)}><i className="fa-solid fa-pen"></i>Edit</li>
