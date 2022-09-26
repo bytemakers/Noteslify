@@ -20,9 +20,10 @@ Our System Statuspage is Available At <a href="https://dvstechlabs.statuspage.io
 
 The Developer Team behind Noteslify. This project wouldn't have been possible without them and our awesome contributors.
 
-- [@devarshishimpi](https://www.github.com/devarshishimpi)
-- [@khushi818](https://github.com/khushi818)
-- [@abhinandanwadwa](https://github.com/abhinandanwadwa)
+- [@devarshishimpi](https://www.github.com/devarshishimpi) [ Owner, Developer Team, Support Team ]
+- [@khushi818](https://github.com/khushi818) [ Developer Team, Support Team ]
+- [@abhinandanwadwa](https://github.com/abhinandanwadwa) [ Developer Team, Support Team ]
+- [@Ravina-Deogadkar](https://github.com/Ravina-Deogadkar) [ Developer Team, Support Team ]
 
 ## Contributing
 
