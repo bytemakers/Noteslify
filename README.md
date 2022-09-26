@@ -24,6 +24,7 @@ The Developer Team behind Noteslify. This project wouldn't have been possible wi
 - [@khushi818](https://github.com/khushi818) [ Developer Team, Support Team ]
 - [@abhinandanwadwa](https://github.com/abhinandanwadwa) [ Developer Team, Support Team ]
 - [@Ravina-Deogadkar](https://github.com/Ravina-Deogadkar) [ Developer Team, Support Team ]
+- [@MrKrishnaAgarwal](https://github.com/MrKrishnaAgarwal) [ Support Team ]
 
 ## Contributing
 
