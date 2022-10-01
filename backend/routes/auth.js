@@ -323,8 +323,8 @@ router.post('/forgotpassword', [
 
     transporter.sendMail(options, (err, info) => {
         if (err) {
+            console.log(err);
             return res.status(400).json({ error: "Internal Server Error!" });
-            console.log(error);
         }
         console.log(info.response);
 

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import './Sidenav.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png'
 import GlobalContext from '../../context/GlobalContext';
 
@@ -84,10 +84,10 @@ const Sidenav = () => {
                   </li>
 
                   <li className="nav-link">
-                      <a href="/">
+                      <Link to={'/bin'}>
                           <i className="fa-solid fa-chart-pie icon"></i>
-                          <span className="text nav-text">Soon..</span>
-                      </a>
+                          <span className="text nav-text">Bin</span>
+                      </Link>
                   </li>
 
                   <li className="nav-link">
