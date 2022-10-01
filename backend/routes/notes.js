@@ -53,7 +53,7 @@ router.delete('/deletenote/:id', fetchuser, async (req, res) => {
         const theNote = await NoteSchema.findById(req.params.id);
 
         if (theNote.authorId === theUser.id) {
-            await theNote.delete();
+            await theNote.update({ isDeleted: true });
             return res.status(200).json({ success: "Successfully Deleted the Note" });
         }
         else {
@@ -73,7 +73,7 @@ router.delete('/deletenote/:id', fetchuser, async (req, res) => {
 // Route 3: Getting all user specific notes: GET: http://localhost:8181/api/notes/getallnotes. Login Required
 router.get('/getallnotes', fetchuser, async (req, res) => {
     try {
-        const allNotes = await NoteSchema.find({ authorId: req.user.id }).sort({ createdAt: -1 });
+        const allNotes = await NoteSchema.find({ authorId: req.user.id, isDeleted: false }).sort({ createdAt: -1 });
         res.status(200).json(allNotes);
 
     } catch (error) {
@@ -131,6 +131,52 @@ router.put('/updatenote/:id', fetchuser, [
         return res.status(500).send("Internal Server Error");
     }
 });
+
+
+
+// ROUTE 6: Getting all the deleted notes: GET : http://localhost:8181/api/notes/bin. Login Required!!
+router.get('/bin', fetchuser, async (req, res) => {
+    try {
+        const allDeletedNotes = await NoteSchema.find({ authorId: req.user.id, isDeleted: true });
+        return res.status(200).json(allDeletedNotes);
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send("Internal Server Error");
+    }
+});
+
+
+
+
+
+
+
+
+// ROUTE 7: Unarchiving a Note: PUT : http://localhost:8181/api/notes/unarchive/:id. Login Required!!
+router.put('/unarchive/:id', fetchuser, async (req, res) => {
+    try {
+
+        const theNote = await NoteSchema.findById(req.params.id);
+        if (theNote.authorId === req.user.id) {
+            // This note belongs to this user...
+            await theNote.update({ isDeleted: false });
+            res.status(200).json({ success: "Successfully Unarchived the Note!!" })
+        }
+        else {
+            // This note doesn't belongs to this user...
+            return res.status(403).json({ error: "Unauthorized Access" });
+        }
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send("Internal Server Error");
+    }
+
+
+    
+});
+
 
 
 module.exports = router;
