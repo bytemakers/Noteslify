@@ -29,7 +29,7 @@ router.use(session({
         secure: false,
         maxAge: 24 * 60 * 60 * 1000,
     },
-  })
+})
 );
 
 
@@ -52,10 +52,10 @@ router.post('/register', [
     body('username', "Username should be at least 4 characters.").isLength({ min: 4 }),
     body('password', "Password Should Be At Least 8 Characters.").isLength({ min: 8 }),
 ], async (req, res) => {
-    
+
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({ errors: errors.array() });
     }
 
     try {
@@ -68,7 +68,7 @@ router.post('/register', [
         if (checkMultipleUsers2) {
             return res.status(403).json({ error: "A User with this username already exists" });
         }
-        
+
         var salt = await bcrypt.genSalt(10);
         var hash = await bcrypt.hash(req.body.password, salt);
         const newUser = await UserSchema.create({
@@ -109,7 +109,7 @@ router.post('/login', [
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({ errors: errors.array() });
     }
 
 
@@ -144,7 +144,7 @@ router.post('/login', [
 
 
 
-    // GITHUB AUTHENTICATION (START)
+// GITHUB AUTHENTICATION (START)
 
 
 
@@ -153,122 +153,122 @@ passport.use(new GitHubStrategy({
     clientID: process.env.clientId,
     clientSecret: process.env.clientSecret,
     callbackURL: "http://localhost:8181/api/auth/github/callback"
-  },
+},
   function(accessToken, refreshToken, profile, cb) {
-    // User.findOrCreate({ githubId: profile.id }, function (err, user) {
-    //   return cb(err, user);
-    // });
-   cb(null, profile); 
-  }
+        // User.findOrCreate({ githubId: profile.id }, function (err, user) {
+        //   return cb(err, user);
+        // });
+        cb(null, profile);
+    }
 ));
 
 
 
 // Route 3: Authenticating using GitHub: GET: http://localhost:8181/api/auth/github. No Login Required
 router.get('/github',
-  passport.authenticate('github'));
+    passport.authenticate('github'));
 
 
 
 // Route 4: Doing Things after GitHub authentication: GET: http://localhost:8181/api/auth/github/callback. No Login Required
-router.get('/github/callback', 
-  passport.authenticate('github', { failureRedirect: '/login' }),
+router.get('/github/callback',
+    passport.authenticate('github', { failureRedirect: '/login' }),
   async function(req, res) {
 
-    const theUser = await UserSchema.findOne({ username: req.user._json.login });
-    if (theUser) {
-        let payload = {
-            user: {
-                id: theUser.id
-            }
-        }
-        const authtoken = jwt.sign(payload, JWT_SECRET);
-        // Successful authentication, redirect home.
-        res.redirect(`http://localhost:3000/setauthtoken/${authtoken}`);
-    }
-    else {
-        var salt = await bcrypt.genSalt(10);
-        var hash = await bcrypt.hash(process.env.DefaultGitHubPassword, salt);
-        const newUser = await UserSchema.create({
-            email: `${req.user._json.login}@gmail.com`,
-            username: req.user._json.login,
-            password: hash,
-        });
-
-        let payload = {
-            user: {
-                id: newUser.id
-            }
-        }
-
-        const authtoken = jwt.sign(payload, JWT_SECRET);
-        // Successful authentication, redirect home.
-        res.redirect(`http://localhost:3000/setauthtoken/${authtoken}`);
-    }
-});
-
-
-
-    // GITHUB AUTHENTICATION (END)
-
-    
-
-    // GOOGLE AUTHENTICATION (START)
-
-    passport.use(new GoogleStrategy({
-        clientID: process.env.GoogleClientId,
-        clientSecret: process.env.GoogleClientSecret,
-        callbackURL: 'http://localhost:8181/api/auth/google/callback'
-      },
-      function(issuer, profile, cb) {
-        cb(null, profile);
-      }
-    ));
-
-
-    router.get('/google', passport.authenticate('google', {
-        scope: [ 'email' ]
-    }));
-
-    router.get('/google/callback',
-        passport.authenticate('google', { failureRedirect: '/login', failureMessage: true }),
-        async function(req, res) {
-
-            const email = req.user.emails[0].value;
-            const theUser = await UserSchema.findOne({ email: email });
-
-            if (theUser) {
-                let payload = {
-                    user: {
-                        id: theUser.id
-                    }
+        const theUser = await UserSchema.findOne({ username: req.user._json.login });
+        if (theUser) {
+            let payload = {
+                user: {
+                    id: theUser.id
                 }
-                const authtoken = jwt.sign(payload, JWT_SECRET);
-                // Successful authentication, redirect home.
-                res.redirect(`http://localhost:3000/setauthtoken/${authtoken}`);
             }
-            else {
-                var salt = await bcrypt.genSalt(10);
-                var hash = await bcrypt.hash(process.env.DefaultGitHubPassword, salt);
-                const newUser = await UserSchema.create({
-                    email: email,
-                    username: `${email}__username`,
-                    password: hash,
-                });
+            const authtoken = jwt.sign(payload, JWT_SECRET);
+            // Successful authentication, redirect home.
+            res.redirect(`http://localhost:3000/setauthtoken/${authtoken}`);
+        }
+        else {
+            var salt = await bcrypt.genSalt(10);
+            var hash = await bcrypt.hash(process.env.DefaultGitHubPassword, salt);
+            const newUser = await UserSchema.create({
+                email: `${req.user._json.login}@gmail.com`,
+                username: req.user._json.login,
+                password: hash,
+            });
 
-                let payload = {
-                    user: {
-                        id: newUser.id
-                    }
+            let payload = {
+                user: {
+                    id: newUser.id
                 }
-
-                const authtoken = jwt.sign(payload, JWT_SECRET);
-                // Successful authentication, redirect home.
-                res.redirect(`http://localhost:3000/setauthtoken/${authtoken}`);
             }
+
+            const authtoken = jwt.sign(payload, JWT_SECRET);
+            // Successful authentication, redirect home.
+            res.redirect(`http://localhost:3000/setauthtoken/${authtoken}`);
+        }
     });
 
-    // GOOGLE AUTHENTICATION (END)
+
+
+// GITHUB AUTHENTICATION (END)
+
+
+
+// GOOGLE AUTHENTICATION (START)
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.GoogleClientId,
+    clientSecret: process.env.GoogleClientSecret,
+    callbackURL: 'http://localhost:8181/api/auth/google/callback'
+},
+      function(issuer, profile, cb) {
+        cb(null, profile);
+    }
+));
+
+
+router.get('/google', passport.authenticate('google', {
+        scope: [ 'email' ]
+}));
+
+router.get('/google/callback',
+    passport.authenticate('google', { failureRedirect: '/login', failureMessage: true }),
+        async function(req, res) {
+
+        const email = req.user.emails[0].value;
+        const theUser = await UserSchema.findOne({ email: email });
+
+        if (theUser) {
+            let payload = {
+                user: {
+                    id: theUser.id
+                }
+            }
+            const authtoken = jwt.sign(payload, JWT_SECRET);
+            // Successful authentication, redirect home.
+            res.redirect(`http://localhost:3000/setauthtoken/${authtoken}`);
+        }
+        else {
+            var salt = await bcrypt.genSalt(10);
+            var hash = await bcrypt.hash(process.env.DefaultGitHubPassword, salt);
+            const newUser = await UserSchema.create({
+                email: email,
+                username: `${email}__username`,
+                password: hash,
+            });
+
+            let payload = {
+                user: {
+                    id: newUser.id
+                }
+            }
+
+            const authtoken = jwt.sign(payload, JWT_SECRET);
+            // Successful authentication, redirect home.
+            res.redirect(`http://localhost:3000/setauthtoken/${authtoken}`);
+        }
+    });
+
+// GOOGLE AUTHENTICATION (END)
 
 
 
@@ -283,7 +283,7 @@ router.post('/forgotpassword', [
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({ errors: errors.array() });
     }
 
     const theUser = await UserSchema.findOne({ email: req.body.email });
@@ -297,13 +297,13 @@ router.post('/forgotpassword', [
 
     // Generating a new token
     const fpToken = uuidv4();
-    
+
     // Pushing the token with email in the DB
     fpSchema.create({
         email: req.body.email,
         token: fpToken
     });
-    
+
 
 
     const transporter = nodemailer.createTransport({
@@ -353,7 +353,7 @@ router.post('/checktoken', [
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({ errors: errors.array() });
     }
 
     const fpDocument = await fpSchema.findOne({ email: req.body.email, token: req.body.token });
@@ -379,7 +379,7 @@ router.post('/checktoken', [
     else {
         return res.status(400).json({ expired: "The Token Has been expired. Please generate a new token" });
     }
-    
+
 });
 
 
@@ -400,7 +400,7 @@ router.post('/changepassword', [
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({ errors: errors.array() });
     }
 
     const fpDocument = await fpSchema.findOne({ email: req.body.email, token: req.body.token });
@@ -434,8 +434,42 @@ router.post('/changepassword', [
     else {
         return res.status(400).json({ expired: "The Token Has been expired. Please generate a new token" });
     }
-    
-
 });
+
+
+
+
+// Route 9: Changing Password: PUT: http://localhost:8181/api/auth/login/changepassword. Login Required
+
+
+router.put('/login/changepassword',
+    [body('currentpassword', "Password should be at least 8 characters.").isLength({ min: 8 }),
+    body('newpassword', "Password should be at least 8 characters.").isLength({ min: 8 })],
+    fetchuser, async (req, res) => {
+
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ error: errors.array() });
+        }
+
+        try {
+            const user = await UserSchema.findById(req.user.id);
+
+            const checkHash = await bcrypt.compare(req.body.currentpassword, user.password);
+            if (!checkHash) {
+                return res.status(400).json({ error: "Incorrect Current Password!" });
+
+            }
+
+            var salt = await bcrypt.genSalt(10);
+            var hash = await bcrypt.hash(req.body.newpassword, salt);
+
+            await UserSchema.findByIdAndUpdate(user.id, { password: hash });
+            return res.status(200).json({ success: "Password Changed Successfully!" });
+
+        } catch (error) {
+            return res.status(500).send("Internal Server Error");
+        }
+    })
 
 module.exports = router;
