@@ -190,7 +190,7 @@ const Notes = () => {
 
   const switch_onChange_handle = () => {
     setIsSwitchOn(!isSwitchOn);
-    setTheme(theme == "light" ? "dark" : "light");
+    setTheme(theme === "light" ? "dark" : "light");
   };
   
 

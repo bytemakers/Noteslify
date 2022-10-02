@@ -63,17 +63,17 @@ const Sidenav = () => {
 
               <ul className="menu-links">
                   <li className="nav-link">
-                      <Link to={'/notes'}>
+                        <Link to={'/notes'}>
                           <i className="fa-solid fa-house icon"></i>
                           <span className="text nav-text">Dashboard</span>
-                      </Link>
+                        </Link>
                   </li>
 
                   <li className="nav-link">
-                      <a href="/">
-                          <i className="fa-solid fa-chart-simple icon"></i>
-                          <span className="text nav-text">Soon..</span>
-                      </a>
+                        <Link to={'/myaccount'}>
+                          <i className="fa-solid fa-circle-user icon"></i>
+                          <span className="text nav-text">My Account</span>
+                        </Link>
                   </li>
 
                   <li className="nav-link">

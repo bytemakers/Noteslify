@@ -6,10 +6,10 @@ import Notes from './components/Notes/Notes';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import Setauthtoken from './components/Setauthtoken';
 import ResetPassword from './components/ResetPassword/ResetPassword';
-// import LandingPage from './components/LandingPage/'
 import Home from './components/LandingPage/Pages/Home'
 import Contact from './components/LandingPage/Pages/Contact'
 import RecycleBin from './components/RecycleBin/RecycleBin';
+import Account from './components/Account/Account';
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
         <Route path = "/contact" element = {<Contact/>}/>
         <Route path = "/" element = {<Home />}/>
         <Route path = "/bin" element = {<RecycleBin />}/>
+        <Route path = "/myaccount" element = {<Account />}/>
       </Routes>
     </Router>
   );
