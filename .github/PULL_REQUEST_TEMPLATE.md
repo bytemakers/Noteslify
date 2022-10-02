@@ -12,6 +12,6 @@
 
 - [ ] I ran the app and tested it locally to verify that it works as expected.
 
-## Additional Information (Optional)
+- [ ] I have starred the repository.
 
-Any additional information that you want to give us.
+## Additional Information (Optional)
