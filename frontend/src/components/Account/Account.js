@@ -120,7 +120,7 @@ const Account = () => {
                   <label>Current Password</label>
                   <input
                     id="modal-current-password-input"
-                    type="text"
+                    type="password"
                     name="title"
                     spellcheck="false"
                     onChange={(e) => setCurrentPassword(e.target.value)}
@@ -131,7 +131,7 @@ const Account = () => {
                   <label>New Password</label>
                   <input
                     id="modal-new-password-input"
-                    type="text"
+                    type="password"
                     name="title"
                     spellcheck="false"
                     onChange={(e) => setNewPassword(e.target.value)}
@@ -142,7 +142,7 @@ const Account = () => {
                   <label>Confirm Password</label>
                   <input
                     id="modal-confirm-password-input"
-                    type="text"
+                    type="password"
                     name="title"
                     spellcheck="false"
                     onChange={(e) => setConfirmPassword(e.target.value)}
