@@ -439,7 +439,7 @@ router.post('/changepassword', [
 
 
 
-// Route 9: Changing Password: POST: http://localhost:8181/api/auth/changepassword/:id. Login Required
+// Route 9: Changing Password: PUT: http://localhost:8181/api/auth/login/changepassword. Login Required
 
 
 router.put('/login/changepassword',
