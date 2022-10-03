@@ -47,6 +47,24 @@ header,
     max-height: 165px;
     overflow-y: auto;
 }
+.previewbox{
+    border-radius: 4px;
+    border: 1px solid #999;
+    width: 100%;
+}
+
+.previewdescription{
+    height: 150px;
+    resize: none;
+    padding: 8px 15px;
+    overflow-y: auto;
+}
+
+.previewtitle{
+    height: 50px;
+    padding: 0 15px;
+    overflow-y: auto;
+}
 
 .note .details::-webkit-scrollbar,
 .popup textarea::-webkit-scrollbar {
@@ -205,7 +223,8 @@ header,
 }
 
 .content form {
-    margin: 15px 25px 35px;
+    margin: 15px 5px 35px;
+    padding: 0 0.5em
 }
 
 .content form .row {
