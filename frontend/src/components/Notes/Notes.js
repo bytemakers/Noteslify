@@ -177,7 +177,7 @@ const Notes = () => {
 
     useEffect(() => {
       if (!sessionStorage.getItem('auth-token') || sessionStorage.getItem('auth-token') === "") {
-        navigate('/login');
+        navigate('/login', { replace: true });
       }
       else {
         setProgress(10);
