@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import LoadingBar from 'react-top-loading-bar'
 import Sidenav from '../Sidenav/Sidenav'
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { RiInboxUnarchiveLine } from 'react-icons/ri';
 
@@ -65,6 +66,7 @@ const RecycleBin = () => {
     });
 
     const json = await response.json();
+    toast.success(json.success);
     // setNotesList(notesList.filter())
     await getDeletedNotes(authtoken);
   }
