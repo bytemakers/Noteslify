@@ -54,7 +54,7 @@ router.delete('/deletenote/:id', fetchuser, async (req, res) => {
 
         if (theNote.authorId === theUser.id) {
             await theNote.update({ isDeleted: true });
-            return res.status(200).json({ success: "Successfully Deleted the Note" });
+            return res.status(200).json({ success: "Note Moved to Bin" });
         }
         else {
             return res.status(403).json({ error: "You can not delete the note of some other user." });
@@ -69,8 +69,36 @@ router.delete('/deletenote/:id', fetchuser, async (req, res) => {
 
 
 
+// Route 3: Deleting an existing note: DELETE: http://localhost:8181/api/notes/deletenotepermanently/:id. Login Required
+router.delete('/deletenotepermanently/:id', fetchuser, async (req, res) => {
+    try {
+        const theUser = await UserSchema.findById(req.user.id);
+        const theNote = await NoteSchema.findById(req.params.id);
 
-// Route 3: Getting all user specific notes: GET: http://localhost:8181/api/notes/getallnotes. Login Required
+        if (!theNote) {
+            return res.status(403).json({ error: "This note doesn't exist" });
+        }
+
+        if(theNote.authorId === theUser.id) {
+            await theNote.delete();
+            return res.status(200).json({ success: "Successfully Deleted the Note Permanently" });
+        }
+        else {
+            console.log(theNote.authorId);
+            console.log(theUser.id);
+            return res.status(403).json({ error: "You cannot delete the note of some other user." });
+        }
+
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send("Internal Server Error");
+    }
+})
+
+
+
+
+// Route 4: Getting all user specific notes: GET: http://localhost:8181/api/notes/getallnotes. Login Required
 router.get('/getallnotes', fetchuser, async (req, res) => {
     try {
         const allNotes = await NoteSchema.find({ authorId: req.user.id, isDeleted: false }).sort({ createdAt: -1 });
@@ -85,7 +113,7 @@ router.get('/getallnotes', fetchuser, async (req, res) => {
 
 
 
-// Route 4: Getting A Single User Specific Note: GET: http://localhost:8181/api/notes/getnote/:id. Login Required
+// Route 5: Getting A Single User Specific Note: GET: http://localhost:8181/api/notes/getnote/:id. Login Required
 router.get('/getnote/:id', fetchuser, async (req, res) => {
     try {
         const theNote = await NoteSchema.findById(req.params.id);
@@ -104,7 +132,7 @@ router.get('/getnote/:id', fetchuser, async (req, res) => {
 
 
 
-// Route 5: Updating Note: GET: http://localhost:8181/api/notes/updatenote/:id. Login Required
+// Route 6: Updating Note: GET: http://localhost:8181/api/notes/updatenote/:id. Login Required
 router.put('/updatenote/:id', fetchuser, [
     body('title', "Title cannot be blank.").isLength({ min: 1 }),
     body('description', "Description cannot be black.").isLength({ min: 1 }),
@@ -134,7 +162,7 @@ router.put('/updatenote/:id', fetchuser, [
 
 
 
-// ROUTE 6: Getting all the deleted notes: GET : http://localhost:8181/api/notes/bin. Login Required!!
+// ROUTE 7: Getting all the deleted notes: GET : http://localhost:8181/api/notes/bin. Login Required!!
 router.get('/bin', fetchuser, async (req, res) => {
     try {
         const allDeletedNotes = await NoteSchema.find({ authorId: req.user.id, isDeleted: true });
@@ -153,7 +181,7 @@ router.get('/bin', fetchuser, async (req, res) => {
 
 
 
-// ROUTE 7: Unarchiving a Note: PUT : http://localhost:8181/api/notes/unarchive/:id. Login Required!!
+// ROUTE 8: Unarchiving a Note: PUT : http://localhost:8181/api/notes/unarchive/:id. Login Required!!
 router.put('/unarchive/:id', fetchuser, async (req, res) => {
     try {
 
