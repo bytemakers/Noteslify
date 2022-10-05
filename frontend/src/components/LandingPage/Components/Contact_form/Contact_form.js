@@ -21,7 +21,7 @@ const Contact_form = () => {
              <div>
                 <textarea id = "qA-textBox" row = "30" cols = "50"></textarea>
              </div>
-             <button>send messages</button>
+             <button>Send</button>
            </form>
        </div>
     </div>

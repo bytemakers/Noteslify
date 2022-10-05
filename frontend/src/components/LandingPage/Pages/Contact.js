@@ -13,7 +13,6 @@ const Contact = () => {
     <>
         <NavBar/>
         <Contact_form/>
-        <About/>
         <Info/>
         <NewsLetter/>
         <Footer/>
