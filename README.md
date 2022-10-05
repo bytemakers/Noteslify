@@ -83,7 +83,7 @@ To deploy this project navigate to the frontend folder and run
 ```
 
 ```bash
-  npm install --legacy-peer-deps
+  npm install
 ```
 
 ```bash
