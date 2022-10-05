@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { RiInboxUnarchiveLine } from 'react-icons/ri';
+import { AiFillDelete } from 'react-icons/ai';
 
 const RecycleBin = () => {
     const [progress, setProgress] = useState(0);
@@ -72,6 +73,23 @@ const RecycleBin = () => {
   }
 
 
+  const deletePermanently = async (id) => {
+    if (window.confirm('Are You sure you want to delete this note Permanently?')) {
+      const authtoken = sessionStorage.getItem('auth-token');
+      const response = await fetch(`http://localhost:8181/api/notes/deletenotepermanently/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': authtoken
+        }
+      });
+      const json = await response.json();
+      toast.success(json.success);
+      await getDeletedNotes(authtoken);
+    }
+  }
+
+
   return (
     <>
     <LoadingBar
@@ -103,6 +121,9 @@ const RecycleBin = () => {
                                 <li onClick={() => openAddNoteModalForEditNote(note._id)}><i className="uil uil-pen"></i>Edit</li>
                                 <li onClick={() => deleteNote(note._id)}><i className="uil uil-trash"></i>Delete</li>
                             </ul> */}
+                        </div>
+                        <div onClick={() => deletePermanently(note._id)} id={`settings-${note._id}`} className="settings">
+                          <AiFillDelete />
                         </div>
                     </div>
                 </li>
