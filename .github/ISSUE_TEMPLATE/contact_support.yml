@@ -2,7 +2,7 @@ name: Contact Support
 description: Contact support and get help
 title: Contact Support
 labels: 'support'
-assignees: devarshishimpi
+assignees: devarshishimpi, khushi818, MrKrishnaAgarwal
 body:
   - type: markdown
     attributes:
@@ -48,5 +48,10 @@ body:
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true
+          
+   - type: markdown
+    attributes:
+      value: |
+        # If you need support from staff but don't want to create it publicly, you may contact at devarshishimpi@gmail.com
 
           
