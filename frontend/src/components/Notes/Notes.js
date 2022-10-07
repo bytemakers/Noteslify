@@ -8,6 +8,8 @@ import LoadingBar from 'react-top-loading-bar'
 import Switch from 'react-js-switch';
 import GlobalContext from '../../context/GlobalContext';
 import { marked } from 'marked';
+import RenderInWindow from './RenderInWindow';
+import MarkdownNotes from './MarkdownNotes';
 
 const Notes = () => {
     const [isSwitchOn, setIsSwitchOn] = useState(true);
@@ -17,6 +19,9 @@ const Notes = () => {
     const [updateNoteId, setUpdateNoteId] = useState("");
     const [progress, setProgress] = useState(0);
     const {theme , setTheme} = useContext(GlobalContext);
+    const [isAddMarkdownWindowOpen, setIsAddMarkdownWindowOpen] = useState(false);
+    const [isEditMarkdownWindowOpen, setIsEditMarkdownWindowOpen] = useState(false);
+
 
     const navigate = useNavigate();
 
@@ -135,6 +140,32 @@ const Notes = () => {
       document.getElementById('popup-box-preview').classList.remove('show');
     }
 
+    const openAddMarkdownWindow = () =>{
+      setIsAddMarkdownWindowOpen(true);
+    //  closeAddNoteModal();
+
+    }
+
+     const closeAddMarkdownWindow = () =>{
+      if(isAddMarkdownWindowOpen){
+        setIsAddMarkdownWindowOpen(false);
+        closeAddNoteModal();
+      }
+    }
+
+    const openEditMarkdownWindow = () =>{
+      setIsEditMarkdownWindowOpen(true);
+   //   closeEditNoteModal();
+
+    }
+
+     const closeEditMarkdownWindow = () =>{
+      if(isEditMarkdownWindowOpen){
+        setIsEditMarkdownWindowOpen(false);
+        closeEditNoteModal();
+      }
+    }
+
     const addANewNote = async (e) => {
         e.preventDefault();
         const token = sessionStorage.getItem('auth-token');
@@ -219,6 +250,7 @@ const Notes = () => {
           <div className="content">
             <header>
               <p>Add a new Note</p>
+              <i class="fa-brands fa-markdown" onClick={openAddMarkdownWindow}></i>
               <i onClick={closeAddNoteModal} className="fa-solid fa-xmark"></i>
             </header>
             <form onSubmit={addANewNote} id="notes-form" action="#" enctype="multipart/form-data">
@@ -232,6 +264,16 @@ const Notes = () => {
               </div>
               <button>Add Note</button>
             </form>
+
+            {isAddMarkdownWindowOpen && (
+              <RenderInWindow closeMarkdownWindow={closeAddMarkdownWindow}>
+                <MarkdownNotes closeMarkdownWindow={closeAddMarkdownWindow} 
+                  addNoteTitle={addNoteTitle} setAddNoteTitle={setAddNoteTitle}
+                  addNoteDescription={addNoteDescription} setAddNoteDescription={setAddNoteDescription}
+                  submitNote={addANewNote}
+                />
+              </RenderInWindow>
+            )}
           </div>
         </div>
       </div>
@@ -243,6 +285,7 @@ const Notes = () => {
           <div className="content">
             <header>
               <p>Edit Note</p>
+              <i class="fa-brands fa-markdown" onClick={openEditMarkdownWindow}></i>
               <i onClick={closeEditNoteModal} className="fa-solid fa-xmark"></i>
 
             </header>
@@ -257,6 +300,16 @@ const Notes = () => {
               </div>
               <button>Update Note</button>
             </form>
+
+            {isEditMarkdownWindowOpen && (
+              <RenderInWindow closeMarkdownWindow={closeEditMarkdownWindow}>
+                <MarkdownNotes closeMarkdownWindow={closeEditMarkdownWindow} 
+                  addNoteTitle={addNoteTitle} setAddNoteTitle={setAddNoteTitle}
+                  addNoteDescription={addNoteDescription} setAddNoteDescription={setAddNoteDescription}
+                  submitNote={updateNote}
+                />
+              </RenderInWindow>
+            )}
           </div>
         </div>
       </div>
