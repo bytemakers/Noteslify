@@ -59,14 +59,6 @@ const Sidenav = ({ notesList, setNotesList, getAllNotes }) => {
             getAllNotes();
         }
     }, [searchText]);
-
-    useEffect(() => {
-        console.log(notesList);
-    }, [notesList]);
-
-    useEffect(() => {
-        console.log(notesList);
-    }, [])
     
     
 
