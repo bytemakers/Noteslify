@@ -75,22 +75,20 @@ const Notes = () => {
     }
 
     const deleteNote = async (id) => {
-        if (window.confirm('Are You sure you want to delete this note?')) {
-            const token = sessionStorage.getItem('auth-token');
-            const response = await fetch(`http://localhost:8181/api/notes/deletenote/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'auth-token': token
-                }
-            });
-            const json = await response.json();
-            toast.success(json.success);
-            console.log(json);
+        const token = sessionStorage.getItem('auth-token');
+        const response = await fetch(`http://localhost:8181/api/notes/deletenote/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': token
+            }
+        });
+        const json = await response.json();
+        toast.success(json.success);
+        console.log(json);
 
-            await getAllNotes();
-        }
-    }
+        await getAllNotes();
+      }
 
     const openAddNoteModalForNewNote = () => {
         const popupBox = document.getElementById('popup-box');
@@ -209,7 +207,7 @@ const Notes = () => {
 
     useEffect(() => {
       if (!sessionStorage.getItem('auth-token') || sessionStorage.getItem('auth-token') === "") {
-        navigate('/login');
+        navigate('/login', { replace: true });
       }
       else {
         setProgress(10);
