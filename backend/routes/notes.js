@@ -201,8 +201,24 @@ router.put('/unarchive/:id', fetchuser, async (req, res) => {
         return res.status(500).send("Internal Server Error");
     }
 
+});
 
-    
+
+
+// Route 9: Searching for notes indexed using their title and description: GET: http://localhost:8181/api/notes/search/:query. Login Required.
+router.get('/search/:query', fetchuser, async (req, res) => {
+    const notesRegex = new RegExp(req.params.query, 'i');
+
+    const searchedNotes = await NoteSchema.find({ $and: [
+        { $or: [
+            { title: notesRegex },
+            { description: notesRegex }
+        ] },
+        { authorId: req.user.id },
+        { isDeleted: false }
+    ] });
+
+    res.json(searchedNotes);
 });
 
 
