@@ -7,6 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import LoadingBar from 'react-top-loading-bar'
 import Switch from 'react-js-switch';
 import GlobalContext from '../../context/GlobalContext';
+import { marked } from 'marked';
+import RenderInWindow from './RenderInWindow';
+import MarkdownNotes from './MarkdownNotes';
 
 const Notes = () => {
     const [isSwitchOn, setIsSwitchOn] = useState(true);
@@ -16,6 +19,9 @@ const Notes = () => {
     const [updateNoteId, setUpdateNoteId] = useState("");
     const [progress, setProgress] = useState(0);
     const {theme , setTheme} = useContext(GlobalContext);
+    const [isAddMarkdownWindowOpen, setIsAddMarkdownWindowOpen] = useState(false);
+    const [isEditMarkdownWindowOpen, setIsEditMarkdownWindowOpen] = useState(false);
+
 
     const navigate = useNavigate();
 
@@ -132,6 +138,32 @@ const Notes = () => {
       document.getElementById('popup-box-preview').classList.remove('show');
     }
 
+    const openAddMarkdownWindow = () =>{
+      setIsAddMarkdownWindowOpen(true);
+    //  closeAddNoteModal();
+
+    }
+
+     const closeAddMarkdownWindow = () =>{
+      if(isAddMarkdownWindowOpen){
+        setIsAddMarkdownWindowOpen(false);
+        closeAddNoteModal();
+      }
+    }
+
+    const openEditMarkdownWindow = () =>{
+      setIsEditMarkdownWindowOpen(true);
+   //   closeEditNoteModal();
+
+    }
+
+     const closeEditMarkdownWindow = () =>{
+      if(isEditMarkdownWindowOpen){
+        setIsEditMarkdownWindowOpen(false);
+        closeEditNoteModal();
+      }
+    }
+
     const addANewNote = async (e) => {
         e.preventDefault();
         const token = sessionStorage.getItem('auth-token');
@@ -191,7 +223,6 @@ const Notes = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
   
-
   return (
     <>
     <LoadingBar
@@ -217,19 +248,30 @@ const Notes = () => {
           <div className="content">
             <header>
               <p>Add a new Note</p>
+              <i class="fa-brands fa-markdown" onClick={openAddMarkdownWindow}></i>
               <i onClick={closeAddNoteModal} className="fa-solid fa-xmark"></i>
             </header>
             <form onSubmit={addANewNote} id="notes-form" action="#" enctype="multipart/form-data">
               <div className="row title">
-                <label>Title</label>
+                {/* <label>Title</label> */}
                 <input id='modal-title-input' value={addNoteTitle} onChange={(e) => setAddNoteTitle(e.target.value)} type="text" name="title" spellcheck="false"/>
               </div>
               <div className="row description">
-                <label>Description</label>
+                {/* <label>Description</label> */}
                 <textarea value={addNoteDescription} onChange={(e) => setAddNoteDescription(e.target.value)} name="description" spellcheck="false"></textarea>
               </div>
               <button>Add Note</button>
             </form>
+
+            {isAddMarkdownWindowOpen && (
+              <RenderInWindow closeMarkdownWindow={closeAddMarkdownWindow}>
+                <MarkdownNotes closeMarkdownWindow={closeAddMarkdownWindow} 
+                  addNoteTitle={addNoteTitle} setAddNoteTitle={setAddNoteTitle}
+                  addNoteDescription={addNoteDescription} setAddNoteDescription={setAddNoteDescription}
+                  submitNote={addANewNote}
+                />
+              </RenderInWindow>
+            )}
           </div>
         </div>
       </div>
@@ -241,20 +283,31 @@ const Notes = () => {
           <div className="content">
             <header>
               <p>Edit Note</p>
+              <i class="fa-brands fa-markdown" onClick={openEditMarkdownWindow}></i>
               <i onClick={closeEditNoteModal} className="fa-solid fa-xmark"></i>
 
             </header>
             <form onSubmit={updateNote} id="notes-form" action="#" enctype="multipart/form-data">
               <div className="row title">
-                <label>Title</label>
+                {/* <label>Title</label> */}
                 <input value={addNoteTitle} onChange={(e) => setAddNoteTitle(e.target.value)} id='modal-title-input' type="text" name="title" spellcheck="false"/>
               </div>
               <div className="row description">
-                <label>Description</label>
+                {/* <label>Description</label> */}
                 <textarea value={addNoteDescription} onChange={(e) => setAddNoteDescription(e.target.value)} name="description" spellcheck="false"></textarea>
               </div>
               <button>Update Note</button>
             </form>
+
+            {isEditMarkdownWindowOpen && (
+              <RenderInWindow closeMarkdownWindow={closeEditMarkdownWindow}>
+                <MarkdownNotes closeMarkdownWindow={closeEditMarkdownWindow} 
+                  addNoteTitle={addNoteTitle} setAddNoteTitle={setAddNoteTitle}
+                  addNoteDescription={addNoteDescription} setAddNoteDescription={setAddNoteDescription}
+                  submitNote={updateNote}
+                />
+              </RenderInWindow>
+            )}
           </div>
         </div>
       </div>
@@ -271,10 +324,10 @@ const Notes = () => {
             </header>
             <form id="notes-form" action="#" enctype="multipart/form-data">
               <div className="row title">
-                <input value={addNoteTitle} disabled={true} id='modal-title-input' type="text" name="title" spellcheck="false"/>
+              <div name="title" className="previewbox previewtitle" dangerouslySetInnerHTML={{ __html: marked(addNoteTitle) }}></div>
               </div>
               <div className="row description">
-                <textarea value={addNoteDescription} disabled={true} onChange={(e) => setAddNoteDescription(e.target.value)} name="description" spellcheck="false"></textarea>
+              <div name="description" className="previewbox previewdescription" dangerouslySetInnerHTML={{ __html: marked(addNoteDescription) }}></div>
               </div>
             </form>
           </div>
@@ -294,8 +347,10 @@ const Notes = () => {
             return (
                 <li id={note._id} key={note._id} className="note" onClick={() => openAddNoteModalForPreviewNote(note._id)}>
                     <div className="details">
-                        <p>{note.title}</p>
-                        <span>{note.description}</span>
+                        <div dangerouslySetInnerHTML={{ __html: marked(note.title) }}></div>
+
+                        <div dangerouslySetInnerHTML={{ __html: marked(note.description) }}></div>
+
                     </div>
                     <div className="bottom-content">
                         <span>{convertToMonthName(new Date(dateStu).getMonth()) + " " + new Date(dateStu).getDate().toString() + ", " + new Date(dateStu).getFullYear()}</span>
