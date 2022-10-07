@@ -1,10 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Sidenav.css'
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png'
 import GlobalContext from '../../context/GlobalContext';
 
-const Sidenav = () => {
+const Sidenav = ({ notesList, setNotesList, getAllNotes }) => {
+    const [searchText, setSearchText] = useState("");
+
     const { theme ,setTheme } = useContext(GlobalContext)
     const navigate = useNavigate();
  
@@ -34,6 +36,32 @@ const Sidenav = () => {
     }
 
 
+    const searchNotesFromDB = async () => {
+        const authtoken = sessionStorage.getItem('auth-token');
+        const response = await fetch(`http://localhost:8181/api/notes/search/${searchText}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': authtoken
+            }
+        });
+        const json = await response.json();
+        setNotesList(json);
+    }
+
+
+    useEffect(() => {
+        // console.log(searchText);
+        if (searchText !== "") {
+            searchNotesFromDB();
+        }
+        else {
+            getAllNotes();
+        }
+    }, [searchText]);
+    
+    
+
 
 
   return (
@@ -58,7 +86,7 @@ const Sidenav = () => {
 
               <li onClick={searchbarClick} className="search-box">
                   <i className="fa-solid fa-magnifying-glass icon"></i>
-                  <input type="text" placeholder="Search..."/>
+                  <input value={searchText} onChange={(e) => setSearchText(e.target.value)} type="text" placeholder="Search..."/>
               </li>
 
               <ul className="menu-links">

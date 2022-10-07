@@ -230,7 +230,7 @@ const Notes = () => {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-    <Sidenav />
+    <Sidenav notesList = {notesList} setNotesList = {setNotesList} getAllNotes = {getAllNotes} />
     <section className="home">
       <div className='head'>
       <div className="text">Dashboard</div>
