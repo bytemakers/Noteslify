@@ -7,48 +7,40 @@ import 'react-toastify/dist/ReactToastify.css';
 import LoadingBar from 'react-top-loading-bar'
 import Switch from 'react-js-switch';
 import GlobalContext from '../../context/GlobalContext';
+import NotesContext from '../../context/NotesContext';
 
 const Notes = () => {
     const [isSwitchOn, setIsSwitchOn] = useState(true);
-    const [notesList, setNotesList] = useState([]);
     const [addNoteTitle, setAddNoteTitle] = useState('');
     const [addNoteDescription, setAddNoteDescription] = useState('');
     const [updateNoteId, setUpdateNoteId] = useState("");
     const [progress, setProgress] = useState(0);
     const {theme , setTheme} = useContext(GlobalContext);
+    const {
+      notes,
+      getNotes,
+      getNote,
+      addNewNote,
+      updateExistingNote,
+      deleteNote,
+    } = useContext(NotesContext);
 
     const navigate = useNavigate();
 
     const getAllNotes = async () => {
-        const token = sessionStorage.getItem('auth-token');
-        setProgress(20);
-        const response = await fetch('http://localhost:8181/api/notes/getallnotes', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'auth-token': token
-            }
-        });
-        setProgress(50);
-        const json = await response.json();
-        setProgress(60);
-        setNotesList(json);
-        setProgress(100);
-    }
+      setProgress(20);
+      await getNotes();
+      setProgress(50);
+      setProgress(60);
+      setProgress(100);
+    };
 
     const getSingleNote = async (id) => {
-      const token = sessionStorage.getItem('auth-token');
-      const response = await fetch(`http://localhost:8181/api/notes/getnote/${id}`, {
-          method: 'GET',
-          headers: {
-              'Content-Type': 'application/json',
-              'auth-token': token
-          }
-      });
-      const json = await response.json();
-      setAddNoteTitle(json.title);
-      setAddNoteDescription(json.description);
-    }
+      const result = await getNote({ _id: id });
+
+      setAddNoteTitle(result.title);
+      setAddNoteDescription(result.description);
+    };
 
     const convertToMonthName = (num) => {
         var months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
@@ -68,23 +60,16 @@ const Notes = () => {
         });
     }
 
-    const deleteNote = async (id) => {
-        if (window.confirm('Are You sure you want to delete this note?')) {
-            const token = sessionStorage.getItem('auth-token');
-            const response = await fetch(`http://localhost:8181/api/notes/deletenote/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'auth-token': token
-                }
-            });
-            const json = await response.json();
-            toast.success(json.success);
-            console.log(json);
+    const onDeleteNote = async (id) => {
+      if (window.confirm("Are You sure you want to delete this note?")) {
+        const result = await deleteNote({ _id: id });
 
-            await getAllNotes();
-        }
-    }
+        toast.success(result.success);
+        console.log(result);
+
+        await getAllNotes();
+      }
+    };
 
     const openAddNoteModalForNewNote = () => {
         const popupBox = document.getElementById('popup-box');
@@ -135,45 +120,42 @@ const Notes = () => {
     }
 
     const addANewNote = async (e) => {
-        e.preventDefault();
-        const token = sessionStorage.getItem('auth-token');
-        const response = await fetch('http://localhost:8181/api/notes/addnote', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'auth-token': token
-            }, body: JSON.stringify({ title: addNoteTitle, description: addNoteDescription })
-        });
-        const json = await response.json();
-        if (json.title) {
-            toast.success("Your Note Has Been Added Successfully!");
-        }
+      e.preventDefault();
 
-        closeAddNoteModal();
+      const note = {
+        title: addNoteTitle,
+        description: addNoteDescription,
+      };
 
-        setAddNoteTitle('');
-        setAddNoteDescription('');
+      const result = await addNewNote(note);
 
-        await getAllNotes();
-    }
+      if (result.title) {
+        toast.success("Your Note Has Been Added Successfully!");
+      }
+
+      closeAddNoteModal();
+
+      setAddNoteTitle("");
+      setAddNoteDescription("");
+
+      await getAllNotes();
+    };
 
     const updateNote = async (e) => {
       e.preventDefault();
 
-      const token = sessionStorage.getItem('auth-token');
-      const response = await fetch(`http://localhost:8181/api/notes/updatenote/${updateNoteId}`, {
-          method: 'PUT',
-          headers: {
-              'Content-Type': 'application/json',
-              'auth-token': token
-          }, body: JSON.stringify({ title: addNoteTitle, description: addNoteDescription })
-      });
-      const json = await response.json();
-      toast.success(json.success);
+      const note = {
+        _id: updateNoteId,
+        title: addNoteTitle,
+        description: addNoteDescription,
+      };
+      const result = await updateExistingNote(note);
+
+      toast.success(result.success);
 
       await getAllNotes();
       closeEditNoteModal();
-    }
+    };
 
     useEffect(() => {
       if (!sessionStorage.getItem('auth-token') || sessionStorage.getItem('auth-token') === "") {
@@ -291,7 +273,7 @@ const Notes = () => {
         </li>
 
 
-        {notesList.map((note) => {
+        {notes.map((note) => {
             const dateStu = note.createdAt;
             return (
                 <li id={note._id} key={note._id} className="note" onClick={() => openAddNoteModalForPreviewNote(note._id)}>
@@ -305,7 +287,7 @@ const Notes = () => {
                             <i onClick={() => openMenu(note._id)} className="fa-solid fa-ellipsis"></i>
                             <ul className="menu show">
                                 <li onClick={() => openAddNoteModalForEditNote(note._id)}><i className="fa-solid fa-pen"></i>Edit</li>
-                                <li onClick={() => deleteNote(note._id)}><i className="fa-regular fa-trash-can"></i>Delete</li>
+                                <li onClick={() => onDeleteNote(note._id)}><i className="fa-regular fa-trash-can"></i>Delete</li>
                             </ul>
                         </div>
                     </div>
