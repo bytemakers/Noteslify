@@ -3,13 +3,14 @@ import './Sidenav.css'
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png'
 import GlobalContext from '../../context/GlobalContext';
+import NotesContext from '../../context/NotesContext';
 
-const Sidenav = ({ notesList, setNotesList, getAllNotes }) => {
-    const [searchText, setSearchText] = useState("");
-
+const Sidenav = () => {
     const { theme ,setTheme } = useContext(GlobalContext)
+    const { getNotes } = useContext(NotesContext)
+    const [search, setSearch] = useState('')
     const navigate = useNavigate();
- 
+     
     const logout = (e) => {
         e.preventDefault();
         sessionStorage.removeItem('auth-token');
@@ -35,36 +36,13 @@ const Sidenav = ({ notesList, setNotesList, getAllNotes }) => {
         sidebar.classList.remove("close");
     }
 
-
-    const searchNotesFromDB = async () => {
-        const authtoken = sessionStorage.getItem('auth-token');
-        const response = await fetch(`http://localhost:8181/api/notes/search/${searchText}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'auth-token': authtoken
-            }
-        });
-        const json = await response.json();
-        setNotesList(json);
-    }
-
+    const onChangeSearch = (e) => setSearch(e.target.value)
 
     useEffect(() => {
-        // console.log(searchText);
-        if (searchText !== "") {
-            searchNotesFromDB();
-        }
-        else {
-            getAllNotes();
-        }
-    }, [searchText]);
-    
-    
+      getNotes(search);
+    }, [search]);
 
-
-
-  return (
+    return (
     <nav className="sidebar close" id ={theme}>
       <header>
           <div className="image-text">
@@ -86,7 +64,7 @@ const Sidenav = ({ notesList, setNotesList, getAllNotes }) => {
 
               <li onClick={searchbarClick} className="search-box">
                   <i className="fa-solid fa-magnifying-glass icon"></i>
-                  <input value={searchText} onChange={(e) => setSearchText(e.target.value)} type="text" placeholder="Search..."/>
+                  <input value={search} onChange={onChangeSearch} type="text" placeholder="Search..."/>
               </li>
 
               <ul className="menu-links">

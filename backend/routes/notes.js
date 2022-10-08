@@ -203,24 +203,24 @@ router.put('/unarchive/:id', fetchuser, async (req, res) => {
 
 });
 
+// ROUTE 9: Searching for a note: GET : http://localhost:8181/api/notes/search/:searchText. Login Required!!
+router.get('/search/:searchText', fetchuser, async (req, res) => {
+    const caseInsensitiveMatch = new RegExp(req.params.searchText, 'i')
 
+    const result = await NoteSchema.find({
+        $and: [
+            {
+                $or: [
+                    { title: caseInsensitiveMatch },
+                    { description: caseInsensitiveMatch }
+                ]
+            },
+            { authorId: req.user.id },
+            { isDeleted: false }
+        ]
+    })
 
-// Route 9: Searching for notes indexed using their title and description: GET: http://localhost:8181/api/notes/search/:query. Login Required.
-router.get('/search/:query', fetchuser, async (req, res) => {
-    const notesRegex = new RegExp(req.params.query, 'i');
-
-    const searchedNotes = await NoteSchema.find({ $and: [
-        { $or: [
-            { title: notesRegex },
-            { description: notesRegex }
-        ] },
-        { authorId: req.user.id },
-        { isDeleted: false }
-    ] });
-
-    res.json(searchedNotes);
-});
-
-
+    return res.json(result)
+})
 
 module.exports = router;
