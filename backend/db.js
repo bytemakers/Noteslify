@@ -18,7 +18,11 @@ const mongoose = require('mongoose');
 const mongoURI = "mongodb://localhost:27017";
 
 const connectToMongo = () => {
-    mongoose.connect(mongoURI, { dbName: 'noteslify' }, () => {
+    mongoose.connect(mongoURI, { dbName: 'noteslify' }, (error) => {
+        if (error) {
+            console.error(error)
+        }
+        
         console.log("Connected To Mongo Successfully!!");
     })
 };

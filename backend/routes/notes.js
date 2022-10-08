@@ -177,6 +177,24 @@ router.put('/unarchive/:id', fetchuser, async (req, res) => {
     
 });
 
+// ROUTE 8: Searching for a note: GET : http://localhost:8181/api/notes/search/:searchText. Login Required!!
+router.get('/search/:searchText', fetchuser, async (req, res) => {
+    const caseInsensitiveMatch = new RegExp(req.params.searchText, 'i')
 
+    const result = await NoteSchema.find({
+        $and: [
+            {
+                $or: [
+                    { title: caseInsensitiveMatch },
+                    { description: caseInsensitiveMatch }
+                ]
+            },
+            { authorId: req.user.id },
+            { isDeleted: false }
+        ]
+    })
+
+    return res.json(result)
+})
 
 module.exports = router;

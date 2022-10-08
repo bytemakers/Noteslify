@@ -1,13 +1,16 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Sidenav.css'
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png'
 import GlobalContext from '../../context/GlobalContext';
+import NotesContext from '../../context/NotesContext';
 
 const Sidenav = () => {
     const { theme ,setTheme } = useContext(GlobalContext)
+    const { getNotes } = useContext(NotesContext)
+    const [search, setSearch] = useState('')
     const navigate = useNavigate();
- 
+     
     const logout = (e) => {
         e.preventDefault();
         sessionStorage.removeItem('auth-token');
@@ -33,10 +36,13 @@ const Sidenav = () => {
         sidebar.classList.remove("close");
     }
 
+    const onChangeSearch = (e) => setSearch(e.target.value)
 
+    useEffect(() => {
+      getNotes(search);
+    }, [search]);
 
-
-  return (
+    return (
     <nav className="sidebar close" id ={theme}>
       <header>
           <div className="image-text">
@@ -58,7 +64,7 @@ const Sidenav = () => {
 
               <li onClick={searchbarClick} className="search-box">
                   <i className="fa-solid fa-magnifying-glass icon"></i>
-                  <input type="text" placeholder="Search..."/>
+                  <input value={search} onChange={onChangeSearch} type="text" placeholder="Search..."/>
               </li>
 
               <ul className="menu-links">

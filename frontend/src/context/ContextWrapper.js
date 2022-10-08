@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import  GlobalContext  from './GlobalContext'
+import { NotesProvider } from './NotesContext';
 
 export default function ContextWrapper(props) {
   const [theme, setTheme] = useState("light");
@@ -10,7 +11,9 @@ export default function ContextWrapper(props) {
  
   return (
     <GlobalContext.Provider value={{ theme,setTheme }}>
-      {props.children}
+      <NotesProvider>
+        {props.children}
+      </NotesProvider>
     </GlobalContext.Provider>
   );
 }
