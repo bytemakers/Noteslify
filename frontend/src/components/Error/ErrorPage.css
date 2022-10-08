@@ -1,0 +1,20 @@
+.errorpage_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.error_banner{
+    width: 35rem;
+}
+
+.errorpage_container h2{
+    text-align: center;
+    font-size: 3rem;
+}
+
+.errorpage_container p{
+    font-size: 1.4rem;
+}

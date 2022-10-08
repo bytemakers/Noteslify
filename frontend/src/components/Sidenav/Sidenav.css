@@ -18,6 +18,7 @@
 /* ===== Reusable code - Here ===== */
 .sidebar li {
     /* height: 50px; */
+    width: 100%;
     padding: 10px;
     list-style: none;
     display: flex;

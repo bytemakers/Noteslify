@@ -10,6 +10,7 @@ import Home from './components/LandingPage/Pages/Home'
 import Contact from './components/LandingPage/Pages/Contact'
 import RecycleBin from './components/RecycleBin/RecycleBin';
 import Account from './components/Account/Account';
+import ErrorPage from './components/Error/ErrorPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path = "/" element = {<Home />}/>
         <Route path = "/bin" element = {<RecycleBin />}/>
         <Route path = "/myaccount" element = {<Account />}/>
+        <Route path = '*' element={<ErrorPage/>}/>
       </Routes>
     </Router>
   );
