@@ -52,7 +52,7 @@ const Account = () => {
     } else {
       const token = sessionStorage.getItem("auth-token");
       const response = await fetch(
-        "http://localhost:8181/api/auth//login/changepassword",
+        "http://localhost:8181/api/auth/login/changepassword",
         {
           method: "PUT",
           headers: {
