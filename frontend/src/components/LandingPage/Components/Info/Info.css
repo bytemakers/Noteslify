@@ -2,11 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px;
+    padding: 60px 10px;
 }
 
 .Info-section .grid {
-    gap: 4rem;
+    gap: 1rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .Info-section .About {
-    padding: 40px;
+    padding: 10px;
 }
 
 .Info-section h2 {
@@ -29,6 +29,7 @@
     text-align: center;
     color: var(--dark-color);
     padding: 10px;
+    max-width: 320px;
 }
 
 @media screen and (max-width:980px) {
@@ -43,7 +44,7 @@
     }
 
     .Info-section .About {
-        padding: 10px 40px;
+        padding: 10px;
     }
 }
 
@@ -56,7 +57,7 @@
 
 
     .Info-section .About {
-        padding: 10px 40px;
+        padding: 20px;
     }
 }
 
@@ -67,6 +68,6 @@
     }
 
     .Info-section .About {
-        padding: 10px 40px;
+        padding: 10px;
     }
 }
