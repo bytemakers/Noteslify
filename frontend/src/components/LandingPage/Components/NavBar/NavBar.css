@@ -19,6 +19,7 @@
 }
 
 .navbar nav ul li {
+    position: relative;
     padding: 0 24px;
 }
 
@@ -58,6 +59,23 @@
 
 .navbar span {
     font-size: 24px;
+}
+
+.navbar nav ul a:hover {
+    color: var(--primary-color);
+}
+
+.navbar nav ul li:after {
+    content: "";
+    position: absolute;
+    background-color: var(--primary-color);
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+}
+.navbar nav ul li:hover:after {
+    width: 100%;
 }
 
 @media screen and (max-width:980px) {
