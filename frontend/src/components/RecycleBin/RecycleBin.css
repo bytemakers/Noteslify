@@ -96,7 +96,7 @@ header,
     font-size: 15px;
 }
 
-.settings .menu {
+/* .settings .menu {
     z-index: 1;
     bottom: 0;
     right: -5px;
@@ -135,7 +135,7 @@ header,
 
 .menu li i {
     padding-right: 8px;
-}
+} */
 
 .popup-box {
     position: fixed;
