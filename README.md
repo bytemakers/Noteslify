@@ -51,11 +51,17 @@ To deploy this project navigate to the backend folder and run
 ```
 
 ```bash
-  npm install --legacy-peer-deps
+  npm install
 ```
 
 ```bash
   node index.js
+```
+
+or 
+
+```bash
+  nodemon
 ```
 
 Create a `.env` file in the backend folder and add the following
