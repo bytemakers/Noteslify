@@ -5,16 +5,12 @@ const NotesContext = createContext({});
 export const NotesProvider = ({ children }) => {
   const [notes, setNotes] = useState([]);
   const token = sessionStorage.getItem('auth-token');
-
-  const BACKEND = (process.env.NODE_ENV = 'production'
-    ? 'productionurl'
-    : 'http://localhost:8181');
   
   const getNotes = async (search) => {
     let response;
 
     if (!search) {
-      response = await fetch(`${BACKEND}/api/notes/getallnotes`, {
+      response = await fetch(`http://localhost:8181/api/notes/getallnotes`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -23,7 +19,7 @@ export const NotesProvider = ({ children }) => {
       });
     } else {
       response = await fetch(
-        `${BACKEND}/api/notes/search/${search}`,
+        `http://localhost:8181/api/notes/search/${search}`,
         {
           method: 'GET',
           headers: {
@@ -40,7 +36,7 @@ export const NotesProvider = ({ children }) => {
 
   const getNote = async (note) => {
     const response = await fetch(
-      `${BACKEND}/api/notes/getnote/${note._id}`,
+      `http://localhost:8181/api/notes/getnote/${note._id}`,
       {
         method: 'GET',
         headers: {
@@ -54,7 +50,7 @@ export const NotesProvider = ({ children }) => {
   };
 
   const addNewNote = async (note) => {
-    const result = await fetch(`${BACKEND}/api/notes/addnote`, {
+    const result = await fetch(`http://localhost:8181/api/notes/addnote`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -68,7 +64,7 @@ export const NotesProvider = ({ children }) => {
 
   const updateExistingNote = async (note) => {
     const response = await fetch(
-      `${BACKEND}/api/notes/updatenote/${note._id}`,
+      `http://localhost:8181/api/notes/updatenote/${note._id}`,
       {
         method: 'PUT',
         headers: {
@@ -87,7 +83,7 @@ export const NotesProvider = ({ children }) => {
 
   const deleteNote = async (note) => {
     const response = await fetch(
-      `${BACKEND}/api/notes/deletenote/${note._id}`,
+      `http://localhost:8181/api/notes/deletenote/${note._id}`,
       {
         method: 'DELETE',
         headers: {
