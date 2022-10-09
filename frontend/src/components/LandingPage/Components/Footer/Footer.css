@@ -24,13 +24,19 @@
 }
 
 
-.links .flex {
+.social-media .flex {
     justify-content: flex-start;
     gap: 10px;
     padding: 0px;
 }
 
-.links ul i {
+.social-media ul i {
+    color: white;
+}
+
+.footer .links li,
+.footer .links a,
+.footer .links a:visited {
     color: white;
 }
 
@@ -50,11 +56,11 @@
         list-style-type: disc;
     }
 
-    .links ul {
+    .social-media ul {
         list-style: none;
     }
 
-    .links .flex {
+    .social-media .flex {
         flex-direction: row;
     }
 
