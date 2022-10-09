@@ -4,10 +4,15 @@ import Footer from '../LandingPage/Components/Footer/Footer'
 import './ErrorPage.css'
 import errorImg from '..//../assets/error404.png'
 import {Link} from 'react-router-dom'
+import {Helmet} from "react-helmet";
 
 const ErrorPage = () => {
   return (
     <>
+      <Helmet>
+        <title>Noteslify | Error 404 Not Found</title>
+        <meta name="description" content="Noteslify. The page your looking for was not found." />
+      </Helmet>
     <Navbar/>
     <div className='errorpage_container'>
         <img className="error_banner" src={errorImg} alt="404 error image" />

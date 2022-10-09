@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { RiInboxUnarchiveLine } from 'react-icons/ri';
 import { AiFillDelete } from 'react-icons/ai';
+import {Helmet} from "react-helmet";
 
 const RecycleBin = () => {
     const [progress, setProgress] = useState(0);
@@ -92,6 +93,10 @@ const RecycleBin = () => {
 
   return (
     <>
+    <Helmet>
+        <title>Noteslify | Recycle Bin</title>
+        <meta name="description" content="Noteslify. Clear Or Restore Your Files from Bin." />
+    </Helmet>
     <LoadingBar
         color='#f11946'
         progress={progress}
