@@ -7,7 +7,7 @@ export const NotesProvider = ({ children }) => {
   const token = sessionStorage.getItem('auth-token');
 
   const BACKEND = (process.env.NODE_ENV = 'production'
-    ? process.env.productionurl
+    ? 'productionurl'
     : 'http://localhost:8181');
   
   const getNotes = async (search) => {
