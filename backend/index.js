@@ -3,6 +3,8 @@ const connectToMongo = require('./db');
 const cors = require('cors');
 
 const load = async () => {
+    await connectToMongo();
+
     const app = express();
     const PORT = process.env.PORT || 8181;
     
@@ -20,8 +22,6 @@ const load = async () => {
     app.listen(PORT, () => {
         console.log(`The App is running at http://localhost:${PORT}`);
     });
-
-    await connectToMongo();
 }
 
 load()
