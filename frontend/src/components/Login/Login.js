@@ -4,6 +4,7 @@ import authImg from'../../assets/authentication.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {Helmet} from "react-helmet";
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -83,6 +84,10 @@ const Login = () => {
 
   return (
     <>
+    <Helmet>
+        <title>Noteslify | Login</title>
+        <meta name="description" content="Noteslify. Login to your Dashboard and access your files from here." />
+    </Helmet>
     <div className="l-form">
         <div className="shape1"></div>
         <div className="shape2"></div>

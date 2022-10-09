@@ -3,6 +3,7 @@ import './ForgotPassword.css';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {Helmet} from "react-helmet";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -30,6 +31,10 @@ const ForgotPassword = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>Noteslify | Forgot Password</title>
+        <meta name="description" content="Noteslify. Reset Your Password From Here." />
+      </Helmet>
       <div class="form-wrapper">
         <h1>Forgot Password?</h1>
         <br></br>

@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import LoadingBar from "react-top-loading-bar";
 import Switch from "react-js-switch";
 import GlobalContext from "../../context/GlobalContext";
+import {Helmet} from "react-helmet";
 
 const Account = () => {
   const [isSwitchOn, setIsSwitchOn] = useState(true);
@@ -77,6 +78,10 @@ const Account = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Noteslify | My Account</title>
+        <meta name="description" content="Manage Your Noteslify Account From Here." />
+      </Helmet>
       <LoadingBar
         color="#f11946"
         progress={progress}

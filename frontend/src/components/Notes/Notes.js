@@ -11,6 +11,7 @@ import NotesContext from '../../context/NotesContext';
 import { marked } from 'marked';
 import RenderInWindow from './RenderInWindow';
 import MarkdownNotes from './MarkdownNotes';
+import {Helmet} from "react-helmet";
 
 const Notes = () => {
     const [isSwitchOn, setIsSwitchOn] = useState(true);
@@ -209,6 +210,10 @@ const Notes = () => {
   
   return (
     <>
+    <Helmet>
+        <title>Noteslify | Dashboard</title>
+        <meta name="description" content="Noteslify. View your files and dashboard here." />
+    </Helmet>
     <LoadingBar
         color='#f11946'
         progress={progress}
