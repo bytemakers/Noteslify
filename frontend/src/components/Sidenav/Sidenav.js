@@ -60,7 +60,7 @@ const Sidenav = () => {
       </header>
 
       <div className="menu-bar">
-          <div className="menu">
+          <div className="bar">
 
               <li onClick={searchbarClick} className="search-box">
                   <i className="fa-solid fa-magnifying-glass icon"></i>

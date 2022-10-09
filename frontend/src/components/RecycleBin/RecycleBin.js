@@ -116,11 +116,6 @@ const RecycleBin = () => {
                         <span>{convertToMonthName(new Date(dateStu).getMonth()) + " " + new Date(dateStu).getDate().toString() + ", " + new Date(dateStu).getFullYear()}</span>
                         <div onClick={() => unArchive(note._id)} id={`settings-${note._id}`} className="settings">
                           <RiInboxUnarchiveLine />
-                            {/* <i onClick={() => openMenu(note._id)} className="uil uil-ellipsis-h"></i>
-                            <ul className="menu show">
-                                <li onClick={() => openAddNoteModalForEditNote(note._id)}><i className="uil uil-pen"></i>Edit</li>
-                                <li onClick={() => deleteNote(note._id)}><i className="uil uil-trash"></i>Delete</li>
-                            </ul> */}
                         </div>
                         <div onClick={() => deletePermanently(note._id)} id={`settings-${note._id}`} className="settings">
                           <AiFillDelete />
