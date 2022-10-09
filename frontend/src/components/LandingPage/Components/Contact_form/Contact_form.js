@@ -1,11 +1,12 @@
 import React from 'react'
 import './Contact_form.css'
+import contactImg from './Contact.png'
 
 const Contact_form = () => {
   return (
     <section className='contact-section Container flex'>
         <div className = "img-sec">
-            <img src ="assets/Contact.PNG" alt = "contact"/>
+            <img src ={contactImg} alt = "contact"/>
         </div>
     <div >
        <div className="Contact-form">
