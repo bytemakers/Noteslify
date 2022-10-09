@@ -10,7 +10,7 @@ A Notes Taking Web App Built With Simplicity.
 
 Please give this repo a ⭐ it really helps us!
 
-Visit At <a href="https://noteslify.vercel.app" target="_blank">noteslify.vercel.app</a> Using v1.2.0 ( Latest v1.1.8-beta, Latest Stable v1.2.0 )
+Visit At <a href="https://noteslify.stonecss.com" target="_blank">noteslify.vercel.app</a> Using v1.2.0 ( Latest v1.1.8-beta, Latest Stable v1.2.0 )
 
 Our System Statuspage is Available At <a href="https://dvstechlabs.statuspage.io" target="_blank">dvstechlabs.statuspage.io</a>
 
