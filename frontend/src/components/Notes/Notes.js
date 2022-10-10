@@ -88,6 +88,9 @@ const Notes = () => {
 
         // const popupTitle = popupBox.querySelector("header p");
         // popupTitle.innerText = "Add a new Note";
+
+        setAddNoteDescription('');
+        setAddNoteTitle('');
     }
 
     const openAddNoteModalForEditNote = async (id) => {
