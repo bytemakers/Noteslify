@@ -5,8 +5,8 @@ dotenv.config();
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-const fetchuser = (req, res, next) => {
-    const token = req.header('auth-token');
+const fetchuser = async (req, res, next) => {
+    const token = await req.header('auth-token');
     if (!token) {
         return res.status(401).send({ error: "Please Authenticate using a valid token" });
     }
