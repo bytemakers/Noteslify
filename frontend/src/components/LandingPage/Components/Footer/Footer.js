@@ -4,8 +4,8 @@ import './Footer.css';
 const Footer = () => {
     return (
         <footer>
-            <div class="row primary">
-                <div class="column about">
+            <div className="row primary">
+                <div className="column about">
 
                     <h3>Noteslify</h3>
 
@@ -14,16 +14,16 @@ const Footer = () => {
                         voluptatem corporis error non,
                     </p>
 
-                    <div class="social">
-                        <i class="fa-brands fa-facebook-square"></i>
-                        <i class="fa-brands fa-instagram-square"></i>
-                        <i class="fa-brands fa-twitter-square"></i>
-                        <i class="fa-brands fa-youtube-square"></i>
-                        <i class="fa-brands fa-whatsapp-square"></i>
+                    <div className="social">
+                        <i className="fa-brands fa-facebook-square"></i>
+                        <i className="fa-brands fa-instagram-square"></i>
+                        <i className="fa-brands fa-twitter-square"></i>
+                        <i className="fa-brands fa-youtube-square"></i>
+                        <i className="fa-brands fa-whatsapp-square"></i>
                     </div>
                 </div>
 
-                <div class="column links">
+                <div className="column links">
                     <h3>Some Links</h3>
 
                     <ul className='ul'>
@@ -45,7 +45,7 @@ const Footer = () => {
                 </div>
 
 
-                <div class="column links">
+                <div className="column links">
                     <h3>Some Links</h3>
                     <ul className='ul'>
                         <li>
@@ -63,7 +63,7 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                <div class="column subscribe">
+                <div className="column subscribe">
                     <h3>Newsletter</h3>
                     <div>
                         <input type="email" placeholder="Your email id here" />
@@ -74,8 +74,8 @@ const Footer = () => {
 
             </div>
 
-            <div class="row copyright">
-                <div class="footer-menu">
+            <div className="row copyright">
+                <div className="footer-menu">
 
                     {/* <a href="">Home</a> */}
                     <a href="">Feature</a>
