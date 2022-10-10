@@ -124,6 +124,8 @@ const Notes = () => {
 
     const closePreviewNoteModal = () => {
       document.getElementById('popup-box-preview').classList.remove('show');
+      setAddNoteTitle('');
+      setAddNoteDescription('');
     }
 
     const openAddMarkdownWindow = () =>{
