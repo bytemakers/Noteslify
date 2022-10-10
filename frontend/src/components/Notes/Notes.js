@@ -243,11 +243,11 @@ const Notes = () => {
             <form onSubmit={addANewNote} id="notes-form" action="#" enctype="multipart/form-data">
               <div className="row title">
                 {/* <label>Title</label> */}
-                <input id='modal-title-input' value={addNoteTitle} onChange={(e) => setAddNoteTitle(e.target.value)} type="text" name="title" spellcheck="false"/>
+                <input id='modal-title-input' value={addNoteTitle} onChange={(e) => setAddNoteTitle(e.target.value)} type="text" name="title" spellcheck="false" placeholder='Title'/>
               </div>
               <div className="row description">
                 {/* <label>Description</label> */}
-                <textarea value={addNoteDescription} onChange={(e) => setAddNoteDescription(e.target.value)} name="description" spellcheck="false"></textarea>
+                <textarea value={addNoteDescription} onChange={(e) => setAddNoteDescription(e.target.value)} name="description" spellcheck="false" placeholder='Write notes...'></textarea>
               </div>
               <button>Add Note</button>
             </form>
