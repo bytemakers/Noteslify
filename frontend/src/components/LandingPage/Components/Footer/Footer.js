@@ -3,61 +3,90 @@ import { Link } from 'react-router-dom';
 import './Footer.css';
 const Footer = () => {
     return (
-        <section className="bottom-section">
-            {/* <img src= "assets/vector-bottom.png" alt = "design" /> */}
-            <footer className="footer">
-                <section className="flex">
-                    <div>
-                        <h4>Noteslify</h4>
-                        <h5>By DVS Tech Labs</h5>
-                        <p>
-                            Your Privacy Friendly, Open Source. Alternative to
-                            Evernote.
-                        </p>
-                        <div className="social-media">
-                            <ul className="flex">
-                                <a href="https://github.com/devarshishimpi/Noteslify">
-                                    <li>
-                                        <i className="fa-brands fa-github"></i>
-                                    </li>
-                                </a>
-                                <li>
-                                    <i className="fa-brands fa-linkedin"></i>
-                                </li>
-                                <li>
-                                    <i className="fa-brands fa-twitter"></i>
-                                </li>
-                            </ul>
-                        </div>
+        <footer>
+            <div class="row primary">
+                <div class="column about">
+
+                    <h3>Noteslify</h3>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae,
+                        voluptatem corporis error non,
+                    </p>
+
+                    <div class="social">
+                        <i class="fa-brands fa-facebook-square"></i>
+                        <i class="fa-brands fa-instagram-square"></i>
+                        <i class="fa-brands fa-twitter-square"></i>
+                        <i class="fa-brands fa-youtube-square"></i>
+                        <i class="fa-brands fa-whatsapp-square"></i>
                     </div>
+                </div>
+
+                <div class="column links">
+                    <h3>Some Links</h3>
+
+                    <ul className='ul'>
+
+                        <li>
+                            <a href="#faq">F.A.Q</a>
+                        </li>
+                        <li>
+                            <a href="#cookies-policy">Cookies Policy</a>
+                        </li>
+                        <li>
+                            <a href="#terms-of-services">Terms Of Service</a>
+                        </li>
+                        <li>
+                            <a href="#support">Support</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <div class="column links">
+                    <h3>Some Links</h3>
+                    <ul className='ul'>
+                        <li>
+                            <a href="#faq">F.A.Q</a>
+                        </li>
+                        <li>
+                            <a href="#cookies-policy">Cookies Policy</a>
+                        </li>
+                        <li>
+                            <a href="#terms-of-services">Terms Of Service</a>
+                        </li>
+                        <li>
+                            <a href="#support">Support</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="column subscribe">
+                    <h3>Newsletter</h3>
                     <div>
-                        <ul className="flex links">
-                            <Link to="/">
-                                <li>Home</li>
-                            </Link>
-                            <li>
-                                <a href="#About">Features</a>
-                            </li>
-                            {/* <li>Pricing</li> */}
-                            <Link to="/contact">
-                                <li>Contact</li>
-                            </Link>
-                            <li>
-                                <a href="https://github.com/dvstechlabs/Noteslify">
-                                    Github
-                                </a>
-                            </li>
-                            <Link to="/Notes">
-                                <li>Dashboard</li>
-                            </Link>
-                            <Link to="/Signup">
-                                <li>Get Started</li>
-                            </Link>
-                        </ul>
+                        <input type="email" placeholder="Your email id here" />
+                        <button>Subscribe</button>
                     </div>
-                </section>
-            </footer>
-        </section>
+
+                </div>
+
+            </div>
+
+            <div class="row copyright">
+                <div class="footer-menu">
+
+                    {/* <a href="">Home</a> */}
+                    <a href="">Feature</a>
+                    <a href="">Github</a>
+                    <a href="">Contact</a>
+                    {/* <a href="">Dashboard</a> */}
+
+                </div>
+                <p>Copyright &copy;</p>
+            </div>
+        </footer>
     );
 };
 
