@@ -16,10 +16,10 @@ export default function MarkdownNotes(props) {
   return (
     <div className="content">
 
-  <form onSubmit={addANewNote} id="notes-form" action="#" enctype="multipart/form-data">
+  <form onSubmit={addANewNote} id="notes-form" action="#" encType="multipart/form-data">
     <div className="md">
       <div className="row title">
-      <input id='modal-title-input' value={props.addNoteTitle} onChange={(e) => props.setAddNoteTitle(e.target.value)} type="text" name="title" spellcheck="false"/>
+      <input id='modal-title-input' value={props.addNoteTitle} onChange={(e) => props.setAddNoteTitle(e.target.value)} type="text" name="title" spellCheck="false"/>
     </div>
     <div className="row description wmde-markdown-var">
       <MDEditor value={props.addNoteDescription} onChange={(e) => props.setAddNoteDescription(e)}  />

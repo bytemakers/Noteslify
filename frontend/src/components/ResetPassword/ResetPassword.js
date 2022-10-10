@@ -59,7 +59,7 @@ const ResetPassword = () => {
 
   return (
     <div>
-      {isValidToken && <div class="form-wrapper">
+      {isValidToken && <div className="form-wrapper">
         <h1>Set New Password</h1>
         <br></br>
         <p>Your Email Address: <strong>{email}</strong></p>
@@ -70,7 +70,7 @@ const ResetPassword = () => {
             <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required="required" placeholder="Enter Your New Password"></input>
           </div>
           <div className="button-panel">
-            <input type="submit" class="button" title="Sign In" value="Change Password"></input>
+            <input type="submit" className="button" title="Sign In" value="Change Password"></input>
           </div>
         </form>
         <div className="form-footer">

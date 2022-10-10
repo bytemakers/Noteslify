@@ -35,7 +35,7 @@ const ForgotPassword = () => {
         <title>Noteslify | Forgot Password</title>
         <meta name="description" content="Noteslify. Reset Your Password From Here." />
       </Helmet>
-      <div class="form-wrapper">
+      <div className="form-wrapper">
         <h1>Forgot Password?</h1>
         <br></br>
         <p>Please enter your registered email to receive your forgot Password Link</p>
@@ -46,8 +46,8 @@ const ForgotPassword = () => {
             <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required="required" placeholder="Email Address"></input>
           </div>
           <div className="button-panel">
-            {!isLoading && <input type="submit" class="button" title="Sign In" value="Send Email"></input>}
-            {isLoading && <button style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true} class="button" value=""><span class="loader"></span></button>}
+            {!isLoading && <input type="submit" className="button" title="Sign In" value="Send Email"></input>}
+            {isLoading && <button style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true} className="button" value=""><span className="loader"></span></button>}
           </div>
         </form>
         <div className="form-footer">
