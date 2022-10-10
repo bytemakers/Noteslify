@@ -105,7 +105,7 @@ const Sidenav = () => {
 
                   <li className="nav-link">
                       <a href="/">
-                          <i class="fa-solid fa-wallet icon"></i>
+                          <i className="fa-solid fa-wallet icon"></i>
                           <span className="text nav-text">Soon..</span>
                       </a>
                   </li>
