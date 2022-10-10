@@ -106,10 +106,12 @@
 }
 
 @media screen and (max-width:680px) {
-    .navbar .flex {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
+    .navbar nav {
+        display: none;
+    }
+
+    .navbar nav.change {
+        display: block;
     }
 
     .navbar nav .flex {
@@ -117,38 +119,6 @@
         background-color: transparent;
         padding: 0px;
     }
-
-
-    .navbar nav {
-        position: absolute;
-        backdrop-filter: blur(50px);
-        padding: 2rem;
-        text-align: center;
-        width: 100%;
-        min-height: 55%;
-        left: 0;
-        opacity: 0;
-        z-index: 1;
-        top: -400px;
-        transition: all 0.5s ease-in-out;
-        color: black;
-        font-size: 18px;
-    }
-
-    /* .navbar button {
-        position: absolute;
-        background-color: transparent;
-        border-color: var(--primary-color);
-        color: var(--primary-color);
-        left: 35%;
-        bottom: 20px;
-    }
-
-    .navbar button:hover {
-        background-color: var(--primary-color);
-        color: var(--light-color);
-    } */
-
 
     .hidden {
         display: block;
