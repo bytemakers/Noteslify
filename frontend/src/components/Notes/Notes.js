@@ -237,17 +237,17 @@ const Notes = () => {
           <div className="content">
             <header>
               <p>Add a new Note</p>
-              <i class="fa-brands fa-markdown" onClick={openAddMarkdownWindow}></i>
+              <i className="fa-brands fa-markdown" onClick={openAddMarkdownWindow}></i>
               <i onClick={closeAddNoteModal} className="fa-solid fa-xmark"></i>
             </header>
-            <form onSubmit={addANewNote} id="notes-form" action="#" enctype="multipart/form-data">
+            <form onSubmit={addANewNote} id="notes-form" action="#" encType="multipart/form-data">
               <div className="row title">
                 {/* <label>Title</label> */}
-                <input id='modal-title-input' value={addNoteTitle} onChange={(e) => setAddNoteTitle(e.target.value)} type="text" name="title" spellcheck="false"/>
+                <input id='modal-title-input' value={addNoteTitle} onChange={(e) => setAddNoteTitle(e.target.value)} type="text" name="title" spellCheck="false"/>
               </div>
               <div className="row description">
                 {/* <label>Description</label> */}
-                <textarea value={addNoteDescription} onChange={(e) => setAddNoteDescription(e.target.value)} name="description" spellcheck="false"></textarea>
+                <textarea value={addNoteDescription} onChange={(e) => setAddNoteDescription(e.target.value)} name="description" spellCheck="false"></textarea>
               </div>
               <button>Add Note</button>
             </form>
@@ -272,18 +272,18 @@ const Notes = () => {
           <div className="content">
             <header>
               <p>Edit Note</p>
-              <i class="fa-brands fa-markdown" onClick={openEditMarkdownWindow}></i>
+              <i className="fa-brands fa-markdown" onClick={openEditMarkdownWindow}></i>
               <i onClick={closeEditNoteModal} className="fa-solid fa-xmark"></i>
 
             </header>
-            <form onSubmit={updateNote} id="notes-form" action="#" enctype="multipart/form-data">
+            <form onSubmit={updateNote} id="notes-form" action="#" encType="multipart/form-data">
               <div className="row title">
                 {/* <label>Title</label> */}
-                <input value={addNoteTitle} onChange={(e) => setAddNoteTitle(e.target.value)} id='modal-title-input' type="text" name="title" spellcheck="false"/>
+                <input value={addNoteTitle} onChange={(e) => setAddNoteTitle(e.target.value)} id='modal-title-input' type="text" name="title" spellCheck="false"/>
               </div>
               <div className="row description">
                 {/* <label>Description</label> */}
-                <textarea value={addNoteDescription} onChange={(e) => setAddNoteDescription(e.target.value)} name="description" spellcheck="false"></textarea>
+                <textarea value={addNoteDescription} onChange={(e) => setAddNoteDescription(e.target.value)} name="description" spellCheck="false"></textarea>
               </div>
               <button>Update Note</button>
             </form>
@@ -311,7 +311,7 @@ const Notes = () => {
               <i onClick={closePreviewNoteModal} className="fa-solid fa-xmark"></i>
 
             </header>
-            <form id="notes-form" action="#" enctype="multipart/form-data">
+            <form id="notes-form" action="#" encType="multipart/form-data">
               <div className="row title">
               <div name="title" className="previewbox previewtitle" dangerouslySetInnerHTML={{ __html: marked(addNoteTitle) }}></div>
               </div>

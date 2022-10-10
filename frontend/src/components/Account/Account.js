@@ -118,7 +118,7 @@ const Account = () => {
                 onSubmit={changePassword}
                 id="notes-form"
                 action="#"
-                enctype="multipart/form-data"
+                encType="multipart/form-data"
               >
                 <div className="row title">
                   <label>Current Password</label>
@@ -126,7 +126,7 @@ const Account = () => {
                     id="modal-current-password-input"
                     type="password"
                     name="title"
-                    spellcheck="false"
+                    spellCheck="false"
                     onChange={(e) => setCurrentPassword(e.target.value)}
                   />
                 </div>
@@ -137,7 +137,7 @@ const Account = () => {
                     id="modal-new-password-input"
                     type="password"
                     name="title"
-                    spellcheck="false"
+                    spellCheck="false"
                     onChange={(e) => setNewPassword(e.target.value)}
                   />
                 </div>
@@ -148,7 +148,7 @@ const Account = () => {
                     id="modal-confirm-password-input"
                     type="password"
                     name="title"
-                    spellcheck="false"
+                    spellCheck="false"
                     onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                 </div>
