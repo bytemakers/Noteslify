@@ -4,7 +4,7 @@ import './HeroSection.css'
 const HeroSection = () => {
   return (
     <section className = "hero-section">
-      <div className='container flex'>
+      <div data-aos="fade-up" className='container flex'>
          <h1 style = {{padding:'0px'}}>Your Privacy Friendly, Open Source.
 Alternative to EverNote.</h1>
           <h4> 
