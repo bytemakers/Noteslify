@@ -1,15 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import ContextWrapper from './context/ContextWrapper';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import GoBackTop from './components/GoBackTop'
+import ContextWrapper from './context/ContextWrapper'
 import './index.css'
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <React.StrictMode>
-    <ContextWrapper>
-    <App />
-    </ContextWrapper>
-  </React.StrictMode>
-);
+	<React.StrictMode>
+		<GoBackTop />
+		<ContextWrapper>
+			<App />
+		</ContextWrapper>
+	</React.StrictMode>
+)
