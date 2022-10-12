@@ -1,72 +1,84 @@
-.newsletter__form {
-    width: 90%;
-  }
-  
-  .newsletter__form__email {
-    /* override rule in flex class */
-    height: auto;
-  
-    padding: 0.3rem;
-    border-radius: 999rem;
-    background: white;
-  }
-  
-  .newsletter__form__email__your_email {
-    border-radius: 999rem;
-    border: none;
-  }
-  
-  .newsletter__form__email__submit_btn {
-    border-radius: 999rem;
-    width: auto;
-  }
-  
-  .newsletter__form__email_copy {
-    gap: 0.5rem;
-  }
-  
-  .newsletter__form__email_copy > * {
-    height: auto;
-    width: auto;
-  }
-  
-  .newsletter__form__email_copy__label {
-    font-family: system-ui, sans-serif;
-    font-size: 2.2rem;
-    font-weight: bold;
-    line-height: 1.1;
-    display: grid;
-    grid-template-columns: 1em auto;
-  }
-  
-  .newsletter__form__email_copy__check_box {
-    display: grid;
-    place-content: center;
-    appearance: none;
-    padding: 0.6rem;
-    margin: 0;
-    /* push to the right */
-    margin-left: auto;
-    width: 0.45rem;
-    height: 0.45rem;
-    border: none;
-    border-radius: 999rem;
-    font: inherit;
-    color: currentColor;
-    background-color: #fff;
-  }
-  
-  .newsletter__form__email_copy__check_box::before {
-    content: "";
-    width: 0.45em;
-    height: 0.45em;
-    transform: scale(0);
-    border-radius: 999rem;
+.news-section{
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+.news-section .flex {
+    flex-direction: column;
+    gap: 20px;
+}
+
+.news-section h2 {
+    font-size: 40px;
+    color: var(--primary-color);
+}
+
+
+.news-section input {
+    width: 30vw;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+}
+
+input:focus {
+    outline: none;
+}
+
+.news-section p {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--dark-color);
+}
+
+.news-section button {
+    padding: 0.7rem 4rem;
+    border-radius: 25px;
     background-color: var(--primary-color);
-    transition: 120ms transform ease-in-out;
-  }
-  
-  .newsletter__form__email_copy__check_box:checked::before {
-    transform: scale(1);
-  }
-  
+    color: var(--light-color);
+    border: 1px solid transparent;
+}
+
+
+/* @media screen and (max-width :960px) {
+    .news-section h2 {
+        font-size: 20px;
+    }
+
+    .news-section input {
+        width: 60vw;
+    }
+
+    .news-section p {
+        font-size: 14px;
+    }
+
+    .news-section button {
+        padding: 0.7rem 2rem;
+    }
+} */
+
+@media screen and (max-width :500px) {
+    .news-section{
+        height: 550px;
+    }
+    .news-section h2 {
+        font-size: 20px;
+    }
+
+    .news-section input {
+        width: 60vw;
+    }
+
+    .news-section p {
+        font-size: 14px;
+    }
+
+    .news-section button {
+        padding: 0.7rem 2rem;
+    }
+    .iframe{
+        width: 100%;
+        height: 700;
+    }
+}
