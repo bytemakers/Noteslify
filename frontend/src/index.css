@@ -9,3 +9,19 @@ html {
 #dark {
     background: rgb(29, 28, 28);
 }
+
++.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
