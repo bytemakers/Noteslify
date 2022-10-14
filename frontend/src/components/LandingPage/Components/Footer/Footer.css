@@ -150,10 +150,10 @@ div.social {
   font-size: 2.4em;
   flex-direction: row;
   margin-top: 0.5em;
-  cursor: pointer;
 }
 .social i {
   color: #2a8ded;
+  cursor: pointer;
 }
 
 .copyright {
