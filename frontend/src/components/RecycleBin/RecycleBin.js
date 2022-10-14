@@ -4,8 +4,6 @@ import Sidenav from '../Sidenav/Sidenav'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-import { RiInboxUnarchiveLine } from 'react-icons/ri';
-import { AiFillDelete } from 'react-icons/ai';
 import {Helmet} from "react-helmet";
 
 const RecycleBin = () => {
@@ -120,10 +118,10 @@ const RecycleBin = () => {
                     <div className="bottom-content">
                         <span>{convertToMonthName(new Date(dateStu).getMonth()) + " " + new Date(dateStu).getDate().toString() + ", " + new Date(dateStu).getFullYear()}</span>
                         <div onClick={() => unArchive(note._id)} id={`settings-${note._id}`} className="settings">
-                          <RiInboxUnarchiveLine />
+                        <i class="fa-solid fa-inbox"></i>
                         </div>
                         <div onClick={() => deletePermanently(note._id)} id={`settings-${note._id}`} className="settings">
-                          <AiFillDelete />
+                        <i class="fa-solid fa-trash"></i>
                         </div>
                     </div>
                 </li>
