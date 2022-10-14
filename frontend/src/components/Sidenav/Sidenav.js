@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './Sidenav.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import logo from '../../assets/logo.png'
 import GlobalContext from '../../context/GlobalContext';
 import NotesContext from '../../context/NotesContext';
 
 const Sidenav = () => {
+    const location = window.location.pathname;
     const { theme ,setTheme } = useContext(GlobalContext)
     const { getNotes } = useContext(NotesContext)
     const [search, setSearch] = useState('')
@@ -68,14 +69,14 @@ const Sidenav = () => {
               </li>
 
               <ul className="menu-links">
-                  <li className="nav-link">
+                  <li className={`nav-link ${location === '/notes'?"active":""}`}>
                         <Link to={'/notes'}>
                           <i className="fa-solid fa-house icon"></i>
                           <span className="text nav-text">Dashboard</span>
                         </Link>
                   </li>
 
-                  <li className="nav-link">
+                        <li className={`nav-link ${location === '/myaccount' ? "active" : ""}`}>
                         <Link to={'/myaccount'}>
                           <i className="fa-solid fa-circle-user icon"></i>
                           <span className="text nav-text">My Account</span>
@@ -89,7 +90,7 @@ const Sidenav = () => {
                       </a>
                   </li>
 
-                  <li className="nav-link">
+                        <li className={`nav-link ${location === '/bin' ? "active" : ""}`}>
                       <Link to={'/bin'}>
                           <i className="fa-solid fa-trash icon"></i>
                           <span className="text nav-text">Bin</span>

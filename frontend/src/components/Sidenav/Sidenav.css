@@ -168,6 +168,10 @@ header .image-text .profession {
     color: var(--sidebar-color);
 }
 
+.active{
+    background-color: #e4e9f7;
+}
+
 body.dark .sidebar li a:hover .icon,
 body.dark .sidebar li a:hover .text {
     color: var(--text-color);
@@ -188,6 +192,7 @@ body.dark .sidebar li a:hover .text {
 .bottom-content li a:hover {
     background-color: var(--primary-color);
 }
+
 
 .bottom-content li .logout:hover {
     color: white;
