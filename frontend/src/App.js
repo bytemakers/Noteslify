@@ -15,6 +15,7 @@ import ErrorPage from './components/Error/ErrorPage';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
+import Deleteaccount from './components/DeleteAccount/Deleteaccount';
 
 function App() {
   useEffect(() => {
@@ -38,6 +39,7 @@ function App() {
         <Route path="/bin" element={<RecycleBin />} />
         <Route path="/myaccount" element={<Account />} />
         <Route path='*' element={<ErrorPage />} />
+        <Route path='/deleteacocunt/:email/:token' element={<Deleteaccount />} />
       </Routes>
     </Router>
   );
