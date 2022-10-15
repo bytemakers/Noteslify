@@ -470,6 +470,74 @@ router.put('/login/changepassword',
         } catch (error) {
             return res.status(500).send("Internal Server Error");
         }
-    })
+});
+
+
+
+
+
+
+
+
+
+
+
+// Route 10: Deleting a user's account: DELETE: http://localhost:8181/api/auth/deleteaccount. Login Required
+router.delete('/deleteaccount', fetchuser, async (req, res) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+        const theUser = await UserSchema.findById(req.user.id);
+        if (!theUser) {
+            return res.status(404).json({ error: "User not Found" });
+        }
+
+        const daToken = uuidv4();
+
+        // Pushing the token with email in the DB
+        fpSchema.create({
+            email: theUser.email,
+            token: daToken
+        });
+        
+        // Sending the email with the Delete Account link in it
+        const transporter = nodemailer.createTransport({
+            service: 'hotmail',
+            auth: {
+                user: "abhinandanwadhwa5@outlook.com",
+                pass: "Abhi1311"
+            }
+        });
+    
+        const options = {
+            from: "abhinandanwadhwa5@outlook.com",
+            to: theUser.email,
+            subject: 'Delete Noteslify Account',
+            html: `You are receiving this email because you(maybe someone else) wanted to delete your account permanently.\nIf it was not you, ignore this email.If you requested to delete your account, please go to the following link: <a href='http://localhost:3000/deleteacocunt/${theUser.email}/${daToken}'>Click Here</a>`
+        };
+    
+        transporter.sendMail(options, (err, info) => {
+            if (err) {
+                console.log(err);
+                return res.status(400).json({ error: "Internal Server Error!" });
+            }
+            console.log(info.response);
+            res.status(200).json({ success: "An Email has been sent to your mail account for confirmation" });
+        });
+        
+        
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
+
+
+});
+
+
 
 module.exports = router;
