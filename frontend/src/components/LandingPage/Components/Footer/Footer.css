@@ -190,6 +190,11 @@ div.social {
 @media screen and (max-width: 1200px) {
     .row.primary {
         padding: 55px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .subscribe {
+        padding: 0;
     }
 
     .about p {
