@@ -514,7 +514,7 @@ router.delete('/deleteaccount', fetchuser, async (req, res) => {
             from: process.env.outlookEmail,
             to: req.body.email,
             subject: 'Reset Password for Noteslify',
-            html: `You are receiving this email because you(maybe someone else) wanted to change your password.\nIf it was not you, ignore this email.If you requested to change your password, please go to the following link: <a href='https://noteslify.stonecss.com/resetpassword/${req.body.email}/${fpToken}'>Click Here</a>`
+            html: `You are receiving this email because you(maybe someone else) wanted to delete your account permanently.\nIf it was not you, ignore this email.If you requested to delete your account, please go to the following link: <a href='http://localhost:3000/deleteacocunt/${theUser.email}/${daToken}'>Click Here</a>`
         };
     
         transporter.sendMail(options, (err, info) => {
