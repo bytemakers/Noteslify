@@ -76,6 +76,28 @@ const Account = () => {
     }
   };
 
+
+  const deleteAccount = async () => {
+    if (window.confirm("Are you sure you want to delete your account?")) {
+      const authtoken = sessionStorage.getItem('auth-token');
+      const response = await fetch('http://localhost:8181/api/auth/deleteaccount', {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': authtoken
+        }
+      });
+      const json = await response.json();
+      console.log(json);
+      if (json.success) {
+        toast.success(json.success);
+      }
+      else {
+        toast.error(json.error);
+      }
+    }
+  }
+
   return (
     <>
       <Helmet>
@@ -172,7 +194,21 @@ const Account = () => {
             </div>
             <p>Change Password</p>
           </li>
+
+          <li
+            onClick={() => {
+              deleteAccount();
+            }}
+            className="add-box"
+          >
+            <div className="icon">
+              <i className="fa-solid fa-key"></i>
+            </div>
+            <p>Delete Account</p>
+          </li>
         </div>
+
+        
 
         <ToastContainer
           toastStyle={{ backgroundColor: "#202d40", color: "white" }}

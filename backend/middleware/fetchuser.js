@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET = "isadvn2hjk23h4h&%@(jhhj";
 
 const fetchuser = async (req, res, next) => {
     const token = await req.header('auth-token');
