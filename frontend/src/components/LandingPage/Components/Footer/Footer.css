@@ -192,6 +192,23 @@ div.social {
     grid-template-columns: 1fr;
   }
 
+  footer {
+    padding: 35px;
+    padding-bottom: 150px;
+  }
+
+  .about p {
+    width: 100%;
+  }
+
+  .column {
+    padding: 0;
+  }
+
+  .column:not(:last-child) {
+    margin-bottom: 25px;
+  }
+
   /* .ul{
     text-align: center;
     justify-items: center;
