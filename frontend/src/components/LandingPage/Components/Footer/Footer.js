@@ -10,9 +10,11 @@ const Footer = () => {
                     <h3>Noteslify</h3>
 
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae,
-                        voluptatem corporis error non,
+                        Your Privacy Friendly, Open Source. Alternative to EverNote.
+
+                        Capture your notes, files, and life’s work all in one secure place.
                     </p>
+                    {/* 
 
                     <div className="social">
                         <i className="fa-brands fa-facebook-square"></i>
@@ -21,6 +23,9 @@ const Footer = () => {
                         <i className="fa-brands fa-youtube-square"></i>
                         <i className="fa-brands fa-whatsapp-square"></i>
                     </div>
+
+                    */}
+                    
                 </div>
 
                 <div className="column links">
@@ -77,14 +82,14 @@ const Footer = () => {
             <div className="row copyright">
                 <div className="footer-menu">
 
-                    {/* <a href="">Home</a> */}
+                    <a href="http://noteslify.stonecss.com/">Home</a>
                     <a href="">Feature</a>
-                    <a href="">Github</a>
-                    <a href="">Contact</a>
-                    {/* <a href="">Dashboard</a> */}
+                    <a href="https://github.com/dvstechlabs/Noteslify">Github</a>
+                    <a href="http://noteslify.stonecss.com/contact">Contact</a>
+                    <a href="http://noteslify.stonecss.com/notes">Dashboard</a>
 
                 </div>
-                <p>Copyright &copy;</p>
+                <p>Copyright &copy; 2022 | DVS Tech Labs</p>
             </div>
         </footer>
     );
