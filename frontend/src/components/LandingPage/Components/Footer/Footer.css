@@ -76,16 +76,16 @@ footer {
   background-color: #121315;
   color: #a7a7a7;
   font-size: 16px;
+  padding: 70px 100px 40px 100px;
 }
+
 footer * {
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
   border: none;
   outline: none;
 }
-.row {
-  padding: 1em 1em;
-}
+
 .row.primary {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 2fr;
@@ -102,7 +102,7 @@ h3 {
   width: 100%;
   text-align: left;
   color: white;
-  font-size: 1.4em;
+  font-size: 30px;
   white-space: nowrap;
 }
 .ul {
@@ -122,10 +122,15 @@ h3 {
 .ul li a:hover {
   color: #2a8ded;
 }
+.about {
+    padding-left: 0;
+}
 .about p {
   text-align: justify;
-  line-height: 2;
+  line-height: 1.6;
   margin: 0;
+  font-size: 22px;
+  width: 70%;
 }
 input,
 button {
@@ -146,10 +151,11 @@ button {
 }
 div.social {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   font-size: 2.4em;
   flex-direction: row;
-  margin-top: 0.5em;
+  margin-top: 0.8em;
+  width: 25rem;
 }
 .social i {
   color: #2a8ded;
@@ -157,8 +163,8 @@ div.social {
 }
 
 .copyright {
-  padding: 0.3em 1em;
-  background-color: #25262e;
+  padding: 0.3em 0;
+  margin-top: 2em;
 }
 .footer-menu{
   float: left;
@@ -167,7 +173,7 @@ div.social {
 
 .footer-menu a{
   color: #cfd2d6;
-  padding: 6px;
+  padding-right: 10px;
 
   text-decoration: none;
 }
@@ -175,8 +181,11 @@ div.social {
   color: #27bcda;
 }
 .copyright p {
-  font-size: 0.9em;
+  font-size: 1em;
   text-align: right;
+}
+.subscribe {
+    padding-right: 0;
 }
 @media screen and (max-width: 850px) {
   .row.primary {
