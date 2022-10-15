@@ -7,6 +7,7 @@ const { body, validationResult } = require('express-validator');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 const fetchuser = require('../middleware/fetchuser');
+const helper = require('../helper/helper')
 
 dotenv.config();
 
@@ -18,20 +19,24 @@ router.post('/addnote', fetchuser, [
     body('title', "Title cannot be blank.").isLength({ min: 1 }),
     body('description', "Description cannot be black.").isLength({ min: 1 }),
 ], async (req, res) => {
-    
+
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({ errors: errors.array() });
     }
 
     try {
         const theUser = await UserSchema.findById(req.user.id);
+        let key = helper.getKey();
+        req.body.title = helper.encrypt(req.body.title, key);
+        req.body.description = helper.encrypt(req.body.description, key);
 
         const newNote = await NoteSchema.create({
             title: req.body.title,
             description: req.body.description,
             authorId: req.user.id,
-            authorUsername: theUser.username
+            authorUsername: theUser.username,
+            secretKey: key
         });
 
         res.status(200).json(newNote);
@@ -102,6 +107,11 @@ router.delete('/deletenotepermanently/:id', fetchuser, async (req, res) => {
 router.get('/getallnotes', fetchuser, async (req, res) => {
     try {
         const allNotes = await NoteSchema.find({ authorId: req.user.id, isDeleted: false }).sort({ createdAt: -1 });
+        for (let index = 0; index < allNotes.length; index++) {
+            const element = allNotes[index];
+            element.title =  helper.decrypt(element.title, element.secretKey);
+            element.description =  helper.decrypt(element.description, element.secretKey);
+        }
         res.status(200).json(allNotes);
 
     } catch (error) {
@@ -121,6 +131,8 @@ router.get('/getnote/:id', fetchuser, async (req, res) => {
         if (theNote.authorId !== req.user.id) {
             return res.status(403).json({ error: "You cannot access some other user's notes" });
         }
+        theNote.title =  helper.decrypt(theNote.title, theNote.secretKey);
+        theNote.description =  helper.decrypt(theNote.description, theNote.secretKey);
         res.status(200).json(theNote);
 
     } catch (error) {
@@ -140,7 +152,7 @@ router.put('/updatenote/:id', fetchuser, [
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({ errors: errors.array() });
     }
 
     try {
@@ -149,9 +161,14 @@ router.put('/updatenote/:id', fetchuser, [
         if (theNote.authorId !== req.user.id) {
             return res.status(403).json({ error: "You cannot access some other user's notes" });
         }
-        
-        const newNote = await NoteSchema.findByIdAndUpdate(req.params.id, { title: req.body.title, description: req.body.description });
 
+        let key = helper.getKey();
+        req.body.title = helper.encrypt(req.body.title, key);
+        req.body.description = helper.encrypt(req.body.description, key);
+
+        const newNote = await NoteSchema.findByIdAndUpdate(req.params.id, { title: req.body.title, description: req.body.description, secretKey: key });
+
+        
         res.status(200).json({ success: "The Note has been Updated Successfully!" })
 
     } catch (error) {

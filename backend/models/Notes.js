@@ -10,6 +10,10 @@ const NoteSchema = new Schema({
         type: String,
         required: true
     },
+    secretKey: {
+        type: String,
+        required: true
+    },
     authorId: {
         type: String,
         required: true
