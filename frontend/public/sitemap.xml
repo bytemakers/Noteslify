@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://noteslify.stonecss.com/</loc>
+  </url>
+  <url>
+    <loc>https://noteslify.stonecss.com/login</loc>
+  </url>
+  <url>
+    <loc>https://noteslify.stonecss.com/signup</loc>
+  </url>
+  <url>
+    <loc>https://noteslify.stonecss.com/notes</loc>
+  </url>
+  <url>
+    <loc>https://noteslify.stonecss.com/contact</loc>
+  </url>
+  <url>
+    <loc>https://noteslify.stonecss.com/myaccount</loc>
+  </url>
+</urlset>

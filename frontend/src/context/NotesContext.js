@@ -4,7 +4,6 @@ const NotesContext = createContext({});
 
 export const NotesProvider = ({ children }) => {
     const [notes, setNotes] = useState([]);
-    const token = sessionStorage.getItem('auth-token');
 
     const getNotes = async (search) => {
         let URI = 'http://localhost:8181/api/notes/getallnotes';
@@ -16,11 +15,11 @@ export const NotesProvider = ({ children }) => {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'auth-token': token,
+                    'auth-token': sessionStorage.getItem('auth-token'),
                 },
             });
 
-            if (!response.ok) throw Error(response.status);
+            if (!response.ok) throw Error(response.json());
 
             const notes = await response.json();
             setNotes(notes);
@@ -36,7 +35,7 @@ export const NotesProvider = ({ children }) => {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'auth-token': token,
+                    'auth-token': sessionStorage.getItem('auth-token'),
                 },
             }
         );
@@ -49,7 +48,7 @@ export const NotesProvider = ({ children }) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'auth-token': token,
+                'auth-token': sessionStorage.getItem('auth-token'),
             },
             body: JSON.stringify(note),
         });
@@ -64,7 +63,7 @@ export const NotesProvider = ({ children }) => {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    'auth-token': token,
+                    'auth-token': sessionStorage.getItem('auth-token'),
                 },
                 body: JSON.stringify({
                     title: note.title,
@@ -83,7 +82,7 @@ export const NotesProvider = ({ children }) => {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
-                    'auth-token': token,
+                    'auth-token': sessionStorage.getItem('auth-token'),
                 },
             }
         );

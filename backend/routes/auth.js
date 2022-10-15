@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const dotenv = require('dotenv');
 const UserSchema = require('../models/User');
+const NoteSchema = require('../models/Notes');
+const daSchema = require('../models/DeleteAccount');
 const { body, validationResult } = require('express-validator');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
@@ -470,6 +472,141 @@ router.put('/login/changepassword',
         } catch (error) {
             return res.status(500).send("Internal Server Error");
         }
-    })
+});
+
+
+
+
+
+
+
+
+
+
+
+// Route 10: Deleting a user's account: DELETE: http://localhost:8181/api/auth/deleteaccount. Login Required
+router.delete('/deleteaccount', fetchuser, async (req, res) => {
+
+    try {
+        const theUser = await UserSchema.findById(req.user.id);
+        if (!theUser) {
+            return res.status(404).json({ error: "User not Found" });
+        }
+
+        const daToken = uuidv4();
+
+        // Pushing the token with email in the DB
+        await daSchema.create({
+            email: theUser.email,
+            token: daToken
+        });
+        
+        // Sending the email with the Delete Account link in it
+        const transporter = nodemailer.createTransport({
+            service: 'hotmail',
+            auth: {
+                user: process.env.outlookEmail,
+                pass: process.env.outlookPassword
+            }
+        });
+    
+        const options = {
+            from: process.env.outlookEmail,
+            to: theUser.email,
+            subject: 'Delete Noteslify Account',
+            html: `You are receiving this email because you(maybe someone else) wanted to delete your account permanently.\nIf it was not you, ignore this email.If you requested to delete your account, please go to the following link: <a href='http://localhost:3000/deleteacocunt/${theUser.email}/${daToken}'>Click Here</a>`
+        };
+    
+        transporter.sendMail(options, (err, info) => {
+            if (err) {
+                console.log(err);
+                return res.status(400).json({ error: "Internal Server Error!" });
+            }
+            console.log(info.response);
+            res.status(200).json({ success: "An Email has been sent to your mail account for confirmation" });
+        });
+        
+        
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+// Route 11: Getting a specific daEntry: GET: http://localhost:8181/api/auth/getdatoken. Login Required
+router.get('/getdatoken/:id', fetchuser, async (req, res) => {
+    try {
+        const token = await daSchema.findOne({ token: req.params.id });
+        const theUser = await UserSchema.findById(req.user.id);
+        
+        if (!token) {
+            return res.status(404).json({ error: "No such token found" });
+        }
+        if (theUser.email !== token.email) {
+            return res.status(403).json({ error: "You cannot access some other person's token" });
+        }
+        
+        res.status(200).json(token);
+        
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+// Route 12: Deleting the user permanently: GET: http://localhost:8181/api/auth/deletepermanently/:id. Login Required
+router.delete('/permanentlydelete/:id/:email', async (req, res) => {
+    try {
+        const token = await daSchema.findOne({ token: req.params.id });
+        const theUser = await UserSchema.findOne({ email: req.params.email });
+        
+        let checkHash = await bcrypt.compare(req.body.password, theUser.password);
+        if (!checkHash) {
+            return res.status(403).json({ error: "Wrong Password!" });
+        }
+        
+        if (!token) {
+            return res.status(404).json({ error: "No such token found" });
+        }
+        if (theUser.email !== token.email) {
+            return res.status(403).json({ error: "You cannot access some other person's token" });
+        }
+
+        await NoteSchema.deleteMany({ authorId: theUser.id });
+        await theUser.delete();
+
+        res.status(200).json({ success: "The user has been deleted successfully!!" });
+        
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
+
 
 module.exports = router;
