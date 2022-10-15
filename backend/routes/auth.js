@@ -512,8 +512,8 @@ router.delete('/deleteaccount', fetchuser, async (req, res) => {
     
         const options = {
             from: process.env.outlookEmail,
-            to: req.body.email,
-            subject: 'Reset Password for Noteslify',
+            to: theUser.email,
+            subject: 'Delete Noteslify Account',
             html: `You are receiving this email because you(maybe someone else) wanted to delete your account permanently.\nIf it was not you, ignore this email.If you requested to delete your account, please go to the following link: <a href='http://localhost:3000/deleteacocunt/${theUser.email}/${daToken}'>Click Here</a>`
         };
     
