@@ -1,0 +1,10 @@
+[
+    {
+    "name": "College",
+    "isFavourite": true
+    },
+    {
+    "name": "Dev",
+    "isFavourite": false
+    }
+]

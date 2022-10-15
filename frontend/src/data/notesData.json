@@ -1,0 +1,17 @@
+[
+    {
+    "title": "Math answers",
+    "description": "log(2) = 0.301",
+    "folder": "College"
+    },
+    {
+    "title": "CSS clamp",
+    "description": "The clamp() CSS function clamps a middle value within a range of values between a defined minimum bound and a maximum bound. The function takes three parameters: a minimum value, a preferred value, and a maximum allowed value.",
+    "folder": "Dev"
+    },
+    {
+    "title": "End Sem Exams",
+    "description": "My sem 5 final exams will begin in November",
+    "folder": "College"
+    }
+]
