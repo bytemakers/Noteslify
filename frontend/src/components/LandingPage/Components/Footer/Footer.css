@@ -77,19 +77,19 @@ footer {
   color: #a7a7a7;
   font-size: 16px;
 }
+
 footer * {
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
   border: none;
   outline: none;
 }
-.row {
-  padding: 1em 1em;
-}
+
 .row.primary {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 2fr;
   align-items: stretch;
+  padding: 100px;
 }
 .column {
   width: 100%;
@@ -102,7 +102,7 @@ h3 {
   width: 100%;
   text-align: left;
   color: white;
-  font-size: 1.4em;
+  font-size: 30px;
   white-space: nowrap;
 }
 .ul {
@@ -122,10 +122,14 @@ h3 {
 .ul li a:hover {
   color: #2a8ded;
 }
+.about {
+    padding-left: 0;
+}
 .about p {
   text-align: justify;
-  line-height: 2;
+  line-height: 1.6;
   margin: 0;
+  width: 70%;
 }
 input,
 button {
@@ -146,10 +150,11 @@ button {
 }
 div.social {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   font-size: 2.4em;
   flex-direction: row;
-  margin-top: 0.5em;
+  margin-top: 0.8em;
+  width: 25rem;
 }
 .social i {
   color: #2a8ded;
@@ -157,8 +162,8 @@ div.social {
 }
 
 .copyright {
-  padding: 0.3em 1em;
   background-color: #25262e;
+  padding: 0.3em 100px;
 }
 .footer-menu{
   float: left;
@@ -167,7 +172,7 @@ div.social {
 
 .footer-menu a{
   color: #cfd2d6;
-  padding: 6px;
+  padding-right: 10px;
 
   text-decoration: none;
 }
@@ -175,12 +180,54 @@ div.social {
   color: #27bcda;
 }
 .copyright p {
-  font-size: 0.9em;
+  font-size: 1em;
   text-align: right;
 }
+.subscribe {
+    padding-right: 0;
+}
+
+@media screen and (max-width: 1200px) {
+    .row.primary {
+        padding: 55px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .subscribe {
+        padding: 0;
+    }
+
+    .about p {
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: 850px) {
   .row.primary {
     grid-template-columns: 1fr;
+  }
+
+  .row.primary {
+    padding: 35px;
+    padding-bottom: 50px;
+  }
+
+  .about p {
+    width: 100%;
+  }
+
+  .column {
+    padding: 0;
+  }
+
+  .column:not(:last-child) {
+    margin-bottom: 2px;
+  }
+
+  .copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   /* .ul{
@@ -189,4 +236,22 @@ div.social {
     align-items: center;
   } */
 
+}
+
+@media screen and (max-width: 480px) {
+    input,button {
+        width: auto;
+    }
+
+    input {
+        margin-right: .5em;
+    }
+
+    div.social {
+        width: 15rem;
+    }
+
+    .copyright {
+        padding: .3em 0;
+    }
 }
