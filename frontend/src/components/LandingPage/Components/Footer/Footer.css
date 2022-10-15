@@ -209,6 +209,12 @@ div.social {
     margin-bottom: 25px;
   }
 
+  .copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   /* .ul{
     text-align: center;
     justify-items: center;
