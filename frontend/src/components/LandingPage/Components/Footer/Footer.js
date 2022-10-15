@@ -14,7 +14,7 @@ const Footer = () => {
 
                         Capture your notes, files, and life’s work all in one secure place.
                     </p>
-                    {/* 
+
 
                     <div className="social">
                         <i className="fa-brands fa-facebook-square"></i>
@@ -24,8 +24,8 @@ const Footer = () => {
                         <i className="fa-brands fa-whatsapp-square"></i>
                     </div>
 
-                    */}
-                    
+
+
                 </div>
 
                 <div className="column links">
