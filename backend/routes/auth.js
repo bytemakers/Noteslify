@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const dotenv = require('dotenv');
 const UserSchema = require('../models/User');
+const NoteSchema = require('../models/Notes');
+const daSchema = require('../models/DeleteAccount');
 const { body, validationResult } = require('express-validator');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
@@ -485,11 +487,6 @@ router.put('/login/changepassword',
 // Route 10: Deleting a user's account: DELETE: http://localhost:8181/api/auth/deleteaccount. Login Required
 router.delete('/deleteaccount', fetchuser, async (req, res) => {
 
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-    }
-
     try {
         const theUser = await UserSchema.findById(req.user.id);
         if (!theUser) {
@@ -499,7 +496,7 @@ router.delete('/deleteaccount', fetchuser, async (req, res) => {
         const daToken = uuidv4();
 
         // Pushing the token with email in the DB
-        fpSchema.create({
+        await daSchema.create({
             email: theUser.email,
             token: daToken
         });
@@ -536,6 +533,78 @@ router.delete('/deleteaccount', fetchuser, async (req, res) => {
     }
 
 
+});
+
+
+
+
+
+
+
+
+
+
+
+// Route 11: Getting a specific daEntry: GET: http://localhost:8181/api/auth/getdatoken. Login Required
+router.get('/getdatoken/:id', fetchuser, async (req, res) => {
+    try {
+        const token = await daSchema.findOne({ token: req.params.id });
+        const theUser = await UserSchema.findById(req.user.id);
+        
+        if (!token) {
+            return res.status(404).json({ error: "No such token found" });
+        }
+        if (theUser.email !== token.email) {
+            return res.status(403).json({ error: "You cannot access some other person's token" });
+        }
+        
+        res.status(200).json(token);
+        
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+// Route 12: Deleting the user permanently: GET: http://localhost:8181/api/auth/deletepermanently/:id. Login Required
+router.delete('/permanentlydelete/:id/:email', async (req, res) => {
+    try {
+        const token = await daSchema.findOne({ token: req.params.id });
+        const theUser = await UserSchema.findOne({ email: req.params.email });
+        
+        let checkHash = await bcrypt.compare(req.body.password, theUser.password);
+        if (!checkHash) {
+            return res.status(403).json({ error: "Wrong Password!" });
+        }
+        
+        if (!token) {
+            return res.status(404).json({ error: "No such token found" });
+        }
+        if (theUser.email !== token.email) {
+            return res.status(403).json({ error: "You cannot access some other person's token" });
+        }
+
+        await NoteSchema.deleteMany({ authorId: theUser.id });
+        await theUser.delete();
+
+        res.status(200).json({ success: "The user has been deleted successfully!!" });
+        
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
 });
 
 

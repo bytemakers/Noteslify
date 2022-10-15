@@ -79,8 +79,8 @@ const Account = () => {
 
   const deleteAccount = async () => {
     if (window.confirm("Are you sure you want to delete your account?")) {
-      const authtoken = localStorage.getItem('auth-token');
-      const response = await fetch('http://locahost:8181/api/auth/deleteaccount', {
+      const authtoken = sessionStorage.getItem('auth-token');
+      const response = await fetch('http://localhost:8181/api/auth/deleteaccount', {
         method: "DELETE",
         headers: {
           'Content-Type': 'application/json',
