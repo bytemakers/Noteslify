@@ -76,7 +76,6 @@ footer {
   background-color: #121315;
   color: #a7a7a7;
   font-size: 16px;
-  padding: 70px 100px 40px 100px;
 }
 
 footer * {
@@ -90,6 +89,7 @@ footer * {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 2fr;
   align-items: stretch;
+  padding: 100px;
 }
 .column {
   width: 100%;
@@ -129,7 +129,6 @@ h3 {
   text-align: justify;
   line-height: 1.6;
   margin: 0;
-  font-size: 22px;
   width: 70%;
 }
 input,
@@ -163,8 +162,8 @@ div.social {
 }
 
 .copyright {
-  padding: 0.3em 0;
-  margin-top: 2em;
+  background-color: #25262e;
+  padding: 0.3em 100px;
 }
 .footer-menu{
   float: left;
@@ -187,14 +186,25 @@ div.social {
 .subscribe {
     padding-right: 0;
 }
+
+@media screen and (max-width: 1200px) {
+    .row.primary {
+        padding: 55px;
+    }
+
+    .about p {
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: 850px) {
   .row.primary {
     grid-template-columns: 1fr;
   }
 
-  footer {
+  .row.primary {
     padding: 35px;
-    padding-bottom: 150px;
+    padding-bottom: 50px;
   }
 
   .about p {
@@ -206,7 +216,7 @@ div.social {
   }
 
   .column:not(:last-child) {
-    margin-bottom: 25px;
+    margin-bottom: 2px;
   }
 
   .copyright {
