@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A Notes Taking App Built With Simplicity",
   "dependencies": {
+    "@formspree/react": "^2.4.0",
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-regular-svg-icons": "^6.1.2",
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
