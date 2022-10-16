@@ -1,7 +1,7 @@
 {
   "name": "noteslify-frontend",
   "version": "1.0.0",
-  "description": "A Notes Taking App Built With Simplicity",
+  "description": "Your Privacy Friendly, Open Source. Alternative to EverNote",
   "dependencies": {
     "@formspree/react": "^2.4.0",
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
@@ -55,11 +55,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devarshishimpi/Noteslify.git"
+    "url": "git+https://github.com/dvstechlabs/Noteslify.git"
   },
   "author": "DVS Tech Labs",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/devarshishimpi/Noteslify/issues"
+    "url": "https://github.com/dvstechlabs/Noteslify/issues"
   }
 }
