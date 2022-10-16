@@ -1,21 +1,21 @@
 {
   "name": "noteslify-backend",
   "version": "1.0.0",
-  "description": "A Notes Taking App Built With Simplicity",
+  "description": "Your Privacy Friendly, Open Source. Alternative to EverNote",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devarshishimpi/Noteslify.git"
+    "url": "git+https://github.com/dvstechlabs/Noteslify.git"
   },
   "author": "DVS Tech Labs",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/devarshishimpi/Noteslify/issues"
+    "url": "https://github.com/dvstechlabs/Noteslify/issues"
   },
-  "homepage": "https://github.com/devarshishimpi/Noteslify#readme",
+  "homepage": "https://github.com/dvstechlabs/Noteslify#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
