@@ -17,33 +17,31 @@ const Footer = () => {
 
 
                     <div className="social">
-                        <i className="fa-brands fa-facebook-square"></i>
-                        <i className="fa-brands fa-instagram-square"></i>
-                        <i className="fa-brands fa-twitter-square"></i>
-                        <i className="fa-brands fa-youtube-square"></i>
-                        <i className="fa-brands fa-whatsapp-square"></i>
+                        <a href="https://github.com/dvstechlabs/Noteslify"><i className="fa-brands fa-github-square"></i></a>
+                        <a href="#test"><i className="fa-brands fa-youtube-square"></i></a>
+                        <a href="#test"><i className="fa-brands fa-facebook-square"></i></a>
+                        <a href="#test"><i className="fa-brands fa-twitter-square"></i></a>
+                        <a href="#test"><i className="fa-brands fa-youtube-square"></i></a>
                     </div>
-
-
 
                 </div>
 
                 <div className="column links">
-                    <h3>Some Links</h3>
+                    <h3>Soon..</h3>
 
                     <ul className='ul'>
 
                         <li>
-                            <a href="#faq">F.A.Q</a>
+                            <a href="#faq">Soon..</a>
                         </li>
                         <li>
-                            <a href="#cookies-policy">Cookies Policy</a>
+                            <a href="#cookies-policy">Soon..</a>
                         </li>
                         <li>
-                            <a href="#terms-of-services">Terms Of Service</a>
+                            <a href="#terms-of-services">Soon..</a>
                         </li>
                         <li>
-                            <a href="#support">Support</a>
+                            <a href="#support">Soon..</a>
                         </li>
                     </ul>
 
@@ -51,19 +49,19 @@ const Footer = () => {
 
 
                 <div className="column links">
-                    <h3>Some Links</h3>
+                    <h3>Soon..</h3>
                     <ul className='ul'>
                         <li>
-                            <a href="#faq">F.A.Q</a>
+                            <a href="#faq">Soon..</a>
                         </li>
                         <li>
-                            <a href="#cookies-policy">Cookies Policy</a>
+                            <a href="#cookies-policy">Soon..</a>
                         </li>
                         <li>
-                            <a href="#terms-of-services">Terms Of Service</a>
+                            <a href="#terms-of-services">Soon..</a>
                         </li>
                         <li>
-                            <a href="#support">Support</a>
+                            <a href="#support">Soon..</a>
                         </li>
                     </ul>
                 </div>
@@ -83,7 +81,7 @@ const Footer = () => {
                 <div className="footer-menu">
 
                     <a href="http://noteslify.stonecss.com/">Home</a>
-                    <a href="">Feature</a>
+                    <a href="#test">Feature</a>
                     <a href="https://github.com/dvstechlabs/Noteslify">Github</a>
                     <a href="http://noteslify.stonecss.com/contact">Contact</a>
                     <a href="http://noteslify.stonecss.com/notes">Dashboard</a>

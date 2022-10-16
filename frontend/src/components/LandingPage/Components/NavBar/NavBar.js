@@ -21,7 +21,7 @@ const NavBar = () => {
           <ul className="flex">
             <Link to="/"><li>Home</li></Link>
             <a href="#About"><li>Features</li></a>
-            <a href="https://github.com/devarshishimpi/Noteslify"><li>Github</li></a>
+            <a href="https://github.com/dvstechlabs/Noteslify"><li>Github</li></a>
             <Link to="/contact"><li>Contact</li></Link>
             <Link to="/Notes"><li>Dashboard</li></Link>
           </ul>
