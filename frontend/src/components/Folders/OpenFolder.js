@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import '../Notes/Notes.css'
 import Sidenav from '../Sidenav/Sidenav'
-import { useNavigate} from 'react-router-dom';
+import { useNavigate, useParams} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoadingBar from 'react-top-loading-bar'
@@ -12,17 +12,30 @@ import { marked } from 'marked';
 import RenderInWindow from '../Notes/RenderInWindow';
 import MarkdownNotes from '../Notes/MarkdownNotes';
 import {Helmet} from "react-helmet";
-import notes from "../../data/notesData.json"
+import notesData from "../../data/notesData.json"
 import foldersData from "../../data/foldersData.json"
 
-const Folders = () => {
+const OpenFolder = () => {
     const [isSwitchOn, setIsSwitchOn] = useState(true);
     const [addNoteTitle, setAddNoteTitle] = useState('');
     const [addNoteDescription, setAddNoteDescription] = useState('');
     const [updateNoteId, setUpdateNoteId] = useState("");
     const [progress, setProgress] = useState(0);
     const {theme , setTheme} = useContext(GlobalContext);
-    
+    let { folderid } = useParams();
+    folderid = Number(folderid.slice(1));
+
+    const [folderName, setFolderName] = useState(()=>{
+        for(let i=0; i<foldersData.length;i++){
+            console.log("yaar:", foldersData[i]._id, folderid)
+          if(foldersData[i]._id == folderid){
+              return foldersData[i].name;
+            }
+            if(i == foldersData.length-1){
+                return ""
+            }
+        }})
+        
     const {
       notes,
       getNotes,
@@ -33,6 +46,17 @@ const Folders = () => {
     } = useContext(NotesContext);
     const [isAddMarkdownWindowOpen, setIsAddMarkdownWindowOpen] = useState(false);
     const [isEditMarkdownWindowOpen, setIsEditMarkdownWindowOpen] = useState(false);
+
+    // const folderName = "a";
+    // useEffect(()=>{
+    //     foldersData.forEach((folder)=>{
+    //       if(folder._id == folderid){
+    //           folderName = folder.name;
+    //           return;
+    //         }
+    //     })
+    // }, [])
+
     const openAddNoteModalForNewNote = () => {
         const popupBox = document.getElementById('popup-box');
         popupBox.classList.add('show');
@@ -110,36 +134,14 @@ const Folders = () => {
       <div className="wrapper">
         <li onClick={openAddNoteModalForNewNote} className="add-box">
           <div className="icon"><i className="fa-solid fa-plus"></i></div>
-          <p>Add new folder</p>
+          <p>Add new note</p>
         </li>
 
-        {foldersData.map((folder) => {
+        
+        {notesData.map((note) => {
             // const dateStu = note.createdAt;
-            return (
-              <a href={`/folders/:${folder._id}`}>
-                <li id={folder._id} key={folder._id} className="note">
-                    <div className="details">
-                        <div dangerouslySetInnerHTML={{ __html: marked(folder.name) }}></div>
-
-                        {/* <div dangerouslySetInnerHTML={{ __html: marked(note.description) }}></div> */}
-
-                    </div>
-                    <div className="bottom-content">
-                        <span>{folder.isFavourite?"Unlike":"Like"}</span>
-                        <div id={`settings-${folder._id}`} className="settings">
-                            <i className="fa-solid fa-ellipsis"></i>
-                            <ul className="menu show">
-                                <li><i className="fa-solid fa-pen"></i>Edit</li>
-                                <li><i className="fa-regular fa-trash-can"></i>Delete</li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                </a>
-            );
-        })}
-        {/* {notes.map((note) => {
-            // const dateStu = note.createdAt;
+            if(note.folder == folderName){
+                
             return (
                 <li id={note._id} key={note._id} className="note">
                     <div className="details">
@@ -160,7 +162,11 @@ const Folders = () => {
                     </div>
                 </li>
             );
-        })} */}
+            }
+            else{
+                console.log(folderName)
+            }
+        })}
       </div>
       <ToastContainer toastStyle={{ backgroundColor: "#202d40", color: 'white' }} />
     </section>
@@ -169,4 +175,4 @@ const Folders = () => {
   )
 }
 
-export default Folders
+export default OpenFolder
