@@ -32,7 +32,7 @@ The Developer Team behind Noteslify. This project wouldn't have been possible wi
 
 Contributions are always welcome!
 
-See `contributing.md` for ways to get started.
+See [`contributing.md`](./CONTRIBUTING.md) for ways to get started.
 
 Please adhere to this project's `Code of Conduct`.
 
@@ -58,7 +58,7 @@ To deploy this project navigate to the backend folder and run
   node index.js
 ```
 
-or 
+or
 
 ```bash
   nodemon
