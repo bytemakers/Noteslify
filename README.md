@@ -1,3 +1,9 @@
+<a href="https://github.com/keshavsingh4522/hacktoberfest2021/pulls"><img src="https://img.shields.io/github/issues-pr/keshavsingh4522/hacktoberfest2021" alt="Pull Requests Badge"/></a>
+<a href="https://github.com/keshavsingh4522/hacktoberfest2021/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/keshavsingh4522/hacktoberfest2021?color=2b9348"></a>
+<a href="https://github.com/keshavsingh4522/hacktoberfest2021/blob/master/LICENSE"><img src="https://img.shields.io/github/license/keshavsingh4522/hacktoberfest2021?color=2b9348" alt="License Badge"/></a>
+
+</div>
+
 # Noteslify
 
 ## Your Privacy Friendly, Open Source. Alternative to EverNote.
@@ -116,3 +122,8 @@ If you would like to support me, you can support on any of the below platforms.
 <a href="https://presearch.com/signup?rid=4339531" target="_blank"><img src="images/presearch-try.png"/></a>
 <a href="https://railway.app?referralCode=tXRquz" target="_blank"><img src="images/railway-try.png"/></a>
 <a href="https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/wlfqn2dwmbvrdld8z2gk?t=default" target="_blank"><img src="images/cloudinary-try.png"/></a>
+### Contributors 
+Thanks to these wonderful people ✨
+<a align="center" href="https://github.com/dvstechlabs/Noteslify/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=dvstechlabs/Noteslify&&max=817" />
+</a>
