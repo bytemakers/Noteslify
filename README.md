@@ -34,7 +34,7 @@ Contributions are always welcome!
 
 See [`contributing.md`](./CONTRIBUTING.md) for ways to get started.
 
-Please adhere to this project's `Code of Conduct`.
+Please adhere to this project's [`Code of Conduct`](./CODE_OF_CONDUCT.md).
 
 ## Deployment
 
