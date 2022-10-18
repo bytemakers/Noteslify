@@ -27,7 +27,6 @@ const Folders = () => {
 
   //remove the block of code of useEffect below when switching from localstorage to database through backend
   useEffect(() => {
-    //to show some notes at start from static json file
     if (!localStorage.getItem("allFolders")) {
       let allFolders = [];
       localStorage.setItem("allFolders", JSON.stringify(allFolders));

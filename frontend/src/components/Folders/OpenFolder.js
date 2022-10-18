@@ -43,7 +43,6 @@ const OpenFolder = () => {
 
   //remove the block of code of useEffect below when switching from localstorage to database through backend
   useEffect(() => {
-    //to show some notes at start from static json file
     if (!localStorage.getItem("allNotes")) {
       let allNotes = [];
       let allNotesString = JSON.stringify(allNotes);
