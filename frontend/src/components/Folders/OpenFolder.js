@@ -29,11 +29,13 @@ const OpenFolder = () => {
   folderid = Number(folderid.slice(1));
 
   const [folderName, setFolderName] = useState(() => {
-    for (let i = 0; i < foldersData.length; i++) {
-      if (foldersData[i]._id == folderid) {
-        return foldersData[i].name;
+    let allFoldersString = localStorage.getItem("allFolders");
+    let allFolders = JSON.parse(allFoldersString);
+    for (let i = 0; i < allFolders.length; i++) {
+      if (allFolders[i]._id == folderid) {
+        return allFolders[i].name;
       }
-      if (i == foldersData.length - 1) {
+      if (i == allFolders.length - 1) {
         return "";
       }
     }
