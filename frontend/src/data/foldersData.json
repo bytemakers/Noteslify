@@ -1,12 +1,14 @@
 [
-    {
-        "_id": 1,
+  {
+    "_id": 1,
     "name": "College",
+    "noOfFiles": 0,
     "isFavourite": true
-    },
-    {
-        "_id": 2,
+  },
+  {
+    "_id": 2,
     "name": "Dev",
+    "noOfFiles": 0,
     "isFavourite": false
-    }
+  }
 ]
