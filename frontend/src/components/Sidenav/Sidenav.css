@@ -214,6 +214,6 @@ body.dark .sidebar li a:hover .text {
 
 .sidebar.close~.home {
     left: 78px;
-    height: 100vh;
+    min-height: 100vh;
     width: calc(100% - 78px);
 }
