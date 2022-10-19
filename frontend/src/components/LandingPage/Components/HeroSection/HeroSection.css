@@ -122,7 +122,19 @@
         padding: 0px 2rem;
     }
 
+    .blue__circle-1 {
+        bottom: 0.5625rem;
+        height: 20rem;
+        opacity: .6;
+        right: 0;
+        width: 20rem;
+    }
+
     .blue__circle-2 {
-        display: none;
+        bottom: 3.75rem;
+        height: 20rem;
+        left: -6.25rem;
+        opacity: .7;
+        width: 20rem;
     }
 }

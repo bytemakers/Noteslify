@@ -95,6 +95,19 @@
         text-align: center;
         font-weight: 300;
     }
+
+    .about__blue__circle-1 {
+        bottom: -13.4375rem;
+        width: 40rem;
+        right: 10rem;
+    }
+
+    .about__blue__circle-3 {
+        right: 10rem;
+        width: 20rem;
+        height: 20rem;
+    }
+
 }
 
 @media screen and (max-width:850px) {
@@ -131,7 +144,11 @@
         flex-direction: column;
     }
 
-
+    .about__blue__circle-1 {
+        height: 10rem;
+        bottom: -0.4375rem;
+        right: 5rem;
+    }
 }
 
 @media screen and (max-width:700px) {
