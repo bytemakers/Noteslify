@@ -121,4 +121,8 @@
         font-size: 16px;
         padding: 0px 2rem;
     }
+
+    .blue__circle-2 {
+        display: none;
+    }
 }

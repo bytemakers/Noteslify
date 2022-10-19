@@ -197,6 +197,7 @@
 
     .about__blue__circle-2 {
         opacity: 0;
+        display: none;
     }
 
     .about__blue__circle-3 {
