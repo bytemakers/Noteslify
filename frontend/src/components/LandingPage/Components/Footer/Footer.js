@@ -29,21 +29,21 @@ const Footer = () => {
                 </div>
 
                 <div className="column links">
-                    <h3>Some Links</h3>
+                    <h3>Soon</h3>
 
                     <ul className='ul'>
 
                         <li>
-                            <a href="#faq">F.A.Q</a>
+                            <a href="#faq">Soon...</a>
                         </li>
                         <li>
-                            <a href="#cookies-policy">Cookies Policy</a>
+                            <a href="#cookies-policy">Soon...</a>
                         </li>
                         <li>
-                            <a href="#terms-of-services">Terms Of Service</a>
+                            <a href="#terms-of-services">Soon...</a>
                         </li>
                         <li>
-                            <a href="#support">Support</a>
+                            <a href="#support">Soon...</a>
                         </li>
                     </ul>
 
@@ -51,19 +51,19 @@ const Footer = () => {
 
 
                 <div className="column links">
-                    <h3>Some Links</h3>
+                    <h3>Soon</h3>
                     <ul className='ul'>
                         <li>
-                            <a href="#faq">F.A.Q</a>
+                            <a href="#faq">Soon...</a>
                         </li>
                         <li>
-                            <a href="#cookies-policy">Cookies Policy</a>
+                            <a href="#cookies-policy">Soon...</a>
                         </li>
                         <li>
                             <a href="#terms-of-services">Terms Of Service</a>
                         </li>
                         <li>
-                            <a href="#support">Support</a>
+                            <a href="#support">Soon...</a>
                         </li>
                     </ul>
                 </div>
