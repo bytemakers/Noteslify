@@ -53,6 +53,7 @@
     background-color: var(--primary-color);
     color: var(--light-color);
     border: 1px solid transparent;
+    margin-bottom: 5rem;
 }
 
 .hero-section div:nth-child(2) {
