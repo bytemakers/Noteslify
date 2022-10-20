@@ -15,7 +15,14 @@
 
 
 const mongoose = require('mongoose');
-const mongoURI = "mongodb://localhost:27017";
+if (process.env.DB == null) {
+    mongoURI = "mongodb://127.0.0.1:27017";
+} 
+// Use this instead if running the dockerfile
+else {
+    mongoURI = "mongodb://mongodb:27017"
+}
+
 
 const connectToMongo = async (retryCount) => {
     const MAX_RETRIES = 3;
