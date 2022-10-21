@@ -42,13 +42,13 @@ img {
 	display: grid;
 	gap: 25px;
 	grid-template-columns: repeat(auto-fill, 265px);
+	padding: 15px 20px 20px;
 }
 
 .wrapper li {
 	height: 250px;
 	list-style: none;
 	border-radius: 5px;
-	padding: 15px 20px 20px;
 	background: #fff;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
