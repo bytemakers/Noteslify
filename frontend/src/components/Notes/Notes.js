@@ -55,18 +55,6 @@ const Notes = () => {
         return months[num];
     }
 
-    const openMenu = (noteId) => {
-        // const note = document.getElementById(noteId);
-        const settingsList = document.getElementById(`settings-${noteId}`);
-        settingsList.classList.add("show");
-
-        document.addEventListener("click", e => {
-            if(e.target.tagName !== "I") {
-                settingsList.classList.remove("show");
-            }
-        });
-    }
-
     const onDeleteNote = async (id) => {
       if (window.confirm("Are You sure you want to delete this note?")) {
         const result = await deleteNote({ _id: id });
@@ -347,11 +335,10 @@ const Notes = () => {
                     </div>
                     <div className="bottom-content">
                         <span>{convertToMonthName(new Date(dateStu).getMonth()) + " " + new Date(dateStu).getDate().toString() + ", " + new Date(dateStu).getFullYear()}</span>
-                        <div id={`settings-${note._id}`} className="settings" onClick={(e)=> e.stopPropagation()}>
-                            <i onClick={() => openMenu(note._id)} className="fa-solid fa-ellipsis"></i>
+                        <div id={`settings-${note._id}`} className="settings show">
                             <ul className="menu show">
-                                <li onClick={() => openAddNoteModalForEditNote(note._id)}><i className="fa-solid fa-pen"></i>Edit</li>
-                                <li onClick={() => onDeleteNote(note._id)}><i className="fa-regular fa-trash-can"></i>Delete</li>
+                                <li onClick={() => openAddNoteModalForEditNote(note._id)}><i className="fa-solid fa-pen"></i></li>
+                                <li onClick={() => onDeleteNote(note._id)}><i className="fa-regular fa-trash-can"></i></li>
                             </ul>
                         </div>
                     </div>
