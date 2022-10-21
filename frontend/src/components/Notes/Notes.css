@@ -110,10 +110,6 @@ header,
     font-size: 14px;
 }
 
-.bottom-content .settings {
-    position: relative;
-}
-
 .bottom-content .settings i {
     color: #6D6D6D;
     cursor: pointer;
@@ -121,16 +117,13 @@ header,
 }
 
 .settings .menu {
+    display: flex;
     z-index: 1;
-    bottom: 0;
-    right: -5px;
     padding: 5px 0;
     background: #fff;
-    position: absolute;
     border-radius: 4px;
     transform: scale(0);
     transform-origin: bottom right;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s ease;
 }
 
@@ -142,7 +135,7 @@ header,
     height: 25px;
     font-size: 16px;
     margin-bottom: 2px;
-    padding: 17px 15px;
+    padding: 15px 10px;
     cursor: pointer;
     box-shadow: none;
     border-radius: 0;
