@@ -44,7 +44,6 @@ header,
 }
 
 .note .details {
-    max-height: 165px;
     overflow-y: auto;
 }
 .previewbox{
@@ -148,7 +147,13 @@ header,
     border-radius: 0;
     justify-content: flex-start;
 }
-
+.details{
+    padding: 15px 20px 0px 20px;
+    cursor: pointer;
+}
+.bottom-content{
+    padding: 0px 20px 20px 20px;
+}
 .menu li:last-child {
     margin-bottom: 0;
 }
@@ -283,4 +288,20 @@ form button {
     .bottom-content .settings i {
         font-size: 17px;
     }
+}
+
+.control{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 16px;
+}
+
+.control i{
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+.control i:hover{
+    transform: scale(1.4);
+    color: #1e4796;
 }
