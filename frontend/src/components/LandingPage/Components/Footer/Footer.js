@@ -17,7 +17,7 @@ const Footer = () => {
 
 
                     <div className="social">
-                        <a title="github" href="https://github.com/dvstechlabs/Noteslify"><i className="fa-brands fa-github-square"></i></a>
+                        <a title="GitHub" href="https://github.com/dvstechlabs/Noteslify"><i className="fa-brands fa-github-square"></i></a>
                         <a title="youtube" href="#test"><i className="fa-brands fa-youtube-square"></i></a>
                         <a title="facebook" href="#test"><i className="fa-brands fa-facebook-square"></i></a>
                         <a title="twitter" href="#test"><i className="fa-brands fa-twitter-square"></i></a>
