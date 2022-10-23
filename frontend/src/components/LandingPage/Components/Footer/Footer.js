@@ -21,7 +21,7 @@ const Footer = () => {
                         <a title="YouTube" href="#test"><i className="fa-brands fa-youtube-square"></i></a>
                         <a title="Facebook" href="#test"><i className="fa-brands fa-facebook-square"></i></a>
                         <a title="Twitter" href="#test"><i className="fa-brands fa-twitter-square"></i></a>
-                        <a title="youtube" href="#test"><i className="fa-brands fa-youtube-square"></i></a>
+                        <a title="YouTube" href="#test"><i className="fa-brands fa-youtube-square"></i></a>
                     </div>
 
                 </div>
