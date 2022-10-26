@@ -114,7 +114,7 @@ const Login = () => {
                     </div>
                     <div className="form__div-input">
                         <label htmlFor="" className="form__label">Password</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" maxLength="24"
+                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" minLength="6" maxLength="24"
                 className="form__input" id="password"/>
                     </div>
                 </div>
