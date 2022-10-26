@@ -106,7 +106,7 @@ const Signup = () => {
 
                     <div className="form__div-input">
                         <label htmlFor="" className="form__label">Username</label>
-                        <input value={username} onChange={(e) => setUsername(e.target.value)} type="text" className="form__input" id="username" name="username" aria-describedby="emailHelp"/>
+                        <input value={username} onChange={(e) => setUsername(e.target.value)} type="text" className="form__input" id="username" name="username" minLength="6" maxLength="30" aria-describedby="emailHelp"/>
                     </div>
                 </div>
 
