@@ -108,19 +108,17 @@ const Login = () => {
                         <input value={username} onChange={(e) => setUsername(e.target.value)} type="text" name="username" className="form__input" id="username" aria-describedby="emailHelp"/>
                     </div>
                 </div>
-
                 <div className="form__div">
                     <div className="form__icon">
                         <i className='fa-solid fa-lock' ></i>
                     </div>
-
                     <div className="form__div-input">
                         <label htmlFor="" className="form__label">Password</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" className="form__input" id="password"/>
+                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" maxLength="24"
+                className="form__input" id="password"/>
                     </div>
                 </div>
                 <Link to="/forgotpassword" className="form__forgot">Forgot Password?</Link>
-
                 {!isLoading && <button type="submit" className="form__button">Login</button>}
                 {isLoading && <button type="submit" className="form__button" style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true}><span className="loader"></span></button>}
 
