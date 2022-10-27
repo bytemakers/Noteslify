@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import Notes from './components/Notes/Notes';
+import Folders from './components/Folders/Folders';
+import OpenFolder from './components/Folders/OpenFolder';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import Setauthtoken from './components/Setauthtoken';
 import ResetPassword from './components/ResetPassword/ResetPassword';
@@ -29,6 +31,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/notes" element={<Notes />} />
+        <Route exact path="/folders" element={<Folders />} />
+        <Route path="/folders/:folderid" element={<OpenFolder />} />
         <Route path="/setauthtoken/:authtoken" element={<Setauthtoken />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/resetpassword/:email/:token" element={<ResetPassword />} />

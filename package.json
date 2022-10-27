@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dvstechlabs/Noteslify/issues"
   },
-  "homepage": "https://github.com/dvstechlabs/Noteslify#readme"
+  "homepage": "https://github.com/dvstechlabs/Noteslify#readme",
+  "dependencies": {
+    "@formspree/react": "^2.4.0"
+  }
 }
