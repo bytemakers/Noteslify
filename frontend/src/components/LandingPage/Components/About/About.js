@@ -3,9 +3,6 @@ import './About.css'
 const About = () => {
   return (
     <section className = "About-section" id = "About">
-        <div className='about__blue__circle about__blue__circle-1'></div>
-        <div className='about__blue__circle about__blue__circle-2'></div>
-        <div className='about__blue__circle about__blue__circle-3'></div>
         <div className="container flex about-flex">
           <div data-aos="fade-left">
             <div><img src="assets/mobile.png" alt="mobileimage" asset = "mobile-design"/></div>
