@@ -8,10 +8,12 @@ const NavBar = () => {
     <div className="navbar">
       <div className="container flex">
         <div className='mobile-nav'>
-          <div className="flex">
-            <img src="favicon.ico" alt="icon" style={{ width: '20px' }} />
-            <h3 className="logo">Noteslify</h3>
-          </div>
+          <Link to="/">
+            <div className="flex">
+              <img src="favicon.ico" alt="icon" style={{ width: '20px' }} />
+              <h3 className="logo">Noteslify</h3>
+            </div>
+          </Link>
           <div className="menu-display hidden" onClick={() => setOpen(!open)}>
             <span className={open ? '' : 'hide'}>X</span>
             <span className={open ? 'hide' : ''}>☰</span>
