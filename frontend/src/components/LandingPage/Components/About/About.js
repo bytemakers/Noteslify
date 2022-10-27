@@ -12,9 +12,9 @@ const About = () => {
           <p>Noteslify gives you everything you need to keep life organized—great note taking, project planning, and easy ways to find what you need, when you need it. </p>
         </div>
         </div>
-        
+
         <div className="container flex about-flex middle-section">
-        
+
         <div data-aos="fade-left" className='flex desc'>
           <h2>Powerful And Simple Notes</h2>
           <p>Create Backups and Share - Record Notes and Capture Pictures - Classify Notes Into Categories - Upload Unlimited</p>
@@ -22,7 +22,7 @@ const About = () => {
           <div data-aos="fade-right">
             <div><img src="assets/mobile2.png" alt="mobileimage2" asset = "mobile-design"/></div>
         </div>
-        
+
         </div>
         <div className="container flex about-flex">
           <div data-aos="fade-left">

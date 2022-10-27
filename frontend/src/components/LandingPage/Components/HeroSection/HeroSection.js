@@ -7,7 +7,7 @@ const HeroSection = () => {
       <div data-aos="fade-up" className='container flex'>
          <h1 style = {{padding:'0px'}}>Your Privacy Friendly, Open Source.
 Alternative to EverNote.</h1>
-          <h4> 
+          <h4>
             Capture your notes, files, and life’s work all in one secure place.
           </h4>
           <Link to="/Signup"><button>Get Started For Free</button></Link>

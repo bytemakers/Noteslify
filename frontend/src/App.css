@@ -42,13 +42,13 @@ img {
 	display: grid;
 	gap: 25px;
 	grid-template-columns: repeat(auto-fill, 265px);
+	padding: 15px 20px 20px;
 }
 
 .wrapper li {
 	height: 250px;
 	list-style: none;
 	border-radius: 5px;
-	padding: 15px 20px 20px;
 	background: #fff;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
@@ -87,7 +87,7 @@ body {
 	top: 0;
 	top: 0;
 	left: 250px;
-	height: 100vh;
+	min-height: 100vh;
 	width: calc(100% - 250px);
 	background-color: var(--body-color);
 	transition: var(--tran-05);
@@ -249,14 +249,14 @@ body {
 .form__input {
 	position: absolute;
 	top: 0;
-	left: 0;
-	width: 100%;
+	left: 5px;
+	width: 98%;
 	height: 100%;
 	border: none;
 	outline: none;
 	background: none;
 	padding: 0.5rem 0.75rem;
-	font-size: 1.2rem;
+	font-size: 15px;
 	color: var(--first-color);
 	transition: 0.3s;
 }

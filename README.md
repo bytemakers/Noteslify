@@ -10,7 +10,7 @@ A Notes Taking Web App Built With Simplicity.
 
 Please give this repo a ⭐ it really helps us!
 
-Visit At <a href="https://noteslify.stonecss.com" target="_blank">noteslify.stonecss.com</a> Using v1.3.5-beta ( Latest v1.3.5-beta, Latest Stable v1.3.0 )
+Visit At <a href="https://noteslify.stonecss.com" target="_blank">noteslify.stonecss.com</a> Using v1.3.8-beta ( Latest v1.3.8-beta, Latest Stable v1.3.0 )
 
 Our System Statuspage is Available At <a href="https://dvstechlabs.statuspage.io" target="_blank">dvstechlabs.statuspage.io</a>
 
@@ -24,6 +24,7 @@ The Developer Team behind Noteslify. This project wouldn't have been possible wi
 - [@khushi818](https://github.com/khushi818) [ Developer Team, Support Team ]
 - [@abhinandanwadwa](https://github.com/abhinandanwadwa) [ Developer Team ]
 - [@Ravina-Deogadkar](https://github.com/Ravina-Deogadkar) [ Developer Team ]
+- [@Gaurav bhojwani](https://github.com/Gauravdarkslayer) [ Developer Team ]
 - [@MrKrishnaAgarwal](https://github.com/MrKrishnaAgarwal) [ Support Team ]
 
 ## Contributing
@@ -106,7 +107,7 @@ If you have any feedback, please reach out to us at devarshishimpi@gmail.com
 
 ## Support
 
-If you would like to support me, you can support on any of the below platforms.
+If you would like to support us, you can support on any of the below platforms.
 
 ![Border](images/border.png)
 <a href="https://www.vultr.com/?ref=9043736" target="_blank"><img src="images/vultr-try.png"/></a>
@@ -116,3 +117,4 @@ If you would like to support me, you can support on any of the below platforms.
 <a href="https://presearch.com/signup?rid=4339531" target="_blank"><img src="images/presearch-try.png"/></a>
 <a href="https://railway.app?referralCode=tXRquz" target="_blank"><img src="images/railway-try.png"/></a>
 <a href="https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/wlfqn2dwmbvrdld8z2gk?t=default" target="_blank"><img src="images/cloudinary-try.png"/></a>
+<a href="https://m.do.co/c/645d44d1a7a1" target="_blank"><img src="images/digitalocean-try.png"/></a>

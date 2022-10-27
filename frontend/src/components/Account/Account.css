@@ -44,8 +44,9 @@ header,
 }
 
 .note .details {
-    max-height: 165px;
+    /* max-height: 165px; */
     overflow-y: auto;
+    height: 82%;
 }
 
 .note .details::-webkit-scrollbar,

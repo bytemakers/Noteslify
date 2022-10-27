@@ -28,6 +28,7 @@
     background-color: var(--primary-color);
     color: var(--light-color);
     border: 1px solid transparent;
+    margin-bottom: 5rem;
 }
 
 .hero-section div:nth-child(2) {
@@ -40,9 +41,6 @@
     align-items: center;
     gap: 0px;
 }
-
-
-
 
 @media screen and (max-width:980px) {
     .hero-section h1 {
@@ -64,4 +62,5 @@
         font-size: 16px;
         padding: 0px 2rem;
     }
+
 }

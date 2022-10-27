@@ -218,8 +218,7 @@ button:hover {
 }
 
 button,
-a,
-li {
+a {
     cursor: pointer;
 }
 

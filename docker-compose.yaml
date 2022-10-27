@@ -1,0 +1,19 @@
+services:
+  mongodb:
+    image: mongo:5.0.2
+    ports:
+      - "27017:27017"
+    container_name: mongodb
+    restart: always
+  backend:
+    build:
+      context: backend
+      dockerfile: backend.Dockerfile
+    depends_on:
+      - mongodb
+  frontend:
+    ports:
+      - "3000:3000"
+    build: 
+      context: frontend
+      dockerfile: frontend.Dockerfile
