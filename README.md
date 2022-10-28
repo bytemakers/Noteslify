@@ -37,6 +37,14 @@ See [`contributing.md`](./CONTRIBUTING.md) for ways to get started.
 
 Please adhere to this project's [`Code of Conduct`](./CODE_OF_CONDUCT.md).
 
+## Monorepo structure
+
+![Border](images/border.png)
+
+| Name                       | Path                                               | Description                                                       |
+| -------------------------- | -------------------------------------------------- | ----------------------------------------------------------------- |
+| `@noteslify/web`           | [/apps/web](/apps/web)                             | Web/Desktop clients                                               |
+
 ## Deployment
 
 ![Border](images/border.png)
