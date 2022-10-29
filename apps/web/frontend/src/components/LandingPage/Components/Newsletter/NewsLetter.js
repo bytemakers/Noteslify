@@ -8,7 +8,9 @@ const NewsLetter = () => {
         return <p>Thanks for joining! You'll be updated!</p>;
     }
     return (
-        <section className="newsletter-section flex p-4 bg-primary">
+        <section className="newsletter-section bg-primary">
+            <div className="bg-primary p-4 flex max-w mx-auto">
+
             <form onSubmit={handleSubmit} class="newsletter__form text-center">
                 <h2>Subscribe to Our Newsletter</h2>
                 <h4 class="mb-1">You won’t get dissapointed by us</h4>
@@ -20,33 +22,34 @@ const NewsLetter = () => {
                         name="mail"
                         required
                         class="newsletter__form__email__your_email"
-                    />
+                        />
                     <ValidationError 
                         prefix="Email" 
                         field="email"
                         errors={state.errors}
-                    />
+                        />
                     <input
                         type="submit"
                         value="Subscribe"
                         class="newsletter__form__email__submit_btn bg-primary"
                         disabled={state.submitting}
-                    />
+                        />
                 </div>
                 {/*
                 <div class="newsletter__form__email_copy flex mt-1">
-                    <label class="newsletter__form__email_copy__label">
-                        <input
-                            type="checkbox"
-                            name="checkbox"
-                            class="newsletter__form__email_copy__check_box"
-                        />
-                    </label>
-
-                    <span class="text-left">Email me a copy of my responses</span>
+                <label class="newsletter__form__email_copy__label">
+                <input
+                type="checkbox"
+                name="checkbox"
+                class="newsletter__form__email_copy__check_box"
+                />
+                </label>
+                
+                <span class="text-left">Email me a copy of my responses</span>
                 </div>
-                */}
+            */}
             </form>
+            </div>
         </section>
     );
 };

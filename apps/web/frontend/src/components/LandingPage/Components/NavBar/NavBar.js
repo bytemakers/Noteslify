@@ -8,8 +8,8 @@ const NavBar = () => {
   };
 
   return (
-    <>
-      <nav className="navbar">
+    <header className="nav-container">
+      <nav className="navbar max-w mx-auto">
         <span className="logo">
           <Link>
             <img src="favicon.ico" alt="icon" className="logo-img" />
@@ -55,7 +55,7 @@ const NavBar = () => {
           </li>
         </ul>
       </nav>
-    </>
+    </header>
   );
 };
 

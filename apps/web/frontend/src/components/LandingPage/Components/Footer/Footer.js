@@ -4,6 +4,7 @@ import './Footer.css';
 const Footer = () => {
     return (
         <footer>
+            <div className='max-w mx-auto'>
             <div className="row primary">
                 <div className="column about">
 
@@ -76,19 +77,22 @@ const Footer = () => {
                 </div>
 
             </div>
-
-            <div className="row copyright">
-                <div className="footer-menu">
-
-                    <a href="http://noteslify.stonecss.com/">Home</a>
-                    <a href="#test">Feature</a>
-                    <a href="https://github.com/dvstechlabs/Noteslify">Github</a>
-                    <a href="http://noteslify.stonecss.com/contact">Contact</a>
-                    <a href="http://noteslify.stonecss.com/notes">Dashboard</a>
-
-                </div>
-                <p>Copyright &copy; 2022 | DVS Tech Labs</p>
             </div>
+            <div className="row bg-dark">
+                <div className='copyright max-w mx-auto'>
+                    <div className="footer-menu">
+
+                        <a href="http://noteslify.stonecss.com/">Home</a>
+                        <a href="#test">Feature</a>
+                        <a href="https://github.com/dvstechlabs/Noteslify">Github</a>
+                        <a href="http://noteslify.stonecss.com/contact">Contact</a>
+                        <a href="http://noteslify.stonecss.com/notes">Dashboard</a>
+
+                    </div>
+                    <p>Copyright &copy; 2022 | DVS Tech Labs</p>
+                </div>
+            </div>
+            
         </footer>
     );
 };

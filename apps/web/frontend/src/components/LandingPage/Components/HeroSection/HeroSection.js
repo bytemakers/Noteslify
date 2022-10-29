@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './HeroSection.css'
 const HeroSection = () => {
   return (
-    <section className = "hero-section">
+    <section className = "hero-section max-w mx-auto">
       <div data-aos="fade-up" className='container flex'>
          <h1 style = {{padding:'0px'}}>Your Privacy Friendly, Open Source.
 Alternative to EverNote.</h1>

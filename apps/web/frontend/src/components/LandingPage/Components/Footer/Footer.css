@@ -87,8 +87,11 @@ div.social {
   cursor: pointer;
 }
 
+.bg-dark{
+  background-color: #25262e; 
+}
 .copyright {
-  background-color: #25262e;
+  
   padding: 0.3em 100px;
 }
 .footer-menu{

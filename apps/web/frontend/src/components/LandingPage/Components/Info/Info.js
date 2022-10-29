@@ -2,7 +2,7 @@ import React from 'react'
 import './Info.css'
 const Info = () => {
   return (
-     <section className ="Info-section">
+     <section className ="Info-section max-w mx-auto">
          <section  className = "grid container">
              <div data-aos="flip-left"  className='About note1'>
                 <h2>Capture Infinitely</h2>
