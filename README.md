@@ -43,7 +43,8 @@ Please adhere to this project's [`Code of Conduct`](./CODE_OF_CONDUCT.md).
 
 | Name                       | Path                                               | Description                                                       |
 | -------------------------- | -------------------------------------------------- | ----------------------------------------------------------------- |
-| `@noteslify/web`           | [/apps/web](/apps/web)                             | Web/Desktop/Docker clients                                               |
+| `@noteslify/web`           | [/apps/web](/apps/web)                             | Web/Desktop/Docker clients                                        |
+| `@noteslify/mobile`        | [/apps/mobile](/apps/mobile)                       | Android/iOS clients                                               |
 
 ## Deployment
 
