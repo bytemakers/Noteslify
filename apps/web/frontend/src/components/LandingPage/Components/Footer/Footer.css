@@ -158,130 +158,42 @@ div.social {
 
 }
 
+@media screen and (max-width: 480px) {
+    input,button {
+        width: auto;
+    }
 
-/* RESPONSIVE DESIGN FOR MOBILE */
+    input {
+        margin-right: .5em;
+    }
 
+    div.social {
+        width: 15rem;
+    }
 
-
-/* MOBILE RESOLUTIONS such as IPHONE 5, SE 2016 */
-
-/****** PORTRAIT *************/
-@media  only screen 
-and (min-width : 300px)
-and (max-width : 358px) 
-and (orientation: portrait)   {
-  input,button {
-    width: auto;
+    .copyright {
+        padding: .3em 0;
+    }
 }
-
-input {
-    margin-right: .15em;
-}
-
-div.social {
-    width: 15rem;
-}
-
-.copyright {
-  font-size: 12px;
-  padding: .3em 0;
-}
-.footer-menu a {
-  font-size: 12px;
-  padding:5px;
-}
-.subscribe  {
-  width: 100%;
-}
-.subscribe input {
-  width: 50vw;
-  font-size: 0.8em;
-}
-.subscribe button {
-  width: 30vw;
-  font-size: 0.8em;
-}
-
-}
-/* MOBILE RESOLUTIONS such as IPHONE 13Pro until mid range */
-
-@media  only screen 
-and (min-width : 359px)
-and (max-width : 480px) 
-and (orientation: portrait)   {
+@media screen and (max-width: 380px) {
   input,button {
     width: auto;
   }
 
   input {
-      margin-right: .5em;
+      margin-right: .15em;
   }
 
   div.social {
-      width: 15rem;
+      width: 16rem;
   }
 
   .copyright {
     font-size: 14px;
-    padding: 0;
+    padding: .3em 0;
   }
   .footer-menu a {
-    font-size: 14px;
-    padding: 7px;
+    font-size: 13px;
+    padding:5px;
   }
-  .subscribe  {
-    width: 100%;
-  }
-  .subscribe input {
-    width: 70vw;
-    font-size: 0.8em;
-  }
-  .subscribe button {
-    width: 50vw;
-    font-size: 0.8em;
-  }
-
 }
-
-
-/* TABLES RESOLUTIONS  Tables Ipad mini, Air4, Ipad Pro 11 */ 
-
-/****** PORTRAIT *************/
-@media  only screen 
-and (min-width : 569px)
-and (max-width : 834px) 
-and (orientation: portrait)   {
-  input,button {
-    width: auto;
-}
-
-input {
-    margin-right: .5em;
-}
-
-div.social {
-    width: 20rem;
-}
-
-.copyright {
-  font-size: 16px;
-  padding: 0;
-}
-.footer-menu a {
-  font-size: 18px;
-  padding: 15px;
-}
-.subscribe  {
-  width: 100%;
-}
-.subscribe input {
-  width: 70vw;
-  font-size: 1em;
-}
-.subscribe button {
-  width: 50vw;
-  font-size: 1em;
-}
-
-}
-
