@@ -12,7 +12,7 @@ const NavBar = () => {
       <nav className="navbar">
         <span className="logo">
           <Link>
-            <img src="favicon.ico" alt="icon" className="logo-img" />
+            <img src="favicon.png" alt="icon" className="logo-img" />
             <h3 className="logo-text">Noteslify</h3>
           </Link>
         </span>
