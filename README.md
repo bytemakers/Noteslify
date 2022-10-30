@@ -57,7 +57,7 @@ Make Sure You Have MongoDB and NodeJS Installed.
 To deploy this project navigate to the backend folder and run
 
 ```bash
-  cd backend
+  cd apps/web/backend
 ```
 
 ```bash
@@ -95,7 +95,7 @@ outlookPassword = "OUTLOOKPASSWORD"
 To deploy this project navigate to the frontend folder and run
 
 ```bash
-  cd frontend
+  cd apps/web/frontend
 ```
 
 ```bash
