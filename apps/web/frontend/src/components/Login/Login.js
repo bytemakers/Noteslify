@@ -10,6 +10,7 @@ const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [isShown, setIsSHown] = useState(false);
 
     const navigate = useNavigate();
 
@@ -81,7 +82,10 @@ const Login = () => {
         }
         setIsLoading(false);
     }
-
+// Added Password toggle handler
+    const togglePassword = () => {
+        setIsSHown((isShown) => !isShown);
+    };
   return (
     <>
     <Helmet>
@@ -114,8 +118,9 @@ const Login = () => {
                     </div>
                     <div className="form__div-input">
                         <label htmlFor="" className="form__label">Password</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" minLength="6" maxLength="24"
+                        <input type={isShown ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} name="password" minLength="6" maxLength="24"
                 className="form__input" id="password"/>
+                 <span style={{marginLeft:'100%',  fontSize:'18px', fontWeight:'bold'}}><i className={isShown ? "fa-solid fa-eye-slash" : "fa-solid fa-eye"} onClick={togglePassword}></i></span>
                     </div>
                 </div>
                 <Link to="/forgotpassword" className="form__forgot">Forgot Password?</Link>
