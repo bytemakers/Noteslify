@@ -10,6 +10,7 @@ const Signup = () => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [isShown, setIsSHown] = useState(false);
 
     const navigate = useNavigate();
 
@@ -76,6 +77,11 @@ const Signup = () => {
         setIsLoading(false);
     }
 
+// Added Password toggle handler
+    const togglePassword = () => {
+        setIsSHown((isShown) => !isShown);
+    };
+    
   return (
     <>
     <div className="l-form">
@@ -116,9 +122,11 @@ const Signup = () => {
                     </div>
 
                     <div className="form__div-input">
-                        <label htmlFor="" className="form__label">Password</label>
-                        <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" minLength="6" maxLength="24" className="form__input" id="password"/>
+                        <label  htmlFor="" className="form__label">Password</label>
+                        <input value={password} onChange={(e) => setPassword(e.target.value)} type={isShown ? "text" : "password"} name="password" minLength="6" maxLength="24" className="form__input" id="password"/><br/>
+                        <span style={{top: "10% !important", marginLeft:'100%',  fontSize:'18px', fontWeight:'bold'}}><i className={isShown ? "fa-solid fa-eye-slash" : "fa-solid fa-eye"} onClick={togglePassword}></i></span>
                     </div>
+                    
                 </div>
                 <br></br>
                 {!isLoading && <button type="submit" className="form__button">Register</button>}
