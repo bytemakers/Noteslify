@@ -10,6 +10,10 @@ import Setauthtoken from './components/Setauthtoken';
 import ResetPassword from './components/ResetPassword/ResetPassword';
 import Home from './components/LandingPage/Pages/Home'
 import Contact from './components/LandingPage/Pages/Contact'
+
+// new landing page
+import NHome from './components/NewLandingPage/Pages/Home'
+import NContact from './components/NewLandingPage/Pages/Contact'
 import RecycleBin from './components/RecycleBin/RecycleBin';
 import Account from './components/Account/Account';
 import ErrorPage from './components/Error/ErrorPage';
@@ -38,6 +42,8 @@ function App() {
         <Route path="/resetpassword/:email/:token" element={<ResetPassword />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/" element={<Home />} />
+        <Route path="/NContact" element={<NContact />} />
+        <Route path="/NHome" element={<NHome />} />
         <Route path="/bin" element={<RecycleBin />} />
         <Route path="/myaccount" element={<Account />} />
         <Route path='*' element={<ErrorPage />} />
