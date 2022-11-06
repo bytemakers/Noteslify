@@ -12,6 +12,34 @@ body {
 	background: #3b73c6;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
+#light {
+	background: var(--sidebar-color);
+}
+
+#dark {
+	background: rgb(29, 28, 28);
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.mt-1 {
+	margin-top: 1rem;
+}
+
+.mb-1 {
+	margin-bottom: 1rem;
+}
+
 :root {
 	--first-color: #193a8f;
 	--text-color: #3b73c6;
@@ -129,6 +157,7 @@ body {
 }
 
 @keyframes escaleY {
+
 	0%,
 	80%,
 	100% {
@@ -159,21 +188,17 @@ body {
 .shape1 {
 	top: -7rem;
 	left: -3.5rem;
-	background: linear-gradient(
-		180deg,
-		var(--first-color) 0%,
-		rgba(196, 196, 196, 0) 100%
-	);
+	background: linear-gradient(180deg,
+			var(--first-color) 0%,
+			rgba(196, 196, 196, 0) 100%);
 }
 
 .shape2 {
 	bottom: -6rem;
 	right: -5.5rem;
-	background: linear-gradient(
-		180deg,
-		var(--first-color) 0%,
-		rgba(196, 196, 196, 0) 100%
-	);
+	background: linear-gradient(180deg,
+			var(--first-color) 0%,
+			rgba(196, 196, 196, 0) 100%);
 	transform: rotate(180deg);
 }
 
