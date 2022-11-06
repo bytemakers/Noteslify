@@ -159,19 +159,41 @@ div.social {
 }
 
 @media screen and (max-width: 480px) {
-    input,button {
-        width: auto;
-    }
+  input,button {
+      width: auto;
+  }
 
-    input {
-        margin-right: .5em;
-    }
+  input {
+      margin-right: .5em;
+  }
 
-    div.social {
-        width: 15rem;
-    }
+  div.social {
+      width: 15rem;
+  }
 
-    .copyright {
-        padding: .3em 0;
-    }
+  .copyright {
+      padding: .3em 0;
+  }
+}
+@media screen and (max-width: 380px) {
+input,button {
+  width: auto;
+}
+
+input {
+    margin-right: .15em;
+}
+
+div.social {
+    width: 16rem;
+}
+
+.copyright {
+  font-size: 14px;
+  padding: .3em 0;
+}
+.footer-menu a {
+  font-size: 13px;
+  padding:5px;
+}
 }
