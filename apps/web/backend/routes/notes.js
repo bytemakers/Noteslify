@@ -183,6 +183,11 @@ router.put('/updatenote/:id', fetchuser, [
 router.get('/bin', fetchuser, async (req, res) => {
     try {
         const allDeletedNotes = await NoteSchema.find({ authorId: req.user.id, isDeleted: true });
+        for (let index = 0; index < allDeletedNotes.length; index++) {
+            const element = allDeletedNotes[index];
+            element.title =  helper.decrypt(element.title, element.secretKey);
+            element.description =  helper.decrypt(element.description, element.secretKey);
+        }
         return res.status(200).json(allDeletedNotes);
 
     } catch (error) {
