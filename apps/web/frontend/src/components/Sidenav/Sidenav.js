@@ -93,8 +93,8 @@ const Sidenav = () => {
               </Link>
             </li>
 
-            <li className="nav-link">
-              <a href="/">
+            <li className="nav-link pointer-events-none">
+              <a href="#">
                 <i className="fa-regular fa-bell icon"></i>
                 <span className="text nav-text">Soon..</span>
               </a>
