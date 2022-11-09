@@ -1,12 +1,14 @@
-import React, { useContext, useState } from "react";
-import "./Account.css";
-import Sidenav from "../Sidenav/Sidenav";
-import { ToastContainer, toast } from "react-toastify";
+import React, { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
+import Switch from "react-js-switch";
+import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoadingBar from "react-top-loading-bar";
-import Switch from "react-js-switch";
 import GlobalContext from "../../context/GlobalContext";
-import {Helmet} from "react-helmet";
+import Sidenav from "../Sidenav/Sidenav";
+import "./Account.css";
+
 
 const Account = () => {
   const [isSwitchOn, setIsSwitchOn] = useState(true);
@@ -15,6 +17,7 @@ const Account = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const { theme, setTheme } = useContext(GlobalContext);
+  const navigate = useNavigate();
 
   const openChangePasswordDialog = () => {
     const popupBox = document.getElementById("popup-box");
@@ -97,6 +100,13 @@ const Account = () => {
       }
     }
   }
+
+  useEffect(() => {
+    if (!sessionStorage.getItem('auth-token')) {
+      navigate('/login');
+      return
+    }
+  }, [navigate])
 
   return (
     <>
@@ -208,7 +218,7 @@ const Account = () => {
           </li>
         </div>
 
-        
+
 
         <ToastContainer
           toastStyle={{ backgroundColor: "#202d40", color: "white" }}
