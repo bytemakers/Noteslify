@@ -84,6 +84,7 @@ const Footer = () => {
                     <a href="#test">Feature</a>
                     <a href="https://github.com/dvstechlabs/Noteslify">Github</a>
                     <a href="http://noteslify.stonecss.com/contact">Contact</a>
+                    <a href="http://noteslify.stonecss.com/pricing">Pricing</a>
                     <a href="http://noteslify.stonecss.com/notes">Dashboard</a>
 
                 </div>

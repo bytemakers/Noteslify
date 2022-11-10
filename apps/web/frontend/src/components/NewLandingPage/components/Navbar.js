@@ -12,6 +12,7 @@ const Navbar = () => {
                <li>Github</li>
                <li>Contact</li>
                <li>Dashboard</li>
+               <li>Pricing</li>
                <li><button className="tw-py-3 tw-px-6 tw-bg-[#3b73c6] tw-rounded-[25px] hover:tw-text-[#3b73c6] hover:tw-bg-white">Get Started</button></li>
             </ul>
          </div>

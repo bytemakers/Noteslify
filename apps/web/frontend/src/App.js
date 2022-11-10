@@ -10,6 +10,7 @@ import Setauthtoken from './components/Setauthtoken';
 import ResetPassword from './components/ResetPassword/ResetPassword';
 import Home from './components/LandingPage/Pages/Home'
 import Contact from './components/LandingPage/Pages/Contact'
+import Pricing from './components/LandingPage/Pages/Pricing';
 
 // new landing page
 import NHome from './components/NewLandingPage/Pages/Home'
@@ -41,6 +42,7 @@ function App() {
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/resetpassword/:email/:token" element={<ResetPassword />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path='/pricing' element={<Pricing />}/>
         <Route path="/" element={<Home />} />
         <Route path="/NContact" element={<NContact />} />
         <Route path="/NHome" element={<NHome />} />
