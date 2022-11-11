@@ -129,8 +129,8 @@ const Signup = () => {
                     
                 </div>
                 <br></br>
-                {!isLoading && <button type="submit" className="form__button">Register</button>}
-                {isLoading && <button type="submit" className="form__button" style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true}><span className="loader"></span></button>}
+                {!isLoading && <button  className="form__button">Register</button>}
+                {isLoading && <button  className="form__button" style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true}><span className="loader"></span></button>}
 
                 <div style={{marginBottom: '25px',textAlign:'center'}}>
                     Already have an account ? <Link to={'/login'}>Login here</Link>

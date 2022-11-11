@@ -365,7 +365,6 @@ const Notes = () => {
             );
           })}
 
-
         </div>
 
         <Modal title=" Are You sure you want to delete this note?" isOpen={isOpen} onClose={() => setOpen(false)} onConfirm={() => {
