@@ -22,6 +22,7 @@ import "aos/dist/aos.css";
 import { useEffect } from 'react';
 import Deleteaccount from './components/DeleteAccount/Deleteaccount';
 
+
 function App() {
   useEffect(() => {
     AOS.init({

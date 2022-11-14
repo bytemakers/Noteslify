@@ -6,6 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoadingBar from "react-top-loading-bar";
 import GlobalContext from "../../context/GlobalContext";
+import { Modal } from "../common/Modal";
 import Sidenav from "../Sidenav/Sidenav";
 import "./Account.css";
 
@@ -16,6 +17,7 @@ const Account = () => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isOpen, setOpen] = useState(false);
   const { theme, setTheme } = useContext(GlobalContext);
   const navigate = useNavigate();
 
@@ -81,32 +83,34 @@ const Account = () => {
 
 
   const deleteAccount = async () => {
-    if (window.confirm("Are you sure you want to delete your account?")) {
-      const authtoken = sessionStorage.getItem('auth-token');
-      const response = await fetch('http://localhost:8181/api/auth/deleteaccount', {
-        method: "DELETE",
-        headers: {
-          'Content-Type': 'application/json',
-          'auth-token': authtoken
-        }
-      });
-      const json = await response.json();
-      console.log(json);
-      if (json.success) {
-        toast.success(json.success);
+
+    const authToken = sessionStorage.getItem('auth-token');
+    const response = await fetch('http://localhost:8181/api/auth/deleteaccount', {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': authToken
       }
-      else {
-        toast.error(json.error);
-      }
+    });
+    const json = await response.json();
+    console.log(json);
+    if (json.success) {
+      toast.success(json.success);
     }
+    else {
+      toast.error(json.error);
+    }
+
   }
 
   useEffect(() => {
     if (!sessionStorage.getItem('auth-token')) {
-      navigate('/login');
+      navigate('/login', { replace: true });
       return
     }
   }, [navigate])
+
+
 
   return (
     <>
@@ -207,7 +211,7 @@ const Account = () => {
 
           <li
             onClick={() => {
-              deleteAccount();
+              setOpen(true)
             }}
             className="add-box"
           >
@@ -223,6 +227,11 @@ const Account = () => {
         <ToastContainer
           toastStyle={{ backgroundColor: "#202d40", color: "white" }}
         />
+        <Modal title="Are you sure you want to delete your account?" isOpen={isOpen} onClose={() => setOpen(false)} onConfirm={() => {
+          deleteAccount();
+          setOpen(false);
+
+        }} />
       </section>
     </>
   );
