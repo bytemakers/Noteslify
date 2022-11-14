@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
-import './ForgotPassword.css';
+import React, { useState } from 'react';
+import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import {Helmet} from "react-helmet";
+import { toast } from 'react-toastify';
+import './ForgotPassword.css';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +16,7 @@ const ForgotPassword = () => {
     const response = await fetch('http://localhost:8181/api/auth/forgotpassword', {
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       }, body: JSON.stringify({ email })
     });
     const json = await response.json();
@@ -47,15 +46,14 @@ const ForgotPassword = () => {
           </div>
           <div className="button-panel">
             {!isLoading && <input type="submit" className="button" title="Sign In" value="Send Email"></input>}
-            {isLoading && <button style={{backgroundColor: '#15203a', cursor: 'not-allowed'}} disabled={true} className="button" value=""><span className="loader"></span></button>}
+            {isLoading && <button style={{ backgroundColor: '#15203a', cursor: 'not-allowed' }} disabled={true} className="button" value=""><span className="loader"></span></button>}
           </div>
         </form>
         <div className="form-footer">
           <p>Remember Your Password? <Link to="/login">Login</Link></p>
         </div>
       </div>
-      <ToastContainer toastStyle={{ backgroundColor: "#202d40", color: 'white' }} />
-  </div>
+    </div>
   )
 }
 

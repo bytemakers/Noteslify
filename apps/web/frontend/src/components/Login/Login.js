@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import './Login.css'
-import authImg from '../../assets/authentication.svg';
-import { Link, useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from "react-helmet";
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import authImg from '../../assets/authentication.svg';
+import './Login.css';
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -133,7 +132,7 @@ const Login = () => {
 
                     </form>
                 </div>
-                <ToastContainer toastStyle={{ backgroundColor: "#202d40", color: 'white' }} />
+
             </div>
         </>
     )

@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import Switch from "react-js-switch";
 import { useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import LoadingBar from "react-top-loading-bar";
 import GlobalContext from "../../context/GlobalContext";
 import { Modal } from "../common/Modal";
@@ -222,11 +221,6 @@ const Account = () => {
           </li>
         </div>
 
-
-
-        <ToastContainer
-          toastStyle={{ backgroundColor: "#202d40", color: "white" }}
-        />
         <Modal title="Are you sure you want to delete your account?" isOpen={isOpen} onClose={() => setOpen(false)} onConfirm={() => {
           deleteAccount();
           setOpen(false);
