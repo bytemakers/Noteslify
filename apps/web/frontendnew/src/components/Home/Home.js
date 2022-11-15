@@ -296,7 +296,7 @@ const Home = () => {
         <div className="mb-10 w-full">
           <a href="/" className="mb-6 inline-block max-w-[160px]">
             <img
-              src="https://cdn.noteslify.stonecss.com/cdn/noteslifyfooter.svg"
+              src="https://cdn.noteslify.stonecss.com/cdn/assets/noteslifyfooter.svg"
               alt="logo"
               className="max-w-full"
             />
