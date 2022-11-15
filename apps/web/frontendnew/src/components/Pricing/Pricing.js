@@ -2,6 +2,7 @@ import '../../App.css';
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, BoltIcon, DevicePhoneMobileIcon, GlobeAltIcon, ScaleIcon } from '@heroicons/react/24/outline'
+import { Helmet } from "react-helmet";
 
 const Pricing = () => {
 
@@ -16,7 +17,11 @@ const Pricing = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     
     return (
-        <div>
+      <div>
+        <Helmet>
+          <title>Noteslify | Pricing</title>
+          <meta name="description" content="Noteslify. Pricing plans for our website." />
+        </Helmet>
       <div className="isolate bg-white">
       <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
       <svg

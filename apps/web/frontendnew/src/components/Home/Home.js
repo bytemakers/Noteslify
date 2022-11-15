@@ -2,6 +2,7 @@ import '../../App.css';
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, BoltIcon, DevicePhoneMobileIcon, GlobeAltIcon, ScaleIcon } from '@heroicons/react/24/outline'
+import { Helmet } from "react-helmet";
 
 const Home = () => {
     const features = [
@@ -42,6 +43,10 @@ const Home = () => {
       const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
     <div>
+      <Helmet>
+        <title>Noteslify | Home</title>
+        <meta name="description" content="Your Privacy Friendly, Open Source. Alternative to EverNote." />
+      </Helmet>
       <div className="isolate bg-white">
       <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
       <svg
@@ -291,7 +296,7 @@ const Home = () => {
         <div className="mb-10 w-full">
           <a href="/" className="mb-6 inline-block max-w-[160px]">
             <img
-              src="https://cdn.noteslify.stonecss.com/noteslifyfooter.svg"
+              src="https://cdn.noteslify.stonecss.com/cdn/noteslifyfooter.svg"
               alt="logo"
               className="max-w-full"
             />
