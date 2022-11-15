@@ -1,54 +1,53 @@
-import React, { useEffect, useState } from 'react'
-import LoadingBar from 'react-top-loading-bar'
-import Sidenav from '../Sidenav/Sidenav'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useEffect, useState } from 'react';
+import { Helmet } from "react-helmet";
 import { useNavigate } from 'react-router-dom';
-import {Helmet} from "react-helmet";
+import { toast } from 'react-toastify';
+import LoadingBar from 'react-top-loading-bar';
+import Sidenav from '../Sidenav/Sidenav';
 
 const RecycleBin = () => {
-    const [progress, setProgress] = useState(0);
-    const [notesList, setNotesList] = useState([]);
+  const [progress, setProgress] = useState(0);
+  const [notesList, setNotesList] = useState([]);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const getDeletedNotes = async (authtoken) => {
-        setProgress(20);
-        const response = await fetch('http://localhost:8181/api/notes/bin', {
+  const getDeletedNotes = async (authtoken) => {
+    setProgress(20);
+    const response = await fetch('http://localhost:8181/api/notes/bin', {
 
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'auth-token': authtoken
-            }
-        });
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': authtoken
+      }
+    });
 
-        setProgress(50);
-        
-        const json = await response.json();
+    setProgress(50);
 
-        setProgress(70);
+    const json = await response.json();
 
-        setNotesList(json);
+    setProgress(70);
 
-        setProgress(100);
+    setNotesList(json);
+
+    setProgress(100);
+  }
+
+
+  useEffect(() => {
+    const authtoken = sessionStorage.getItem('auth-token');
+    if (authtoken) {
+      getDeletedNotes(authtoken);
     }
+    else {
+      navigate('/login');
+    }
+  }, [])
 
-
-    useEffect(() => {
-      const authtoken = sessionStorage.getItem('auth-token');
-      if (authtoken) {
-        getDeletedNotes(authtoken);
-      }
-      else {
-        navigate('/login');
-      }
-    }, [])
-    
 
 
   const convertToMonthName = (num) => {
-    var months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     return months[num];
   }
@@ -91,47 +90,46 @@ const RecycleBin = () => {
 
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>Noteslify | Recycle Bin</title>
         <meta name="description" content="Noteslify. Clear Or Restore Your Files from Bin." />
-    </Helmet>
-    <LoadingBar
+      </Helmet>
+      <LoadingBar
         color='#f11946'
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-    <Sidenav />
-    <section className="home">
-      <div className="text">Recycle Bin</div>
+      <Sidenav />
+      <section className="home">
+        <div className="text">Recycle Bin</div>
 
-      <div className="wrapper">
+        <div className="wrapper">
 
 
-        {notesList && notesList.map((note) => {
+          {notesList && notesList.map((note) => {
             const dateStu = note.createdAt;
             return (
-                <li id={note._id} key={note._id} className="note">
-                    <div className="details">
-                        <p>{note.title}</p>
-                        <span>{note.description}</span>
-                    </div>
-                    <div className="bottom-content">
-                        <span>{convertToMonthName(new Date(dateStu).getMonth()) + " " + new Date(dateStu).getDate().toString() + ", " + new Date(dateStu).getFullYear()}</span>
-                        <div onClick={() => unArchive(note._id)} id={`settings-${note._id}`} className="settings">
-                        <i class="fa-solid fa-inbox"></i>
-                        </div>
-                        <div onClick={() => deletePermanently(note._id)} id={`settings-${note._id}`} className="settings">
-                        <i class="fa-solid fa-trash"></i>
-                        </div>
-                    </div>
-                </li>
+              <li id={note._id} key={note._id} className="note">
+                <div className="details">
+                  <p>{note.title}</p>
+                  <span>{note.description}</span>
+                </div>
+                <div className="bottom-content">
+                  <span>{convertToMonthName(new Date(dateStu).getMonth()) + " " + new Date(dateStu).getDate().toString() + ", " + new Date(dateStu).getFullYear()}</span>
+                  <div onClick={() => unArchive(note._id)} id={`settings-${note._id}`} className="settings">
+                    <i class="fa-solid fa-inbox"></i>
+                  </div>
+                  <div onClick={() => deletePermanently(note._id)} id={`settings-${note._id}`} className="settings">
+                    <i class="fa-solid fa-trash"></i>
+                  </div>
+                </div>
+              </li>
             );
-        })}
+          })}
 
 
-      </div>
-      <ToastContainer toastStyle={{ backgroundColor: "#202d40", color: 'white' }} />
-    </section>
+        </div>
+      </section>
     </>
   )
 }

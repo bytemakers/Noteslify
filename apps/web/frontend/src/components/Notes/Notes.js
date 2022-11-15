@@ -1,18 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react'
-import './Notes.css'
-import Sidenav from '../Sidenav/Sidenav'
-import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import LoadingBar from 'react-top-loading-bar'
+import { marked } from 'marked';
+import React, { useContext, useEffect, useState } from 'react';
+import { Helmet } from "react-helmet";
 import Switch from 'react-js-switch';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import LoadingBar from 'react-top-loading-bar';
 import GlobalContext from '../../context/GlobalContext';
 import NotesContext from '../../context/NotesContext';
-import { marked } from 'marked';
-import RenderInWindow from './RenderInWindow';
-import MarkdownNotes from './MarkdownNotes';
-import { Helmet } from "react-helmet";
 import { Modal } from '../common/Modal';
+import Sidenav from '../Sidenav/Sidenav';
+import MarkdownNotes from './MarkdownNotes';
+import './Notes.css';
+import RenderInWindow from './RenderInWindow';
 
 const Notes = () => {
   const [isSwitchOn, setIsSwitchOn] = useState(true);
@@ -373,7 +372,7 @@ const Notes = () => {
 
 
         }} />
-        <ToastContainer toastStyle={{ backgroundColor: "#202d40", color: 'white' }} />
+
       </section>
 
     </>

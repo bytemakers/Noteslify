@@ -1,19 +1,15 @@
+import { marked } from "marked";
 import React, { useContext, useEffect, useState } from "react";
-import "../Notes/Notes.css";
-import Sidenav from "../Sidenav/Sidenav";
-import { useNavigate, useParams } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet";
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import LoadingBar from "react-top-loading-bar";
-import Switch from "react-js-switch";
 import GlobalContext from "../../context/GlobalContext";
 import NotesContext from "../../context/NotesContext";
-import { marked } from "marked";
-import RenderInWindow from "../Notes/RenderInWindow";
 import MarkdownNotes from "../Notes/MarkdownNotes";
-import { Helmet } from "react-helmet";
-import notesData from "../../data/notesData.json";
-import foldersData from "../../data/foldersData.json";
+import "../Notes/Notes.css";
+import RenderInWindow from "../Notes/RenderInWindow";
+import Sidenav from "../Sidenav/Sidenav";
 
 const OpenFolder = () => {
   const [isSwitchOn, setIsSwitchOn] = useState(true);
@@ -273,9 +269,7 @@ const OpenFolder = () => {
             }
           })}
         </div>
-        <ToastContainer
-          toastStyle={{ backgroundColor: "#202d40", color: "white" }}
-        />
+
       </section>
     </>
   );
