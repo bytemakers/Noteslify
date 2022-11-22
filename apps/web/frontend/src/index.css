@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html {
     scroll-behavior: smooth;
 }
@@ -25,3 +29,4 @@ html {
 .mb-1 {
     margin-bottom: 1rem;
 }
+

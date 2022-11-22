@@ -1,24 +1,26 @@
-import React, { useContext, useEffect, useState } from 'react'
-import './Notes.css'
-import Sidenav from '../Sidenav/Sidenav'
-import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import LoadingBar from 'react-top-loading-bar'
+import { marked } from 'marked';
+import React, { useContext, useEffect, useState } from 'react';
+import { Helmet } from "react-helmet";
 import Switch from 'react-js-switch';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import LoadingBar from 'react-top-loading-bar';
 import GlobalContext from '../../context/GlobalContext';
 import NotesContext from '../../context/NotesContext';
-import { marked } from 'marked';
-import RenderInWindow from './RenderInWindow';
+import { Modal } from '../common/Modal';
+import Sidenav from '../Sidenav/Sidenav';
 import MarkdownNotes from './MarkdownNotes';
-import { Helmet } from "react-helmet";
+import './Notes.css';
+import RenderInWindow from './RenderInWindow';
 
 const Notes = () => {
   const [isSwitchOn, setIsSwitchOn] = useState(true);
   const [addNoteTitle, setAddNoteTitle] = useState('');
   const [addNoteDescription, setAddNoteDescription] = useState('');
   const [updateNoteId, setUpdateNoteId] = useState("");
+  const [selectedNoteId, setSelectedNoteId] = useState('');
   const [progress, setProgress] = useState(0);
+  const [isOpen, setOpen] = useState(false)
   const { theme, setTheme } = useContext(GlobalContext);
   const {
     notes,
@@ -67,15 +69,12 @@ const Notes = () => {
     });
   }
 
-  const onDeleteNote = async (id) => {
-    if (window.confirm("Are You sure you want to delete this note?")) {
-      const result = await deleteNote({ _id: id });
+  const onDeleteNote = async () => {
 
-      toast.success(result.success);
-      console.log(result);
+    const result = await deleteNote({ _id: selectedNoteId });
+    toast.success(result.success);
+    await getAllNotes();
 
-      await getAllNotes();
-    }
   };
 
   const openAddNoteModalForNewNote = () => {
@@ -349,9 +348,12 @@ const Notes = () => {
                   {/* <div id={`settings-${note._id}`} className="settings" onClick={(e) => e.stopPropagation()}> */}
                   <div className='control'>
                     <i className="fa-solid fa-pen" onClick={() => openAddNoteModalForEditNote(note._id)}></i>
-                    <i className="fa-regular fa-trash-can" onClick={() => onDeleteNote(note._id)}></i>
+                    <i className="fa-regular fa-trash-can" onClick={() => {
+                      setOpen(true)
+                      setSelectedNoteId(note._id)
+                    }}></i>
                   </div>
-                    {/* <i onClick={() => openMenu(note._id)} className="fa-solid fa-ellipsis"></i>
+                  {/* <i onClick={() => openMenu(note._id)} className="fa-solid fa-ellipsis"></i>
                     <ul className="menu show">
                       <li onClick={() => openAddNoteModalForEditNote(note._id)}><i className="fa-solid fa-pen"></i>Edit</li>
                       <li onClick={() => onDeleteNote(note._id)}><i className="fa-regular fa-trash-can"></i>Delete</li>
@@ -362,9 +364,15 @@ const Notes = () => {
             );
           })}
 
-
         </div>
-        <ToastContainer toastStyle={{ backgroundColor: "#202d40", color: 'white' }} />
+
+        <Modal title=" Are You sure you want to delete this note?" isOpen={isOpen} onClose={() => setOpen(false)} onConfirm={() => {
+          onDeleteNote();
+          setOpen(false);
+
+
+        }} />
+
       </section>
 
     </>

@@ -1,12 +1,14 @@
-import React, { useContext, useState } from "react";
-import "./Account.css";
-import Sidenav from "../Sidenav/Sidenav";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import LoadingBar from "react-top-loading-bar";
+import React, { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import Switch from "react-js-switch";
+import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+import LoadingBar from "react-top-loading-bar";
 import GlobalContext from "../../context/GlobalContext";
-import {Helmet} from "react-helmet";
+import { Modal } from "../common/Modal";
+import Sidenav from "../Sidenav/Sidenav";
+import "./Account.css";
+
 
 const Account = () => {
   const [isSwitchOn, setIsSwitchOn] = useState(true);
@@ -14,7 +16,9 @@ const Account = () => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isOpen, setOpen] = useState(false);
   const { theme, setTheme } = useContext(GlobalContext);
+  const navigate = useNavigate();
 
   const openChangePasswordDialog = () => {
     const popupBox = document.getElementById("popup-box");
@@ -78,25 +82,34 @@ const Account = () => {
 
 
   const deleteAccount = async () => {
-    if (window.confirm("Are you sure you want to delete your account?")) {
-      const authtoken = sessionStorage.getItem('auth-token');
-      const response = await fetch('http://localhost:8181/api/auth/deleteaccount', {
-        method: "DELETE",
-        headers: {
-          'Content-Type': 'application/json',
-          'auth-token': authtoken
-        }
-      });
-      const json = await response.json();
-      console.log(json);
-      if (json.success) {
-        toast.success(json.success);
+
+    const authToken = sessionStorage.getItem('auth-token');
+    const response = await fetch('http://localhost:8181/api/auth/deleteaccount', {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': authToken
       }
-      else {
-        toast.error(json.error);
-      }
+    });
+    const json = await response.json();
+    console.log(json);
+    if (json.success) {
+      toast.success(json.success);
     }
+    else {
+      toast.error(json.error);
+    }
+
   }
+
+  useEffect(() => {
+    if (!sessionStorage.getItem('auth-token')) {
+      navigate('/login', { replace: true });
+      return
+    }
+  }, [navigate])
+
+
 
   return (
     <>
@@ -197,7 +210,7 @@ const Account = () => {
 
           <li
             onClick={() => {
-              deleteAccount();
+              setOpen(true)
             }}
             className="add-box"
           >
@@ -208,11 +221,11 @@ const Account = () => {
           </li>
         </div>
 
-        
+        <Modal title="Are you sure you want to delete your account?" isOpen={isOpen} onClose={() => setOpen(false)} onConfirm={() => {
+          deleteAccount();
+          setOpen(false);
 
-        <ToastContainer
-          toastStyle={{ backgroundColor: "#202d40", color: "white" }}
-        />
+        }} />
       </section>
     </>
   );
