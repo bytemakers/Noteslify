@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/dvstechlabs/Noteslify#readme",
   "dependencies": {
-    "@formspree/react": "^2.4.0"
+    "@formspree/react": "^2.4.1"
   }
 }
