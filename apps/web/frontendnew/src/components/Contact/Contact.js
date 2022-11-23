@@ -4,7 +4,7 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, BoltIcon, DevicePhoneMobileIcon, GlobeAltIcon, ScaleIcon } from '@heroicons/react/24/outline'
 import { Helmet } from "react-helmet";
 
-const Pricing = () => {
+const Contact = () => {
 
     const navigation = [
         { name: 'Home', href: '/' },
@@ -141,4 +141,4 @@ const Pricing = () => {
     );
 }
 
-export default Pricing
+export default Contact
