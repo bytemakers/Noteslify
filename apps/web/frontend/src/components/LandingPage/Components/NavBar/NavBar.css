@@ -4,7 +4,7 @@
   z-index: 100;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
-  background-color: #ffffff;
+  background-color: #030414;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -16,7 +16,7 @@
 .logo {
   display: flex;
   margin: 0.75rem;
-  background-color: #ffffff;
+  background-color: #030414;
   align-items: center;
   width: 16rem;
   cursor: pointer;
