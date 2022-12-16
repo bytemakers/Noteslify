@@ -270,7 +270,7 @@ const Home = () => {
           <div className="sm:text-center">
             <h2 className="text-lg font-semibold leading-8 text-blue-600">Features</h2>
             <p className={`${dark && 'text-gray-200'} mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl`}>Why choose Noteslify?</p>
-            <p className={`${dark && 'text-white opacity-70'} mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600`}>
+            <p className={`${dark && 'text-gray-400'} mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600`}>
               Make plans. Keep a journal. Clip anything from the web. Noteslify lets you collect information quickly, organize it easily, and find it when you need it.
             </p>
           </div>
@@ -283,8 +283,8 @@ const Home = () => {
                     <feature.icon className="h-8 w-8" aria-hidden="true" />
                   </div>
                   <div className="sm:min-w-0 sm:flex-1">
-                    <p className={`${dark && 'text-gray-300'} text-lg font-semibold leading-8 text-gray-900`}>{feature.name}</p>
-                    <p className={`${dark && 'text-white opacity-70'} mt-2 text-base leading-7 text-gray-600`}>{feature.description}</p>
+                    <p className={`${dark && 'text-gray-200'} text-lg font-semibold leading-8 text-gray-900`}>{feature.name}</p>
+                    <p className={`${dark && 'text-gray-400'} mt-2 text-base leading-7 text-gray-600`}>{feature.description}</p>
                   </div>
                 </div>
               ))}
