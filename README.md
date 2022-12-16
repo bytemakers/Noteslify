@@ -114,6 +114,14 @@ Navigate to `http://localhost:3000/`
 
 If you have any feedback, please reach out to us at devarshishimpi@gmail.com
 
+## Stargazers
+
+![Border](images/border.png)
+
+Our awesome stargazers! Thank you for your support!
+
+[![Stargazers repo roster for @dvstechlabs/Noteslify](https://reporoster.com/stars/dvstechlabs/Noteslify)](https://github.com/dvstechlabs/Noteslify/stargazers)
+
 ## Support
 
 If you would like to support us, you can support on any of the below platforms.
