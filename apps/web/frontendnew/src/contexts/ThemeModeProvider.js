@@ -22,7 +22,14 @@ const ThemeModeProvider = ({ children }) => {
   };
   return (
     <ThemeContext.Provider value={contextValues}>
-      {children}
+      <div
+        data-theme={theme}
+        className={`isolate ${
+          theme === "dark" ? "bg-[#030414] text-white" : "bg-white"
+        } transition-all`}
+      >
+        {children}
+      </div>
     </ThemeContext.Provider>
   );
 };

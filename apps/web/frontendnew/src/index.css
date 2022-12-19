@@ -15,3 +15,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+[data-theme="dark"] {
+  color: #fff;
+  background-color: #030414;
+  transition: all .4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+.announce[data-theme="dark"] {
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgb(52, 52, 85);
+  transition: all .4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+.color[data-theme="dark"] {
+  color: #fff;
+  background: transparent;
+  transition: all .4s cubic-bezier(0.23, 1, 0.320, 1);
+}
