@@ -1,24 +1,31 @@
-import { createContext } from "react";
-import useLocalStorage from "../hooks/useLocalStorage";
+import { createContext, useEffect, useState } from "react";
 
 export const ThemeContext = createContext({
-  theme: "light",
-  toggle: () => {},
+  theme: 'light',
+  toggle: ()=>{}
 });
 
-const ThemeModeProvider = ({ children }) => {
-  const [theme, setTheme] = useLocalStorage("theme", "light");
+const ThemeModeProvider = ({children}) => {
+  const currentTheme = localStorage.getItem('theme');
+  const [theme, setTheme] = useState(currentTheme);
+
+  useEffect(() => {
+    setTheme(theme);
+  }, [theme]);
 
   const toggleTheme = () => {
-    if (theme === "light") {
-      return setTheme("dark");
+    if (theme === 'light') {
+      setTheme('dark');
+      localStorage.setItem('theme', theme);
+    } else {
+      setTheme('light');
+      localStorage.setItem('theme', theme);
     }
-    return setTheme("light");
-  };
+  }
 
   const contextValues = {
     theme: theme,
-    toggle: toggleTheme,
+    toggle: toggleTheme
   };
   return (
     <ThemeContext.Provider value={contextValues}>
@@ -31,7 +38,7 @@ const ThemeModeProvider = ({ children }) => {
         {children}
       </div>
     </ThemeContext.Provider>
-  );
-};
+  )
+}
 
 export default ThemeModeProvider;
