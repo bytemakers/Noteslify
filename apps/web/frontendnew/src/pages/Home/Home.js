@@ -1,4 +1,5 @@
 <<<<<<< HEAD:apps/web/frontendnew/src/pages/Home/Home.js
+<<<<<<< HEAD:apps/web/frontendnew/src/pages/Home/Home.js
 import { useContext } from "react";
 import {
   BoltIcon,
@@ -55,6 +56,21 @@ const Home = () => {
   const context = useContext(ThemeContext);
   localStorage.setItem('theme', context.theme);
 
+=======
+import '../../App.css';
+import { useContext, useState } from 'react';
+import { Dialog } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon, BoltIcon, DevicePhoneMobileIcon, GlobeAltIcon, ScaleIcon } from '@heroicons/react/24/outline'
+import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
+import { Helmet } from "react-helmet";
+import { ThemeContext } from '../../contexts/ThemeModeProvider';
+import './Home.css';
+
+const Home = () => {
+  const context = useContext(ThemeContext);
+  localStorage.setItem('theme', context.theme);
+
+>>>>>>> parent of d4cdf65 (Fix issue #250 - LocalStorage 'theme' item not updated):apps/web/frontendnew/src/components/Home/Home.js
   const handleToggleTheme = () => {
     context.toggle();
   }
@@ -94,7 +110,10 @@ const Home = () => {
         { name: 'Dashboard', href: 'https://noteslifysystem.stonecss.com/Notes' },
       ]
       const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+<<<<<<< HEAD:apps/web/frontendnew/src/pages/Home/Home.js
 >>>>>>> parent of 8ad5af5 (Fix issue #250 - LocalStorage 'theme' item not updated (#251)):apps/web/frontendnew/src/components/Home/Home.js
+=======
+>>>>>>> parent of d4cdf65 (Fix issue #250 - LocalStorage 'theme' item not updated):apps/web/frontendnew/src/components/Home/Home.js
   return (
     <>
       <Helmet>
@@ -102,8 +121,11 @@ const Home = () => {
         <meta name="description" content="Your Privacy Friendly, Open Source. Alternative to EverNote." />
       </Helmet>
 <<<<<<< HEAD:apps/web/frontendnew/src/pages/Home/Home.js
+<<<<<<< HEAD:apps/web/frontendnew/src/pages/Home/Home.js
       <>
 =======
+=======
+>>>>>>> parent of d4cdf65 (Fix issue #250 - LocalStorage 'theme' item not updated):apps/web/frontendnew/src/components/Home/Home.js
 
       <div
         // data-theme={context.theme}
@@ -233,7 +255,10 @@ const Home = () => {
           </div>
         </div>
         
+<<<<<<< HEAD:apps/web/frontendnew/src/pages/Home/Home.js
 >>>>>>> parent of 8ad5af5 (Fix issue #250 - LocalStorage 'theme' item not updated (#251)):apps/web/frontendnew/src/components/Home/Home.js
+=======
+>>>>>>> parent of d4cdf65 (Fix issue #250 - LocalStorage 'theme' item not updated):apps/web/frontendnew/src/components/Home/Home.js
         {/* ### MAIN START */}
         <main>
 
@@ -242,6 +267,7 @@ const Home = () => {
             <div className="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
               <div className=''>
                 <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+<<<<<<< HEAD:apps/web/frontendnew/src/pages/Home/Home.js
 <<<<<<< HEAD:apps/web/frontendnew/src/pages/Home/Home.js
                   <div
                     data-theme={theme}
@@ -254,6 +280,11 @@ const Home = () => {
                     <span data-theme={context.theme} className="color text-gray-600">
                       Announcing our next round of funding.{' '}
 >>>>>>> parent of 8ad5af5 (Fix issue #250 - LocalStorage 'theme' item not updated (#251)):apps/web/frontendnew/src/components/Home/Home.js
+=======
+                  <div data-theme={context.theme} className=" announce relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                    <span data-theme={context.theme} className="color text-gray-600">
+                      Announcing our next round of funding.{' '}
+>>>>>>> parent of d4cdf65 (Fix issue #250 - LocalStorage 'theme' item not updated):apps/web/frontendnew/src/components/Home/Home.js
                       <a href="/" className="font-semibold text-blue-600">
                         <span className="absolute inset-0" aria-hidden="true" />
                         Read more <span aria-hidden="true">&rarr;</span>
@@ -321,6 +352,7 @@ const Home = () => {
           </div> {/* ### HERO END */}
         </main>
 <<<<<<< HEAD:apps/web/frontendnew/src/pages/Home/Home.js
+<<<<<<< HEAD:apps/web/frontendnew/src/pages/Home/Home.js
       </>
       {/* ### FEATURES START */}
       <div
@@ -335,6 +367,12 @@ const Home = () => {
       {/* ### FEATURES START */}
       <div className={`${dark && 'bg-[#030414]'} bg-white py-24 sm:py-32 lg:py-40 transition-all`}>
 >>>>>>> parent of 8ad5af5 (Fix issue #250 - LocalStorage 'theme' item not updated (#251)):apps/web/frontendnew/src/components/Home/Home.js
+=======
+      </div>
+
+      {/* ### FEATURES START */}
+      <div className={`${dark && 'bg-[#030414]'} bg-white py-24 sm:py-32 lg:py-40 transition-all`}>
+>>>>>>> parent of d4cdf65 (Fix issue #250 - LocalStorage 'theme' item not updated):apps/web/frontendnew/src/components/Home/Home.js
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="sm:text-center">
             <h2 className="text-lg font-semibold leading-8 text-blue-600">Features</h2>
