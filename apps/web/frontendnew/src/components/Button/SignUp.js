@@ -7,7 +7,7 @@ const SignUp = () => {
   return (
     <div className="hidden lg:flex lg:min-w-0 lg:items-center lg:justify-center">
       <a
-        href="https://noteslify.stonecss.com/Signup"
+        href="https://noteslify.stonecss.com"
         target="_blank"
         className={`inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm ${
           theme === "dark"
