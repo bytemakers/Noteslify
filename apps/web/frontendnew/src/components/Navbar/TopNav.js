@@ -61,8 +61,8 @@ const TopNav = () => {
                 <span className="sr-only">Noteslify</span>
                 <img
                   className="h-8"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=600"
-                  alt="Tailwindui-icon"
+                  src="https://cdn.noteslify.stonecss.com/cdn/assets/logo.png"
+                  alt="noteslifylogo"
                 />
               </Link>
               {/* theme toggle button */}
