@@ -19,8 +19,8 @@ const MobileNav = ({ mobileMenuOpen, setMobileMenuOpen, navigation }) => {
               <span className="sr-only">Noteslify</span>
               <img
                 className="h-8"
-                src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=600"
-                alt=""
+                src="https://cdn.noteslify.stonecss.com/cdn/assets/logo.png"
+                alt="noteslifylogo"
               />
             </a>
           </div>
