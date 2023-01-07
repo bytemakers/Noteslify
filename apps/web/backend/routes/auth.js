@@ -61,12 +61,12 @@ router.post('/register', [
     }
 
     try {
-        const checkMultipleUsers1 = await UserSchema.findOne({ email: req.body.email });
+        const checkMultipleUsers1 = await UserSchema.findOne({ email: req.body.email.toLowerCase() });
         if (checkMultipleUsers1) {
             return res.status(403).json({ error: "A User with this email address already exists" });
         }
 
-        const checkMultipleUsers2 = await UserSchema.findOne({ username: req.body.username });
+        const checkMultipleUsers2 = await UserSchema.findOne({ username: req.body.username.toLowerCase() });
         if (checkMultipleUsers2) {
             return res.status(403).json({ error: "A User with this username already exists" });
         }
@@ -74,8 +74,8 @@ router.post('/register', [
         var salt = await bcrypt.genSalt(10);
         var hash = await bcrypt.hash(req.body.password, salt);
         const newUser = await UserSchema.create({
-            email: req.body.email,
-            username: req.body.username,
+            email: req.body.email.toLowerCase(),
+            username: req.body.username.toLowerCase(),
             password: hash,
         });
 
@@ -116,7 +116,7 @@ router.post('/login', [
 
 
     try {
-        const theUser = await UserSchema.findOne({ username: req.body.username });
+        const theUser = await UserSchema.findOne({ username: req.body.username.toLowerCase() });
         if (theUser) {
             // console.log(checkEmailExists);
             let checkHash = await bcrypt.compare(req.body.password, theUser.password);
