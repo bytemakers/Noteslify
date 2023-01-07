@@ -14,7 +14,7 @@ function encrypt(input, password) {
     let data = Buffer.from(input, 'utf8').toString('binary');
 
     let cipher = crypto.createCipheriv(algorithm, key, iv.slice(0, 16));
-    let encrypted = cipher.update(data, 'binary') + cipher.final('binary');
+    let encrypted = cipher.update(data, 'binary', 'binary') + cipher.final('binary');
     let encoded = Buffer.from(encrypted, 'binary').toString('base64');
     return encoded;
 }
@@ -44,7 +44,7 @@ function decrypt(input, password) {
 
     // Decipher encrypted data
     let decipher = crypto.createDecipheriv(algorithm, key, iv.slice(0, 16));
-    let decrypted = decipher.update(edata, 'binary') + decipher.final('binary');
+    let decrypted = decipher.update(edata, 'binary', 'binary') + decipher.final('binary');
     let plaintext = Buffer.from(decrypted, 'binary').toString('utf8');
 
     return plaintext;
