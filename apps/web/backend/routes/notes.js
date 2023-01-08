@@ -39,7 +39,7 @@ router.post('/addnote', fetchuser, [
             secretKey: key
         });
 
-        res.status(200).json(newNote);
+        res.status(200).json({success : "Added new note"});
 
     } catch (error) {
         console.error(error);
@@ -107,12 +107,19 @@ router.delete('/deletenotepermanently/:id', fetchuser, async (req, res) => {
 router.get('/getallnotes', fetchuser, async (req, res) => {
     try {
         const allNotes = await NoteSchema.find({ authorId: req.user.id, isDeleted: false }).sort({ createdAt: -1 });
+        let notesList = [];
         for (let index = 0; index < allNotes.length; index++) {
             const element = allNotes[index];
             element.title =  helper.decrypt(element.title, element.secretKey);
             element.description =  helper.decrypt(element.description, element.secretKey);
+            notesList.push({
+                _id : element._id,
+                title : element.title,
+                description : element.description,
+                createdAt : element.createdAt
+            })
         }
-        res.status(200).json(allNotes);
+        res.status(200).json(notesList);
 
     } catch (error) {
         console.error(error);
@@ -133,7 +140,13 @@ router.get('/getnote/:id', fetchuser, async (req, res) => {
         }
         theNote.title =  helper.decrypt(theNote.title, theNote.secretKey);
         theNote.description =  helper.decrypt(theNote.description, theNote.secretKey);
-        res.status(200).json(theNote);
+        //returning custom object with only the required data
+        res.status(200).json({
+            _id : theNote._id,
+            title : theNote.title,
+            description : theNote.description,
+            createdAt : theNote.createdAt
+        });
 
     } catch (error) {
         console.error(error);
@@ -183,12 +196,19 @@ router.put('/updatenote/:id', fetchuser, [
 router.get('/bin', fetchuser, async (req, res) => {
     try {
         const allDeletedNotes = await NoteSchema.find({ authorId: req.user.id, isDeleted: true });
+        let deletedNotesList = [];
         for (let index = 0; index < allDeletedNotes.length; index++) {
             const element = allDeletedNotes[index];
             element.title =  helper.decrypt(element.title, element.secretKey);
             element.description =  helper.decrypt(element.description, element.secretKey);
+            deletedNotesList.push({
+                _id : element._id,
+                title : element.title,
+                description : element.description,
+                createdAt : element.createdAt
+            })
         }
-        return res.status(200).json(allDeletedNotes);
+        return res.status(200).json(deletedNotesList);
 
     } catch (error) {
         console.error(error);
@@ -241,8 +261,20 @@ router.get('/search/:searchText', fetchuser, async (req, res) => {
             { isDeleted: false }
         ]
     })
+    let resultList = [];
+    for (let index = 0; index < result.length; index++) {
+        const element = result[index];
+        element.title =  helper.decrypt(element.title, element.secretKey);
+        element.description =  helper.decrypt(element.description, element.secretKey);
+        resultList.push({
+            _id : element._id,
+            title : element.title,
+            description : element.description,
+            createdAt : element.createdAt
+        })
+    }
 
-    return res.json(result)
+    return res.json(resultList)
 })
 
 module.exports = router;
