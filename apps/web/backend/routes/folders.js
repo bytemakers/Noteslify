@@ -34,7 +34,7 @@ router.post('/addFolder', fetchuser, [
         });
         delete newFolder.secretKey;
 
-        res.status(200).json(newFolder);
+        res.status(200).json({success : "New Folder Created"});
 
     } catch (error) {
         console.error(error);
@@ -77,12 +77,19 @@ router.get('/getAllFolders', fetchuser, async (req, res) => {
     try {
         const allFolders = await FolderSchema.find({ authorId: req.user.id, isDeleted: false }, { isDeleted: 0, notes: 0 })
             .sort({ createdAt: -1 });
+        let foldersList = [];
         for (let index = 0; index < allFolders.length; index++) {
             const element = allFolders[index];
             element.title = helper.decrypt(element.title, element.secretKey);
             delete element.secretKey;
+            foldersList.push({
+                _id : element._id,
+                title : element.title,
+                notes : element.notes
+            })
         }
-        res.status(200).json(allFolders);
+
+        res.status(200).json(foldersList);
 
     } catch (error) {
         console.error(error);
@@ -102,13 +109,19 @@ router.get('/getFolder/:id', fetchuser, async (req, res) => {
             return res.status(403).json({ error: "You cannot access some other user's folder" });
         }
         theFolder.title = helper.decrypt(theFolder.title, theFolder.secretKey);
+
+        let folderData = {};
+        folderData.title = theFolder.title;
+        folderData.notes = [];
         for (let index = 0; index < theFolder.notes.length; index++) {
             const element = theFolder.notes[index];
             element.title =  helper.decrypt(element.title, element.secretKey);
             element.description =  helper.decrypt(element.description, element.secretKey);
             delete element.secretKey;
         }
-        res.status(200).json(theFolder);
+        folderData.notes = theFolder.notes;
+        
+        res.status(200).json(folderData);
 
     } catch (error) {
         console.error(error);
@@ -166,7 +179,14 @@ router.get('/search/:searchText', fetchuser, async (req, res) => {
         ]
     })
 
-    return res.json(result)
+    let resultList = [];
+    for (let index = 0; index < result.length; index++) {
+        const element = result[index];
+        element.title =  helper.decrypt(element.title, element.secretKey);
+        delete element.secretKey;
+        resultList.push(element);
+    }
+    return res.json(resultList)
 })
 
 
@@ -183,7 +203,7 @@ router.post('/addNote', fetchuser, async (req, res) => {
         let theNote = NotesSchema.findById(req.body.noteId);
         if(theNote){
             const newFolder = await FolderSchema.updateOne({ _id: req.body.folderId, authorId: req.user.id }, { $push: { notes: req.body.noteId } });
-            res.status(200).json(newFolder);
+            res.status(200).json({success : "Note added to folder successfully"});
         } else {
             res.status(404).json({ message: 'Note not found' });
         }
@@ -208,7 +228,7 @@ router.get('/removeNote', fetchuser, async (req, res) => {
         let theNote = NotesSchema.findById(req.body.noteId);
         if(theNote){
             const newFolder = await FolderSchema.updateOne({ _id: req.body.folderId, authorId: req.user.id }, { $pull: { notes: req.body.noteId } });
-            res.status(200).json(newFolder);
+            res.status(200).json({success : "Note Deleted"});
         } else {
             res.status(404).json({ message: 'Note not found' });
         }
