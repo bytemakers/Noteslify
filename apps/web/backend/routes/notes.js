@@ -39,7 +39,7 @@ router.post('/addnote', fetchuser, [
             secretKey: key
         });
 
-        res.status(200).json(newNote);
+        res.status(200).json({success : "Added new note"});
 
     } catch (error) {
         console.error(error);
@@ -106,11 +106,12 @@ router.delete('/deletenotepermanently/:id', fetchuser, async (req, res) => {
 // Route 4: Getting all user specific notes: GET: http://localhost:8181/api/notes/getallnotes. Login Required
 router.get('/getallnotes', fetchuser, async (req, res) => {
     try {
-        const allNotes = await NoteSchema.find({ authorId: req.user.id, isDeleted: false }).sort({ createdAt: -1 });
+        const allNotes = await NoteSchema.find({ authorId: req.user.id, isDeleted: false }).select({_id : 1, title : 1, description : 1, createdAt : 1, secretKey : 1}).sort({ createdAt: -1 });
         for (let index = 0; index < allNotes.length; index++) {
             const element = allNotes[index];
             element.title =  helper.decrypt(element.title, element.secretKey);
             element.description =  helper.decrypt(element.description, element.secretKey);
+            delete element.secretKey;
         }
         res.status(200).json(allNotes);
 
@@ -126,13 +127,15 @@ router.get('/getallnotes', fetchuser, async (req, res) => {
 // Route 5: Getting A Single User Specific Note: GET: http://localhost:8181/api/notes/getnote/:id. Login Required
 router.get('/getnote/:id', fetchuser, async (req, res) => {
     try {
-        const theNote = await NoteSchema.findById(req.params.id);
+        const theNote = await NoteSchema.findById(req.params.id).select({_id : 1, title : 1, description : 1, createdAt : 1, secretKey : 1});
 
         if (theNote.authorId !== req.user.id) {
             return res.status(403).json({ error: "You cannot access some other user's notes" });
         }
         theNote.title =  helper.decrypt(theNote.title, theNote.secretKey);
         theNote.description =  helper.decrypt(theNote.description, theNote.secretKey);
+        delete theNote.secretKey;
+        //returning custom object with only the required data
         res.status(200).json(theNote);
 
     } catch (error) {
@@ -182,11 +185,13 @@ router.put('/updatenote/:id', fetchuser, [
 // ROUTE 7: Getting all the deleted notes: GET : http://localhost:8181/api/notes/bin. Login Required!!
 router.get('/bin', fetchuser, async (req, res) => {
     try {
-        const allDeletedNotes = await NoteSchema.find({ authorId: req.user.id, isDeleted: true });
+        const allDeletedNotes = await NoteSchema.find({ authorId: req.user.id, isDeleted: true }).select({_id : 1, title : 1, description : 1, createdAt : 1, secretKey : 1});
+
         for (let index = 0; index < allDeletedNotes.length; index++) {
             const element = allDeletedNotes[index];
             element.title =  helper.decrypt(element.title, element.secretKey);
             element.description =  helper.decrypt(element.description, element.secretKey);
+            delete element.secretKey;
         }
         return res.status(200).json(allDeletedNotes);
 
@@ -240,7 +245,14 @@ router.get('/search/:searchText', fetchuser, async (req, res) => {
             { authorId: req.user.id },
             { isDeleted: false }
         ]
-    })
+    }).select({_id : 1, title : 1, description : 1, createdAt : 1, secretKey : 1})
+
+    for (let index = 0; index < result.length; index++) {
+        const element = result[index];
+        element.title =  helper.decrypt(element.title, element.secretKey);
+        element.description =  helper.decrypt(element.description, element.secretKey);
+        delete element.secretKey;
+    }
 
     return res.json(result)
 })

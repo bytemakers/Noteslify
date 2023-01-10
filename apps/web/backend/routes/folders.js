@@ -34,7 +34,7 @@ router.post('/addFolder', fetchuser, [
         });
         delete newFolder.secretKey;
 
-        res.status(200).json(newFolder);
+        res.status(200).json({success : "New Folder Created"});
 
     } catch (error) {
         console.error(error);
@@ -75,13 +75,14 @@ router.delete('/deleteFolder/:id', fetchuser, async (req, res) => {
 // Route 4: Getting all user specific folders: GET: http://localhost:8181/api/folders/getAllFolders. Login Required
 router.get('/getAllFolders', fetchuser, async (req, res) => {
     try {
-        const allFolders = await FolderSchema.find({ authorId: req.user.id, isDeleted: false }, { isDeleted: 0, notes: 0 })
-            .sort({ createdAt: -1 });
+        const allFolders = await FolderSchema.find({ authorId: req.user.id, isDeleted: false }, { isDeleted: 0, notes: 0 }).select({_id : 1, title : 1, notes : 1, secretKey : 1}).sort({ createdAt: -1 });
+
         for (let index = 0; index < allFolders.length; index++) {
             const element = allFolders[index];
             element.title = helper.decrypt(element.title, element.secretKey);
             delete element.secretKey;
         }
+
         res.status(200).json(allFolders);
 
     } catch (error) {
@@ -96,18 +97,21 @@ router.get('/getAllFolders', fetchuser, async (req, res) => {
 // Route 5: Getting A Single User Specific Folder: GET: http://localhost:8181/api/folders/getFolder/:id. Login Required
 router.get('/getFolder/:id', fetchuser, async (req, res) => {
     try {
-        const theFolder = await FolderSchema.findById(req.params.id).populate('notes');
+        const theFolder = await FolderSchema.findById(req.params.id).select({_id : 1, title : 1, notes : 1, secretKey : 1}).populate('notes');
 
         if (theFolder.authorId !== req.user.id) {
             return res.status(403).json({ error: "You cannot access some other user's folder" });
         }
         theFolder.title = helper.decrypt(theFolder.title, theFolder.secretKey);
+
         for (let index = 0; index < theFolder.notes.length; index++) {
             const element = theFolder.notes[index];
             element.title =  helper.decrypt(element.title, element.secretKey);
             element.description =  helper.decrypt(element.description, element.secretKey);
             delete element.secretKey;
         }
+        delete theFolder.secretKey;
+        
         res.status(200).json(theFolder);
 
     } catch (error) {
@@ -164,8 +168,13 @@ router.get('/search/:searchText', fetchuser, async (req, res) => {
             { authorId: req.user.id },
             { isDeleted: false }
         ]
-    })
+    }).select({_id : 1, title : 1, notes : 1, secretKey : 1})
 
+    for (let index = 0; index < result.length; index++) {
+        const element = result[index];
+        element.title =  helper.decrypt(element.title, element.secretKey);
+        delete element.secretKey;
+    }
     return res.json(result)
 })
 
@@ -183,7 +192,7 @@ router.post('/addNote', fetchuser, async (req, res) => {
         let theNote = NotesSchema.findById(req.body.noteId);
         if(theNote){
             const newFolder = await FolderSchema.updateOne({ _id: req.body.folderId, authorId: req.user.id }, { $push: { notes: req.body.noteId } });
-            res.status(200).json(newFolder);
+            res.status(200).json({success : "Note added to folder successfully"});
         } else {
             res.status(404).json({ message: 'Note not found' });
         }
@@ -208,7 +217,7 @@ router.get('/removeNote', fetchuser, async (req, res) => {
         let theNote = NotesSchema.findById(req.body.noteId);
         if(theNote){
             const newFolder = await FolderSchema.updateOne({ _id: req.body.folderId, authorId: req.user.id }, { $pull: { notes: req.body.noteId } });
-            res.status(200).json(newFolder);
+            res.status(200).json({success : "Note Deleted"});
         } else {
             res.status(404).json({ message: 'Note not found' });
         }
