@@ -75,21 +75,15 @@ router.delete('/deleteFolder/:id', fetchuser, async (req, res) => {
 // Route 4: Getting all user specific folders: GET: http://localhost:8181/api/folders/getAllFolders. Login Required
 router.get('/getAllFolders', fetchuser, async (req, res) => {
     try {
-        const allFolders = await FolderSchema.find({ authorId: req.user.id, isDeleted: false }, { isDeleted: 0, notes: 0 })
-            .sort({ createdAt: -1 });
-        let foldersList = [];
+        const allFolders = await FolderSchema.find({ authorId: req.user.id, isDeleted: false }, { isDeleted: 0, notes: 0 }).select({_id : 1, title : 1, notes : 1, secretKey : 1}).sort({ createdAt: -1 });
+
         for (let index = 0; index < allFolders.length; index++) {
             const element = allFolders[index];
             element.title = helper.decrypt(element.title, element.secretKey);
             delete element.secretKey;
-            foldersList.push({
-                _id : element._id,
-                title : element.title,
-                notes : element.notes
-            })
         }
 
-        res.status(200).json(foldersList);
+        res.status(200).json(allFolders);
 
     } catch (error) {
         console.error(error);
@@ -103,25 +97,22 @@ router.get('/getAllFolders', fetchuser, async (req, res) => {
 // Route 5: Getting A Single User Specific Folder: GET: http://localhost:8181/api/folders/getFolder/:id. Login Required
 router.get('/getFolder/:id', fetchuser, async (req, res) => {
     try {
-        const theFolder = await FolderSchema.findById(req.params.id).populate('notes');
+        const theFolder = await FolderSchema.findById(req.params.id).select({_id : 1, title : 1, notes : 1, secretKey : 1}).populate('notes');
 
         if (theFolder.authorId !== req.user.id) {
             return res.status(403).json({ error: "You cannot access some other user's folder" });
         }
         theFolder.title = helper.decrypt(theFolder.title, theFolder.secretKey);
 
-        let folderData = {};
-        folderData.title = theFolder.title;
-        folderData.notes = [];
         for (let index = 0; index < theFolder.notes.length; index++) {
             const element = theFolder.notes[index];
             element.title =  helper.decrypt(element.title, element.secretKey);
             element.description =  helper.decrypt(element.description, element.secretKey);
             delete element.secretKey;
         }
-        folderData.notes = theFolder.notes;
+        delete theFolder.secretKey;
         
-        res.status(200).json(folderData);
+        res.status(200).json(theFolder);
 
     } catch (error) {
         console.error(error);
@@ -177,16 +168,14 @@ router.get('/search/:searchText', fetchuser, async (req, res) => {
             { authorId: req.user.id },
             { isDeleted: false }
         ]
-    })
+    }).select({_id : 1, title : 1, notes : 1, secretKey : 1})
 
-    let resultList = [];
     for (let index = 0; index < result.length; index++) {
         const element = result[index];
         element.title =  helper.decrypt(element.title, element.secretKey);
         delete element.secretKey;
-        resultList.push(element);
     }
-    return res.json(resultList)
+    return res.json(result)
 })
 
 
