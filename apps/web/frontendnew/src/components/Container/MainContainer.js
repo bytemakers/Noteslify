@@ -25,7 +25,7 @@ const MainContainer = () => {
             </div>
           </div>
           <div>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">
+            <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500 text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">
               Your Privacy Friendly, Open Source. Alternative to EverNote.
             </h1>
             <p
