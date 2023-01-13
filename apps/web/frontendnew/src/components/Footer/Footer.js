@@ -22,7 +22,6 @@ const Footer = () => {
                     alt="logo"
                     className="w-6/12"
                   />
-                  <div className="text-gray-400">Noteslify</div>
                 </a>
                 <p className="text-body-color mb-7 text-base">
                   Your Privacy Friendly, Open Source. Alternative to EverNote.

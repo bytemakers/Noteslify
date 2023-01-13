@@ -13,12 +13,12 @@ const Cost = () => {
             <div className="flex flex-wrap lg:items-center -m-8">
             <div className="w-full md:w-1/2 p-8">
                 <div className="md:max-w-md">
-                <h2 className="mb-16 lg:mb-52 text-6xl md:text-6xl xl:text-8xl font-bold font-heading tracking-px-n leading-none">Simple No-tricks Pricing</h2>
+                <h2 className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500 mb-14 lg:mb-52 text-6xl md:text-6xl xl:text-8xl font-bold font-heading tracking-px-n leading-none">Simple No-tricks Pricing</h2>
                 <h3 className="mb-6 text-xl text-gray-900 font-semibold leading-normal">If you're not satisfied, contact us within the first 14 days and we'll send you a full refund.</h3>
                 <p className="font-medium text-gray-600 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volut pat tempor condimentum commodo tincidunt sit dictumst. Eu placerat arcu at sem vitae eros, purus non, eu. Adipiscing vitae amet nunc volutpat sit. Enim eu integer duis arcu.</p>
                 </div>
             </div>
-            <div className="w-full md:w-1/2 p-8">
+            <div className="w-full md:w-1/2 p-8 " >
                 <div className="md:max-w-md mx-auto overflow-hidden rounded-3xl shadow-8xl">
                 <div className="p-9">
                     <span className="mb-7 inline-block text-sm text-gray-500 font-semibold uppercase tracking-px">Features included:</span>
@@ -80,6 +80,33 @@ const Cost = () => {
             </div>
         </div>
         </section>
+        <div class="container mx-auto">
+                <div
+                class="xs:px-10 flex flex-wrap items-center justify-between rounded-lg border border-[#e7e7e7] py-8 px-6 md:px-8 lg:px-10"
+                >
+                <div class="w-full md:w-7/12 lg:w-2/3">
+                    <div class="mb-6 md:mb-0">
+                    <h4
+                        class="xs:text-2xl mb-1 text-xl font-bold text-black md:text-2xl lg:text-2xl"
+                    >
+                        Free Plan
+                    </h4>
+                    <p class="text-body-color text-base font-medium">
+                        Please, accept these sweeties to continue enjoying our site!
+                    </p>
+                    </div>
+                </div>
+                <div class="w-full md:w-5/12 lg:w-1/3">
+                    <div class="flex items-center space-x-3 md:justify-end">
+                    <button
+                        class="focus:ring-blue-300 bg-blue-600 hover:bg-blue-700 inline-flex items-center justify-center rounded-md py-[10px] px-8 text-center text-base font-semibold text-white hover:bg-opacity-90"
+                    >
+                        Start For Free
+                    </button>
+                    </div>
+                </div>
+                </div>
+            </div>
     </div>
   );
 };
