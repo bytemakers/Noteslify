@@ -29,7 +29,7 @@ const Features = ({ dark }) => {
         <section >
           <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
               <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                  <img src="https://res.cloudinary.com/dvstech/image/upload/v1673528392/samplenoteslifytailwind_pgdpm2.png" alt="mockup"></img>
+                  <img className="rounded-lg" src="https://res.cloudinary.com/dvstech/image/upload/v1673528392/samplenoteslifytailwind_pgdpm2.png" alt="mockup"></img>
               </div>  
               <div className="ml-auto place-self-center lg:col-span-7">
                   <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-5xl">Cloud Synced</h1>
@@ -40,18 +40,18 @@ const Features = ({ dark }) => {
         <section>
           <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
               <div className="mr-auto place-self-center lg:col-span-7">
-                  <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-5xl">Reminders</h1>
-                  <p className="max-w-2xl mb-6 font-medium text-gray-500 lg:mb-8 md:text-lg lg:text-2xl ">Create and assign your task with due dates and reminders. Find notes by searching for keywords, titles, or tags.</p>
+                  <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-5xl">Open-Source</h1>
+                  <p className="max-w-2xl mb-6 font-medium text-gray-500 lg:mb-8 md:text-lg lg:text-2xl ">Unlock the power of teamwork with our open source notes app, built by and for the community with 80+ stars on Github.</p>
               </div>
               <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                  <img src="https://res.cloudinary.com/dvstech/image/upload/v1673528392/samplenoteslifytailwind_pgdpm2.png" alt="mockup"></img>
+                  <img className="rounded-lg" src="https://cdn.noteslify.stonecss.com/cdn/assets/opensourcelp.png" alt="mockup"></img>
               </div>                
           </div>
         </section>
         <section>
           <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
               <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                  <img src="https://res.cloudinary.com/dvstech/image/upload/v1673528392/samplenoteslifytailwind_pgdpm2.png" alt="mockup"></img>
+                  <img className="rounded-lg" src="https://res.cloudinary.com/dvstech/image/upload/v1673528392/samplenoteslifytailwind_pgdpm2.png" alt="mockup"></img>
               </div>  
               <div className="ml-auto place-self-center lg:col-span-7">
                   <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-5xl">Capture Infinitely</h1>
@@ -66,7 +66,7 @@ const Features = ({ dark }) => {
                   <p className="max-w-2xl mb-6 font-medium text-gray-500 lg:mb-8 md:text-lg lg:text-2xl ">Many note-taking apps lack a fully functional web application. Noteslify offers a complete lineup of features from any major browser.</p>
               </div>
               <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                  <img src="https://res.cloudinary.com/dvstech/image/upload/v1673528392/samplenoteslifytailwind_pgdpm2.png" alt="mockup"></img>
+                  <img className="rounded-lg" src="https://res.cloudinary.com/dvstech/image/upload/v1673528392/samplenoteslifytailwind_pgdpm2.png" alt="mockup"></img>
               </div>                
           </div>
         </section>
