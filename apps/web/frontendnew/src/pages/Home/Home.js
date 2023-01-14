@@ -4,6 +4,7 @@ import { ThemeContext } from "../../contexts/ThemeModeProvider";
 import MainContainer from "../../components/Container/MainContainer";
 import Features from "../../components/Container/Features";
 import Testimonials from "../../components/Container/Testimonials";
+import CustomerLogos from "../../components/Container/CustomerLogos";
 import Footer from "../../components/Footer/Footer";
 import CTA from "../../components/Footer/CTA";
 
@@ -25,14 +26,12 @@ const Home = () => {
       <main>
         <MainContainer />
       </main>
+      {/* customer logos */}
+      <CustomerLogos dark={dark} />
       {/* features */}
       <Features dark={dark} />
       {/* testimonials  */}
       <Testimonials dark={dark} />
-      <div>
-
-
-      </div>
       {/* ### CTA */}
       <CTA dark={dark} />
       {/* footer */}

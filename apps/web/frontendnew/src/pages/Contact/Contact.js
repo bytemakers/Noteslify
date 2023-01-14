@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Noteslify | Pricing</title>
+        <title>Noteslify | Contact</title>
         <meta
           name="description"
           content="Noteslify. Pricing plans for our website."
