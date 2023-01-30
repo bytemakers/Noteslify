@@ -249,6 +249,7 @@ form button {
     font-size: 17px;
     border-radius: 4px;
     background: #3B73C6;
+    padding: 0;
 }
 
 @media (max-width: 660px) {
