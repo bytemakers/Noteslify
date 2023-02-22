@@ -1,4 +1,6 @@
 const nodemailer = require('nodemailer');
+const outlookEmail = process.env.outlookEmail;
+const outlookPassword = process.env.outlookPassword;
 
 const handleError = (err, req, res, next) => {
     console.error(err.stack);
@@ -9,18 +11,16 @@ const handleError = (err, req, res, next) => {
 
     if (statusCode === 500) {
     const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 587,
-        secure: false,
+        service: 'hotmail',
         auth: {
-        user: 'sender@gmail.com',
-        pass: 'senderpassword'
+            user: outlookEmail,
+            pass: outlookPassword
         }
     });
 
     const mailOptions = {
-        from: 'sender@gmail.com',
-        to: 'receiver@gmail.com',
+        from: outlookEmail,
+        to: outlookEmail,
         subject: `Important!! : ${message}`,
         text: `Stack Trace:\n${err.stack}`
     };
