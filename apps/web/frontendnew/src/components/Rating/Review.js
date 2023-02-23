@@ -2,9 +2,9 @@ import React from "react";
 
 const Review = ({ total, target }) => {
   return (
-    <div className="flex items-center gap-4 px-4 py-2 text-sm rounded shadow-md bg-slate-50 text-slate-500 shadow-slate-200">
+    <div className="flex items-center gap-4 px-4 py-2 text-sm rounded shadow-md dark:shadow-gray-900 dark:bg-slate-600 bg-slate-50 text-slate-500 shadow-slate-200">
       <span
-        className="flex gap-1 text-amber-400"
+        className="flex gap-1 dark:text-amber-300 text-amber-400"
         role="img"
         aria-label="Rating: 4.2 out of 5 stars"
       >

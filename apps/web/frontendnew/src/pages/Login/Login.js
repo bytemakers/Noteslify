@@ -1,26 +1,31 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
-import ContactContainer from "../../components/Container/ContactContainer";
 import { ThemeContext } from "../../contexts/ThemeModeProvider";
+import LoginContainer from "../../components/Container/LoginContainer";
 import Footer from "../../components/Footer/Footer";
 
-const Contact = () => {
+const Home = () => {
   const { theme } = useContext(ThemeContext);
 
   const dark = theme === "dark";
+
   return (
     <>
       <Helmet>
-        <title>Noteslify | Contact</title>
+        <title>Noteslify | Home</title>
         <meta
           name="description"
-          content="Noteslify. Pricing plans for our website."
+          content="Your Privacy Friendly, Open Source. Alternative to EverNote."
         />
       </Helmet>
-      <ContactContainer />
+      {/* main */}
+      <main>
+      <LoginContainer />
+      </main>
+      {/* footer */}
       <Footer dark={dark} />
     </>
   );
 };
 
-export default Contact;
+export default Home;

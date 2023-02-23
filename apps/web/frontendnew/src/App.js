@@ -4,6 +4,7 @@ import Pricing from "./pages/Pricing/Pricing";
 import Contact from "./pages/Contact/Contact";
 import TopNav from "./components/Navbar/TopNav";
 import Notes from "./pages/Notes/Notes";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/notes" element={<Notes />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );
