@@ -11,6 +11,7 @@ const MainContainer = () => {
       <div className="mx-auto max-w-3xl pt-20 pb-32">
         <div>
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+            {/*
             <div
               data-theme={theme}
               className=" announce relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
@@ -23,6 +24,7 @@ const MainContainer = () => {
                 </a>
               </span>
             </div>
+            */}
           </div>
           <div>
             <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500 text-5xl font-bold tracking-tight sm:text-center sm:text-6xl">
