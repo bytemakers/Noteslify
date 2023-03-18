@@ -200,7 +200,7 @@ const Footer = () => {
                   </a>
                 </div>
                 <p className="text-body-color text-base">
-                  &copy; 2022 | DVS Tech Labs
+                  &copy; 2023 | ByteMakers. All rights reserved.
                 </p>
               </div>
             </div>
