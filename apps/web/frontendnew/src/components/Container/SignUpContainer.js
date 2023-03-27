@@ -1,6 +1,6 @@
 import React from "react";
 
-const LoginContainer = () => {
+const SignUpContainer = () => {
 
   return (
         <div>
@@ -11,7 +11,7 @@ const LoginContainer = () => {
                   <div className="flex flex-wrap">
                     <div className="w-full">
                       <div className="md:max-w-lg mx-auto pt-16 md:pb-32">
-                        <h2 className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500 mb-32 text-6xl md:text-7xl font-bold font-heading tracking-px-n leading-tight">Never forget a brilliant idea Sign In now!</h2>
+                        <h2 className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500 mb-32 text-6xl md:text-7xl font-bold font-heading tracking-px-n leading-tight">Let's bring your ideas to life! Sign up now.</h2>
                         <h3 className="mb-9 text-xl font-bold font-heading leading-normal">Why should you join us?</h3>
                         <ul className="md:max-w-xs">
                           <li className="mb-5 flex flex-wrap">
@@ -35,6 +35,10 @@ const LoginContainer = () => {
               <div className="w-full md:w-1/2 p-8">
                 <div className="p-4 py-16 flex flex-col justify-center bg-blueGray-100 h-full">
                   <form className="md:max-w-lg mx-auto">
+                    <label className="block mb-5">
+                      <p className="mb-2 dark:text-white text-gray-900 font-semibold leading-normal">Email *</p>
+                      <input className="dark:bg-gray-800 dark:border-gray-900 px-4 py-3.5 w-full text-gray-400 font-medium placeholder-gray-400 bg-white outline-none border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 dark:focus:ring-blue-800" id="signInInput1-2" type="email" placeholder="Enter email address"/>
+                    </label>
                     <label className="block mb-4">
                       <p className="mb-2 dark:text-white text-gray-900 font-semibold leading-normal">Username *</p>
                       <input className="dark:bg-gray-800 dark:border-gray-900 px-4 py-3.5 w-full text-gray-400 font-medium placeholder-gray-400 bg-white outline-none border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 dark:focus:ring-blue-800" id="signInInput1-1" type="text" placeholder="Enter username"/>
@@ -43,30 +47,21 @@ const LoginContainer = () => {
                       <p className="mb-2 dark:text-white text-gray-900 font-semibold leading-normal">Password *</p>
                       <input className="dark:bg-gray-800 dark:border-gray-900 px-4 py-3.5 w-full text-gray-400 font-medium placeholder-gray-400 bg-white outline-none border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 dark:focus:ring-blue-800" id="signInInput1-2" type="password" placeholder="********"/>
                     </label>
-                    <div className="flex flex-wrap justify-between -m-2 mb-4">
-                      <div className="w-auto p-2">
-                        <div className="flex items-center">
-                          <input className="w-4 h-4" id="default-checkbox" type="checkbox" value=""/>
-                          <label className="ml-2 text-sm dark:text-white text-gray-900 font-medium" for="default-checkbox">Remember Me</label>
-                        </div>
-                      </div>
-                      <div className="w-auto p-2"><a className="text-sm text-blue-600 hover:text-blue-700 font-medium" href="/">Forgot Password?</a></div>
-                    </div>
-                    <button className="mb-9 py-4 px-9 w-full text-white font-semibold border border-blue-700 rounded-xl shadow-4xl focus:ring focus:ring-blue-300 bg-blue-600 hover:bg-blue-700 transition ease-in-out duration-200" type="button">Sign In</button>
+                    <button className="mb-9 py-4 px-9 w-full text-white font-semibold border border-blue-700 rounded-xl shadow-4xl focus:ring focus:ring-blue-300 bg-blue-600 hover:bg-blue-700 transition ease-in-out duration-200" type="button">Sign Up</button>
                     <p className="mb-5 text-sm text-gray-500 font-medium text-center">Or continue with</p>
                     <div className="flex flex-wrap justify-center -m-2">
                       <div className="w-auto p-2">
                         <button className="flex items-center p-4 dark:border-gray-900 dark:hover:bg-gray-800 hover:bg-gray-100 border rounded-lg transition ease-in-out duration-200">
-                          <span className="font-semibold leading-normal">Sign in with Google</span>
+                          <span className="font-semibold leading-normal">Sign up with Google</span>
                         </button>
                       </div>
                       <div className="w-auto p-2">
                         <button className="flex items-center p-4 dark:border-gray-900 dark:hover:bg-gray-800 hover:bg-gray-100 border rounded-lg transition ease-in-out duration-200">
-                          <span className="font-semibold leading-normal">Sign in with Github</span>
+                          <span className="font-semibold leading-normal">Sign up with Github</span>
                         </button>
                       </div>
                     </div>
-                    <p className="my-5 text-gray-600 dark:text-gray-400 font-medium text-center">Don't have an account? <a href="/signup" className="dark:text-gray-200 text-gray-800 hover:underline">Signup here</a></p>
+                    <p className="my-5 text-gray-600 dark:text-gray-400 font-medium text-center">Already have an account? <a href="/login" className="dark:text-gray-200 text-gray-800 hover:underline">Login here</a></p>
                   </form>
                 </div>
               </div>
@@ -103,4 +98,4 @@ const LoginContainer = () => {
   );
 };
 
-export default LoginContainer;
+export default SignUpContainer;

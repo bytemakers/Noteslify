@@ -5,6 +5,7 @@ import Contact from "./pages/Contact/Contact";
 import TopNav from "./components/Navbar/TopNav";
 import Notes from "./pages/Notes/Notes";
 import Login from "./pages/Login/Login";
+import SignUp from "./pages/Login/SignUp";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/notes" element={<Notes />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Router>
   );
