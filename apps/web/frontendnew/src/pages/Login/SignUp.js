@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { ThemeContext } from "../../contexts/ThemeModeProvider";
-import LoginContainer from "../../components/Container/LoginContainer";
+import SignUpContainer from "../../components/Container/SignUpContainer";
 import StickyFooter from "../../components/Footer/StickyFooter";
 
-const Login = () => {
+const SignUp = () => {
   const { theme } = useContext(ThemeContext);
 
   const dark = theme === "dark";
@@ -20,7 +20,7 @@ const Login = () => {
       </Helmet>
       {/* main */}
       <main>
-      <LoginContainer />
+      <SignUpContainer />
       </main>
       {/* footer */}
       <StickyFooter dark={dark} />
@@ -28,4 +28,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
