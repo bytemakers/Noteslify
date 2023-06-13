@@ -14,11 +14,13 @@
 .newsletter__form__email__your_email {
     border-radius: 999rem;
     border: none;
+    margin: 0;
 }
 
 .newsletter__form__email__submit_btn {
     border-radius: 999rem;
     width: auto;
+    margin: 0;
 }
 
 .newsletter__form__email_copy {
