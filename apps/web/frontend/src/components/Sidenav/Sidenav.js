@@ -121,16 +121,15 @@ const Sidenav = () => {
                 <span className="text nav-text">Folders</span>
               </a>
             </li>
+            <li>
+              <a onClick={logout} href="/" id="logout-button">
+                <i className="fa-solid fa-arrow-right-from-bracket icon"></i>
+                <span className="text nav-text">Logout</span>
+              </a>
+            </li>
           </ul>
         </div>
-
         <div className="bottom-content">
-          <li>
-            <a onClick={logout} href="/" id="logout-button">
-              <i className="fa-solid fa-arrow-right-from-bracket icon"></i>
-              <span className="logout">Logout</span>
-            </a>
-          </li>
         </div>
       </div>
     </nav>
