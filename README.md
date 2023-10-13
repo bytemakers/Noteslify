@@ -4,6 +4,7 @@
 
 ![Border](images/noteslifylogo.png)
 
+
 **Made with ❤ By ByteMakers**
 
 A Notes Taking Web App Built With Simplicity.
