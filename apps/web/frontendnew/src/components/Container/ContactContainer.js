@@ -1,11 +1,15 @@
+// Importing React and useContext hook for accessing context and other components
 import React, { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeModeProvider";
 import Custom from "../Button/Custom";
 
+// Defines the ContactContainer functional component
 const ContactContainer = () => {
+  // Accessing the current theme from ThemeContext to support theme switching (dark or light mode)
   const { theme } = useContext(ThemeContext);
-  const dark = theme === "dark";
+  const dark = theme === "dark"; // Boolean flag to determine if the theme is set to dark
 
+  // Renders the contact form container with conditional styling for dark mode
   return (
     <div className="relative px-6 lg:px-8">
       <div className="mx-auto max-w-3xl pt-20 pb-32">
@@ -66,4 +70,4 @@ const ContactContainer = () => {
   );
 };
 
-export default ContactContainer;
+export default ContactContainer; // Exports the component for use in other parts of the application
