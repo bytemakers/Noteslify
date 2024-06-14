@@ -13,6 +13,7 @@
   color: var(--dark-color);
   font-size: 48px;
   font-weight: 900;
+  color: whitesmoke; 
 }
 
 .hero-section h4 {
@@ -21,6 +22,7 @@
   font-weight: 300;
   text-align: center;
   padding: 0px 14rem;
+  color: whitesmoke; 
 }
 
 .hero-section button {
