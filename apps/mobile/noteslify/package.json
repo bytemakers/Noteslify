@@ -17,14 +17,14 @@
   "dependencies": {
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.1",
-    "expo": "^44.0.0",
+    "expo": "^54.0.12",
     "expo-status-bar": "~1.2.0",
-    "native-base": "3.4.0",
+    "native-base": "^2.15.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-native": "0.64.3",
+    "react-native": "^0.82.0",
     "react-native-safe-area-context": "3.3.2",
-    "react-native-svg": "12.1.1",
+    "react-native-svg": "^12.5.1",
     "react-native-web": "0.17.1"
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
     "prettier": "^2.7.1",
     "react-native-screens": "^3.18.2",
     "unplugin-auto-import": "^0.11.4",
-    "vitest": "^0.24.3"
+    "vitest": "^3.2.4"
   },
   "private": true
 }

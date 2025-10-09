@@ -8,15 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dvstechlabs/Noteslify.git"
+    "url": "git+https://github.com/bytemakers/Noteslify.git"
   },
-  "author": "DVS Tech Labs",
-  "license": "ISC",
+  "author": "Bytemakers",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dvstechlabs/Noteslify/issues"
+    "url": "https://github.com/bytemakers/Noteslify/issues"
   },
-  "homepage": "https://github.com/dvstechlabs/Noteslify#readme",
-  "dependencies": {
-    "@formspree/react": "^2.5.0"
-  }
+  "homepage": "https://github.com/bytemakers/Noteslify#readme"
 }
