@@ -6,8 +6,8 @@
 
 **Made with ❤ By ByteMakers**
 
-> [!IMPORTANT]
-> This repository **Noteslify** is no longer maintained. As the original creator, [Devarshi Shimpi](https://github.com/devarshishimpi), check out my site at [devarshi.dev](https://devarshi.dev) to see what I'm currently building!
+> [!WARNING]
+> This repository **Noteslify** is no longer maintained. As the original creator, Devarshi Shimpi, check out my site at [devarshi.dev](https://devarshi.dev) to see what I'm currently building!
 
 Please give this repo a ⭐ it really helps us!
 
