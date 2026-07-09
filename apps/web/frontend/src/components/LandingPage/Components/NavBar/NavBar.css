@@ -35,6 +35,10 @@
   color: var(--primary-color);
   font-size: 30px;
 }
+.logo-text:hover {
+  color: #f39c12; 
+  background-color: transparent;
+}
 .logo-img {
   width: 100%;
   height: 2.4rem;
@@ -80,6 +84,16 @@
   margin-left: 1rem;
   margin-right: 1rem;
   margin-bottom: 1.5rem;
+}
+
+.list a {
+  color: #ffffff; 
+  text-decoration: none; 
+  transition: color 0.3s ease; 
+}
+
+.list a:hover {
+  color: #f39c12; 
 }
 .list:last-of-type {
   margin-bottom: 0;
