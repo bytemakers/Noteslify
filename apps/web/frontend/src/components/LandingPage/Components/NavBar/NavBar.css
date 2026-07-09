@@ -52,7 +52,9 @@
   cursor: pointer;
   /* width: 1.6rem; */
 }
-
+li{
+  color: white;
+}
 .elements {
   position: fixed;
   z-index: -10;

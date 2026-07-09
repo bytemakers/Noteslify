@@ -22,7 +22,7 @@ const NavBar = () => {
         >
           <div class={`${"btn__burger"} `}></div>
         </div>
-        <ul className={`elements ${!navbar && "show"} ${navbar && "hide"}`}>
+        <ul className={`elements ${!navbar && "show"} ${navbar && "hide"}` }>
           <li className="list">
             <Link to="/">
               <li>Home</li>

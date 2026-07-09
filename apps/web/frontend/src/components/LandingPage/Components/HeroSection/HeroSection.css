@@ -10,19 +10,18 @@
 }
 
 .hero-section h1 {
-  color: var(--dark-color);
+  color: var(--light-color);
   font-size: 48px;
   font-weight: 900;
 }
 
 .hero-section h4 {
-  color: var(--dark-color);
+  color: var(--light-color);
   font-size: 22px;
   font-weight: 300;
   text-align: center;
   padding: 0px 14rem;
 }
-
 .hero-section button {
   padding: 0.7rem 2rem;
   border-radius: 25px;
